@@ -14,7 +14,6 @@ var exphbs = require('express-handlebars');     // Import express-handlebars
 app.engine('.hbs', engine({extname: ".hbs"}));  // Create an instance of the handlebars engine to process templates
 app.set('view engine', '.hbs');                 // Tell express to use the handlebars engine whenever it encounters a *.hbs file.
 
-
 // Database
 var db = require('./database/db-connector')
 
@@ -25,6 +24,17 @@ app.get('/', function(req, res)                 // This is the basic syntax for 
     {
        res.render('index'); 
     });                                         
+
+app.get('/departments', function(req, res)                 
+    {
+       res.render('departments'); 
+    });       
+
+app.get('/employees', function(req, res)                 
+    {
+       res.render('employees'); 
+    });                                    
+
 
 /*
     LISTENER

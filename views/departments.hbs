@@ -1,0 +1,57 @@
+<h1>Departments</h1>
+<nav>
+    <a href="/">Home</a>
+    <a href="departments">Departments Page</a>
+    <a href="certifications">Certifications Page</a>
+    <a href="employees">Employees Page</a>
+    <a href="training_sessions">Training Sessions Page</a>
+    <a href="employee_certifications">Employee Certifications Page</a>
+    <a href="employee_training">Employee Training Page</a>
+</nav>
+<p>View and manage all company departments below:</p>
+
+<!-- Dropdown box -->
+<label for="departments">Select a department:</label>
+<select id="departments" onchange="showDepartment(this.value)">
+    <option value="engineering">Engineering</option>
+    <option value="human_resources">Human Resources</option>
+    <option value="technician">Technician</option>
+</select>
+
+<!-- Department sections -->
+<section id="engineering" class="department-section">
+    <!-- Engineering department content goes here -->
+    <h2>Engineering Department</h2>
+    <p>Content for the Engineering department...</p>
+</section>
+<section id="human_resources" class="department-section">
+    <!-- Human Resources department content goes here -->
+    <h2>Human Resources Department</h2>
+    <p>Content for the Human Resources department...</p>
+</section>
+<section id="technician" class="department-section">
+    <!-- Technician department content goes here -->
+    <h2>Technician Department</h2>
+    <p>Content for the Technician department...</p>
+</section>
+
+<footer>
+    <p>© 2024 ByteBalancers. All rights reserved.</p>
+</footer>
+
+<script>
+    // Function to show the selected department section
+    function showDepartment(department) {
+        // Hide all department sections
+        var departmentSections = document.querySelectorAll('.department-section');
+        departmentSections.forEach(function(section) {
+            section.style.display = 'none';
+        });
+
+        // Show the selected department section
+        var selectedDepartment = document.getElementById(department);
+        if (selectedDepartment) {
+            selectedDepartment.style.display = 'block';
+        }
+    }
+</script> 
