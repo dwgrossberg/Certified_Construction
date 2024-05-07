@@ -64,14 +64,14 @@ CREATE TABLE IF NOT EXISTS `Employees` (
   `fName` VARCHAR(145) NOT NULL,
   `lName` VARCHAR(145) NOT NULL,
   `email` VARCHAR(145) NOT NULL,
-  `deptID` INT NOT NULL,
+  `deptID` INT, -- Removed NOT NULL to make department assignment optional
   PRIMARY KEY (`employeeID`),
   INDEX `fk_Employees_Departments` (`deptID` ASC) VISIBLE,
   UNIQUE INDEX `employeeID_UNIQUE` (`employeeID` ASC) VISIBLE,
   CONSTRAINT `Employees_ibfk_1`
     FOREIGN KEY (`deptID`)
     REFERENCES `Departments` (`deptID`)
-    ON DELETE NO ACTION
+    ON DELETE SET NULL -- Changed to SET NULL to handle deletion of department
     ON UPDATE CASCADE
 )
 ENGINE = InnoDB;
@@ -85,7 +85,7 @@ INSERT INTO `Employees` (`fName`, `lName`, `email`, `deptID`) VALUES
 ('Sybill', 'Robles', 'elit.a@protonmail.org', 3),
 ('Lucian', 'Jordan', 'cubilia.curae@icloud.ca', 3),
 ('Sharon', 'Murray', 'et.commodo@aol.net', 3),
-('Maisie', 'Herman', 'mus.proin@aol.com', 3);
+('Maisie', 'Herman', 'mus.proin@aol.com', NULL); -- Insert Null deptID
 
 -- -----------------------------------------------------
 -- Table `TrainingSessions`
