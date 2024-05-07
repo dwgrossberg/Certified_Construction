@@ -1,0 +1,30 @@
+{
+  "name": "osu_340_group21",
+  "version": "1.0.0",
+  "description": "Group21 final project for CS 340",
+  "main": "app.js",
+  "scripts": {
+    "start": "forever stopall && forever start app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwgrossberg/OSU_340_Group21.git"
+  },
+  "keywords": [
+    "Database",
+    "MySQL",
+    "Node.js"
+  ],
+  "author": "Ditrung Duong and Daniel Grossberg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dwgrossberg/OSU_340_Group21/issues"
+  },
+  "homepage": "https://github.com/dwgrossberg/OSU_340_Group21#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "forever": "^4.0.3",
+    "mysql": "^2.18.1"
+  }
+}
