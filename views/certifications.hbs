@@ -1,0 +1,359 @@
+<header>
+  <h1>Certifications</h1>
+</header>
+<nav>
+  <a href="/">Home</a>
+  <a href="departments">Departments</a>
+  <a href="employees">Employees</a>
+  <a href="training_sessions">Training Sessions</a>
+  <a href="employee_certifications">Employee Certifications</a>
+  <a href="employee_training">Employee Training</a>
+</nav>
+<main>
+  <!-- Display certifications in a table -->
+  <div class="form-container" id="browse">
+    <button onClick="newCertification()" class="btn">Add New Certification</button>
+    <p><a href="#" onClick="showCertAll()">Display all forms</a> </p>
+    <table>
+      <tr>
+        <th>Actions</th>
+        <th>Certification ID</th>
+        <th>Name</th>
+        <th>Certifying Organization</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="#"
+            onClick="updateCertification(this)"
+            data-id="1"
+            data-name="Safety 101"
+            data-org="OSHA"
+            data-description="Intro to Safety"
+          >Edit</a>
+          |
+          <a
+            href="#"
+            onclick="deleteCertification(this)"
+            data-id="1"
+            data-name="Safety 101"
+            data-org="OSHA"
+            data-description="Intro to Safety"
+          >Delete</a>
+        </td>
+        <td align="right">1</td>
+        <td>Safety 101</td>
+        <td>OSHA</td>
+        <td>Intro to Safety</td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="#"
+            onClick="updateCertification(this)"
+            data-id="2"
+            data-name="Drawing Reading 101"
+            data-org="Internal"
+            data-description="Intro to Drawing Reading Training"
+          >Edit</a>
+          |
+          <a
+            href="#"
+            onclick="deleteCertification(this)"
+            data-id="2"
+            data-name="Drawing Reading 101"
+            data-org="Internal"
+            data-description="Intro to Drawing Reading Training"
+          >Delete</a>
+        </td>
+        <td align="right">2</td>
+        <td>Drawing Reading 101</td>
+        <td>Internal</td>
+        <td>Intro to Drawing Reading Training</td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="#"
+            onClick="updateCertification(this)"
+            data-id="3"
+            data-name="Drawing Reading 102"
+            data-org="Internal"
+            data-description="Intermediate Level Drawing Reading"
+          >Edit</a>
+          |
+          <a
+            href="#"
+            onclick="deleteCertification(this)"
+            data-id="3"
+            data-name="Drawing Reading 102"
+            data-org="Internal"
+            data-description="Intermediate Level Drawing Reading"
+          >Delete</a>
+        </td>
+        <td align="right">3</td>
+        <td>Drawing Reading 102</td>
+        <td>Internal</td>
+        <td>Intermediate Level Drawing Reading</td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="#"
+            onClick="updateCertification(this)"
+            data-id="4"
+            data-name="Drawing Reading 103"
+            data-org="Internal"
+            data-description="Advance Drawing Reading and Generation"
+          >Edit</a>
+          |
+          <a
+            href="#"
+            onclick="deleteCertification(this)"
+            data-id="4"
+            data-name="Drawing Reading 103"
+            data-org="Internal"
+            data-description="Advance Drawing Reading and Generation"
+          >Delete</a>
+        </td>
+        <td align="right">4</td>
+        <td>Drawing Reading 103</td>
+        <td>Internal</td>
+        <td>Advance Drawing Reading and Generation</td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="#"
+            onClick="updateCertification(this)"
+            data-id="5"
+            data-name="Ethics Compliance"
+            data-org="OSHA"
+            data-description="Ethics At Workplace Training"
+          >Edit</a>
+          |
+          <a
+            href="#"
+            onclick="deleteCertification(this)"
+            data-id="5"
+            data-name="Ethics Compliance"
+            data-org="OSHA"
+            data-description="Ethics At Workplace Training"
+          >Delete</a>
+        </td>
+        <td align="right">5</td>
+        <td>Ethics Compliance</td>
+        <td>OSHA</td>
+        <td>Ethics At Workplace Training</td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="#"
+            onClick="updateCertification(this)"
+            data-id="6"
+            data-name="Cyber Security 101"
+            data-org="IT Compliance"
+            data-description="Intro to Cyber Attack Awareness"
+          >Edit</a>
+          |
+          <a
+            href="#"
+            onclick="deleteCertification(this)"
+            data-id="6"
+            data-name="Cyber Security 101"
+            data-org="IT Compliance"
+            data-description="Intro to Cyber Attack Awareness"
+          >Delete</a>
+        </td>
+        <td align="right">6</td>
+        <td>Cyber Security 101</td>
+        <td>IT Compliance</td>
+        <td>Intro to Cyber Attack Awareness</td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="#"
+            onClick="updateCertification(this)"
+            data-id="7"
+            data-name="Cyber Security 102"
+            data-org="IT Compliance"
+            data-description="Intermediate Cyber Attack Awareness"
+          >Edit</a>
+          |
+          <a
+            href="#"
+            onclick="deleteCertification(this)"
+            data-id="7"
+            data-name="Cyber Security 102"
+            data-org="IT Compliance"
+            data-description="Intermediate Cyber Attack Awareness"
+          >Delete</a>
+        </td>
+        <td align="right">7</td>
+        <td>Cyber Security 102</td>
+        <td>IT Compliance</td>
+        <td>Intermediate Cyber Attack Awareness</td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="#"
+            onClick="updateCertification(this)"
+            data-id="8"
+            data-name="Torque Cert"
+            data-org="NTSB"
+            data-description="Intro to Torque Training and Certification"
+          >Edit</a>
+          |
+          <a
+            href="#"
+            onclick="deleteCertification(this)"
+            data-id="8"
+            data-name="Torque Cert"
+            data-org="NTSB"
+            data-description="Intro to Torque Training and Certification"
+          >Delete</a>
+        </td>
+        <td align="right">8</td>
+        <td>Torque Cert</td>
+        <td>NTSB</td>
+        <td>Intro to Torque Training and Certification</td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="#"
+            onClick="updateCertification(this)"
+            data-id="9"
+            data-name="Sealing Cert"
+            data-org="NTSB"
+            data-description="Intro to Seal Training and Certification"
+          >Edit</a>
+          |
+          <a
+            href="#"
+            onclick="deleteCertification(this)"
+            data-id="9"
+            data-name="Sealing Cert"
+            data-org="NTSB"
+            data-description="Intro to Seal Training and Certification"
+          >Delete</a>
+        </td>
+        <td align="right">9</td>
+        <td>Sealing Cert</td>
+        <td>NTSB</td>
+        <td>Intro to Seal Training and Certification</td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            href="#"
+            onClick="updateCertification(this)"
+            data-id="10"
+            data-name="Crane Cert"
+            data-org="NTSB"
+            data-description="Intro to Electrical Crane and Certification"
+          >Edit</a>
+          |
+          <a
+            href="#"
+            onclick="deleteCertification(this)"
+            data-id="10"
+            data-name="Crane Cert"
+            data-org="NTSB"
+            data-description="Intro to Electrical Crane and Certification"
+          >Delete</a>
+        </td>
+        <td align="right">10</td>
+        <td>Crane Cert</td>
+        <td>NTSB</td>
+        <td>Intro to Electrical Crane and Certification</td>
+      </tr>
+    </table>
+  </div>
+  <div id="insert" style="display: none;">
+    <form method="POST" action="/addCertification" id="addCertification">
+      <legend><strong>Add New Certification</strong></legend>
+      <fieldset>
+        <label>Certification Name: <input type="text" name="certName" /></label>
+        <label>Certifying Organization:
+          <input type="text" name="certOrg" /></label>
+        <label>Description: <input type="text" name="description" /></label>
+      </fieldset>
+      <input class="btn" type="submit" value="Add Certification" />
+      <input
+        class="btn"
+        type="button"
+        value="Cancel"
+        onClick="browseCertifications()"
+      />
+    </form>
+  </div>
+  <div class="form-container" id="update" style="display: none;">
+    <form method="POST" action="/updateCertification" id="updateCertification">
+      <legend><strong>Update Certification</strong></legend>
+      <fieldset>
+        <label>Certification ID:
+          <input type="text" id="updateCertID" name="certID" disabled /></label>
+        <label>Certification Name:
+          <input type="text" id="updateCertName" name="certName" /></label>
+        <label>Certifying Organization:
+          <input type="text" id="updateCertOrg" name="certOrg" /></label>
+        <label>Description:
+          <input
+            type="text"
+            id="updateCertDescription"
+            name="description"
+          /></label>
+      </fieldset>
+      <input class="btn" type="submit" value="Update Certification" />
+      <input
+        class="btn"
+        type="button"
+        value="Cancel"
+        onClick="browseCertifications()"
+      />
+    </form>
+  </div>
+
+  <div class="form-container" id="delete" style="display: none;">
+    <form method="POST" action="/deleteCertification" id="deleteCertification">
+      <legend><strong>Delete Certification</strong></legend>
+      <fieldset>
+        <label>Certification ID:
+          <input type="text" id="deleteCertID" name="certID" disabled /></label>
+        <label>Certification Name:
+          <input
+            type="text"
+            id="deleteCertName"
+            name="certName"
+            disabled
+          /></label>
+        <label>Certifying Organization:
+          <input
+            type="text"
+            id="deleteCertOrg"
+            name="certOrg"
+            disabled
+          /></label>
+        <label>Description:
+          <input
+            type="text"
+            id="deleteCertDescription"
+            name="description"
+            disabled
+          /></label>
+      </fieldset>
+      <input class="btn" type="submit" value="Delete Certification" />
+      <input
+        class="btn"
+        type="button"
+        value="Cancel"
+        onClick="browseCertifications()"
+      />
+    </form>
+  </div>
+</main>
