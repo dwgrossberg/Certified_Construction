@@ -137,21 +137,22 @@ function newTraining() {
   showTrainingForms("insert");
 }
 
-function updateTraining(element) {
-  var certID = element.getAttribute("data-id");
-  var certName = element.getAttribute("data-name");
-  var certOrg = element.getAttribute("data-org");
+function updateTrainingSession(element) {
+  var trainingID = element.getAttribute("data-id");
+  var trainingDate = element.getAttribute("data-date");
+  var trainingLocation = element.getAttribute("data-location");
   var description = element.getAttribute("data-description");
+  var employees = element.getAttribute("data-employees");
 
-  document.getElementById("updateCertID").value = certID;
-  document.getElementById("updateCertName").value = certName;
-  document.getElementById("updateCertOrg").value = certOrg;
-  document.getElementById("updateCertDescription").value = description;
+  document.getElementById("updateTrainingID").value = trainingID;
+  document.getElementById("updateTrainingDate").value = trainingDate;
+  document.getElementById("updateTrainingLocation").value = trainingLocation;
+  document.getElementById("updateTrainingDescription").value = description;
 
-  showCertForms("update");
+  showTrainingForms("update");
 }
 
-function deleteTraining(element) {
+function deleteTrainingSession(element) {
   var certID = element.getAttribute("data-id");
   var certName = element.getAttribute("data-name");
   var certOrg = element.getAttribute("data-org");
@@ -162,7 +163,7 @@ function deleteTraining(element) {
   document.getElementById("deleteCertOrg").value = certOrg;
   document.getElementById("deleteCertDescription").value = description;
 
-  showCertForms("delete");
+  showTrainingForms("delete");
 }
 
 function browseTraining() {
@@ -170,5 +171,5 @@ function browseTraining() {
 }
 
 function showTrainingAll() {
-  showCertForms("all");
+  showTrainingForms("all");
 }

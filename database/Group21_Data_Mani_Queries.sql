@@ -31,7 +31,7 @@ ENGINE = InnoDB;
 INSERT INTO `Departments` (`name`) VALUES 
 ('Engineering'),
 ('Human Resources'),
-('Technician');
+('Technicians');
 
 -- -----------------------------------------------------
 -- Table `Certifications`

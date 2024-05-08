@@ -316,7 +316,7 @@ table td {
 }
 
 input {
-  appearance: none;
+  /* appearance: none; */
   border: 1px solid var(--text-color);
   display: block;
   margin: 0.5rem 0;
