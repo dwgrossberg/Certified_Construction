@@ -6,282 +6,294 @@
   <a href="departments">Departments</a>
   <a href="certifications">Certifications</a>
   <a href="employees">Employees</a>
+  <a href="training_sessions">Training Sessions</a>
   <a href="employee_certifications">Employee Certifications</a>
-  <a href="employee_training">Employee Training</a>
 </nav>
 <main>
   <!-- Display training sessions in a table -->
   <div class="form-container" id="browse">
-    <button onClick="newCertification()" class="btn">Add New Certification</button>
-    <p><a href="#" onClick="showCertAll()">Display all forms</a> </p>
+    <button onClick="newTraining()" class="btn">Add New Training Session</button>
+    <p><a href="#" onClick="showTrainingAll()">Display all forms</a></p>
     <table>
       <tr>
         <th>Actions</th>
-        <th>Certification ID</th>
-        <th>Name</th>
-        <th>Certifying Organization</th>
+        <th>Training ID</th>
+        <th>Date</th>
+        <th>Location</th>
         <th>Description</th>
+        <th>Certification ID</th>
+        <th>Employees</th>
       </tr>
       <tr>
         <td>
-          <a
-            href="#"
-            onClick="updateCertification(this)"
-            data-id="1"
-            data-name="Safety 101"
-            data-org="OSHA"
-            data-description="Intro to Safety"
-          >Edit</a>
+          <a href="#" onClick="updateTrainingSession(this)" data-id="1">Edit</a>
           |
           <a
             href="#"
-            onclick="deleteCertification(this)"
+            onclick="deleteTrainingSession(this)"
             data-id="1"
-            data-name="Safety 101"
-            data-org="OSHA"
-            data-description="Intro to Safety"
           >Delete</a>
         </td>
         <td align="right">1</td>
-        <td>Safety 101</td>
-        <td>OSHA</td>
-        <td>Intro to Safety</td>
+        <td>2024-04-10</td>
+        <td>A1</td>
+        <td>Building A - Classroom 1</td>
+        <td align="right">1</td>
+        <td><ul><li>Vladimir Collier</li><li>Athena Fry</li><li>Sybill Robles</li><li
+            >Sharon Murray</li></ul></td>
       </tr>
       <tr>
         <td>
-          <a
-            href="#"
-            onClick="updateCertification(this)"
-            data-id="2"
-            data-name="Drawing Reading 101"
-            data-org="Internal"
-            data-description="Intro to Drawing Reading Training"
-          >Edit</a>
+          <a href="#" onClick="updateTrainingSession(this)" data-id="2">Edit</a>
           |
           <a
             href="#"
-            onclick="deleteCertification(this)"
+            onclick="deleteTrainingSession(this)"
             data-id="2"
-            data-name="Drawing Reading 101"
-            data-org="Internal"
-            data-description="Intro to Drawing Reading Training"
           >Delete</a>
         </td>
         <td align="right">2</td>
-        <td>Drawing Reading 101</td>
-        <td>Internal</td>
-        <td>Intro to Drawing Reading Training</td>
+        <td>2024-04-12</td>
+        <td>A2</td>
+        <td>Building A - Classroom 1</td>
+        <td align="right">2</td>
+        <td><ul><li>Vladimir Collier</li><li>Athena Fry</li><li>Sybill Robles</li><li
+            >Maisie Herman</li></ul></td>
       </tr>
       <tr>
         <td>
-          <a
-            href="#"
-            onClick="updateCertification(this)"
-            data-id="3"
-            data-name="Drawing Reading 102"
-            data-org="Internal"
-            data-description="Intermediate Level Drawing Reading"
-          >Edit</a>
+          <a href="#" onClick="updateTrainingSession(this)" data-id="3">Edit</a>
           |
           <a
             href="#"
-            onclick="deleteCertification(this)"
+            onclick="deleteTrainingSession(this)"
             data-id="3"
-            data-name="Drawing Reading 102"
-            data-org="Internal"
-            data-description="Intermediate Level Drawing Reading"
           >Delete</a>
         </td>
         <td align="right">3</td>
-        <td>Drawing Reading 102</td>
-        <td>Internal</td>
-        <td>Intermediate Level Drawing Reading</td>
+        <td>2024-04-14</td>
+        <td>A3</td>
+        <td>Building A - Classroom 2</td>
+        <td align="right">3</td>
+        <td><ul><li>Vladimir Collier</li><li>Athena Fry</li><li>Sybill Robles</li><li
+            >Maisie Herman</li></ul></td>
       </tr>
       <tr>
         <td>
-          <a
-            href="#"
-            onClick="updateCertification(this)"
-            data-id="4"
-            data-name="Drawing Reading 103"
-            data-org="Internal"
-            data-description="Advance Drawing Reading and Generation"
-          >Edit</a>
+          <a href="#" onClick="updateTrainingSession(this)" data-id="4">Edit</a>
           |
           <a
             href="#"
-            onclick="deleteCertification(this)"
+            onclick="deleteTrainingSession(this)"
             data-id="4"
-            data-name="Drawing Reading 103"
-            data-org="Internal"
-            data-description="Advance Drawing Reading and Generation"
           >Delete</a>
         </td>
         <td align="right">4</td>
-        <td>Drawing Reading 103</td>
-        <td>Internal</td>
-        <td>Advance Drawing Reading and Generation</td>
+        <td>2024-04-16</td>
+        <td>A4</td>
+        <td>Building A - Classroom 3</td>
+        <td align="right">4</td>
+        <td><ul><li>Vladimir Collier</li><li>Igor Parks</li><li>Lucian Jordan</li><li
+            >Maisie Herman</li></ul></td>
       </tr>
       <tr>
         <td>
-          <a
-            href="#"
-            onClick="updateCertification(this)"
-            data-id="5"
-            data-name="Ethics Compliance"
-            data-org="OSHA"
-            data-description="Ethics At Workplace Training"
-          >Edit</a>
+          <a href="#" onClick="updateTrainingSession(this)" data-id="5">Edit</a>
           |
           <a
             href="#"
-            onclick="deleteCertification(this)"
+            onclick="deleteTrainingSession(this)"
             data-id="5"
-            data-name="Ethics Compliance"
-            data-org="OSHA"
-            data-description="Ethics At Workplace Training"
           >Delete</a>
         </td>
         <td align="right">5</td>
-        <td>Ethics Compliance</td>
-        <td>OSHA</td>
-        <td>Ethics At Workplace Training</td>
+        <td>2024-04-18</td>
+        <td>A5</td>
+        <td>Building A - Classroom 4</td>
+        <td align="right">5</td>
+        <td><ul><li>Vladimir Collier</li><li>Igor Parks</li><li>Lucian Jordan</li><li
+            >Maisie Herman</li></ul></td>
       </tr>
       <tr>
         <td>
-          <a
-            href="#"
-            onClick="updateCertification(this)"
-            data-id="6"
-            data-name="Cyber Security 101"
-            data-org="IT Compliance"
-            data-description="Intro to Cyber Attack Awareness"
-          >Edit</a>
+          <a href="#" onClick="updateTrainingSession(this)" data-id="6">Edit</a>
           |
           <a
             href="#"
-            onclick="deleteCertification(this)"
+            onclick="deleteTrainingSession(this)"
             data-id="6"
-            data-name="Cyber Security 101"
-            data-org="IT Compliance"
-            data-description="Intro to Cyber Attack Awareness"
           >Delete</a>
         </td>
         <td align="right">6</td>
-        <td>Cyber Security 101</td>
-        <td>IT Compliance</td>
-        <td>Intro to Cyber Attack Awareness</td>
+        <td>2024-04-20</td>
+        <td>B1</td>
+        <td>Building B - Classroom 1</td>
+        <td align="right">6</td>
+        <td><ul><li>Donna Lott</li><li>Igor Parks</li><li>Lucian Jordan</li></ul></td>
       </tr>
       <tr>
         <td>
-          <a
-            href="#"
-            onClick="updateCertification(this)"
-            data-id="7"
-            data-name="Cyber Security 102"
-            data-org="IT Compliance"
-            data-description="Intermediate Cyber Attack Awareness"
-          >Edit</a>
+          <a href="#" onClick="updateTrainingSession(this)" data-id="7">Edit</a>
           |
           <a
             href="#"
-            onclick="deleteCertification(this)"
+            onclick="deleteTrainingSession(this)"
             data-id="7"
-            data-name="Cyber Security 102"
-            data-org="IT Compliance"
-            data-description="Intermediate Cyber Attack Awareness"
           >Delete</a>
         </td>
         <td align="right">7</td>
-        <td>Cyber Security 102</td>
-        <td>IT Compliance</td>
-        <td>Intermediate Cyber Attack Awareness</td>
+        <td>2024-04-22</td>
+        <td>B2</td>
+        <td>Building B - Classroom 2</td>
+        <td align="right">7</td>
+        <td><ul><li>Donna Lott</li><li>Igor Parks</li><li>Lucian Jordan</li></ul></td>
       </tr>
       <tr>
         <td>
-          <a
-            href="#"
-            onClick="updateCertification(this)"
-            data-id="8"
-            data-name="Torque Cert"
-            data-org="NTSB"
-            data-description="Intro to Torque Training and Certification"
-          >Edit</a>
+          <a href="#" onClick="updateTrainingSession(this)" data-id="8">Edit</a>
           |
           <a
             href="#"
-            onclick="deleteCertification(this)"
+            onclick="deleteTrainingSession(this)"
             data-id="8"
-            data-name="Torque Cert"
-            data-org="NTSB"
-            data-description="Intro to Torque Training and Certification"
           >Delete</a>
         </td>
         <td align="right">8</td>
-        <td>Torque Cert</td>
-        <td>NTSB</td>
-        <td>Intro to Torque Training and Certification</td>
+        <td>2024-04-24</td>
+        <td>B3</td>
+        <td>Building B - Classroom 3</td>
+        <td align="right">8</td>
+        <td><ul><li>Donna Lott</li><li>Igor Parks</li><li>Sharon Murray</li></ul></td>
       </tr>
       <tr>
         <td>
-          <a
-            href="#"
-            onClick="updateCertification(this)"
-            data-id="9"
-            data-name="Sealing Cert"
-            data-org="NTSB"
-            data-description="Intro to Seal Training and Certification"
-          >Edit</a>
+          <a href="#" onClick="updateTrainingSession(this)" data-id="9">Edit</a>
           |
           <a
             href="#"
-            onclick="deleteCertification(this)"
+            onclick="deleteTrainingSession(this)"
             data-id="9"
-            data-name="Sealing Cert"
-            data-org="NTSB"
-            data-description="Intro to Seal Training and Certification"
           >Delete</a>
         </td>
         <td align="right">9</td>
-        <td>Sealing Cert</td>
-        <td>NTSB</td>
-        <td>Intro to Seal Training and Certification</td>
+        <td>2024-04-26</td>
+        <td>B4</td>
+        <td>Building B - Classroom 4</td>
+        <td align="right">9</td>
+        <td><ul><li>Donna Lott</li><li>Sybill Robles</li><li>Sharon Murray</li></ul></td>
       </tr>
       <tr>
         <td>
           <a
             href="#"
-            onClick="updateCertification(this)"
+            onClick="updateTrainingSession(this)"
             data-id="10"
-            data-name="Crane Cert"
-            data-org="NTSB"
-            data-description="Intro to Electrical Crane and Certification"
           >Edit</a>
           |
           <a
             href="#"
-            onclick="deleteCertification(this)"
+            onclick="deleteTrainingSession(this)"
             data-id="10"
-            data-name="Crane Cert"
-            data-org="NTSB"
-            data-description="Intro to Electrical Crane and Certification"
           >Delete</a>
         </td>
         <td align="right">10</td>
-        <td>Crane Cert</td>
-        <td>NTSB</td>
-        <td>Intro to Electrical Crane and Certification</td>
+        <td>2024-04-28</td>
+        <td>B5</td>
+        <td>Building B - Classroom 5</td>
+        <td align="right">10</td>
+        <td><ul><li>Donna Lott</li><li>Sybill Robles</li><li>Sharon Murray</li></ul></td>
       </tr>
     </table>
   </div>
   <div id="insert" style="display: none;">
-    <form method="POST" action="/addCertification" id="addCertification">
-      <legend><strong>Add New Certification</strong></legend>
+    <form method="POST" action="/addTrainingSession" id="addTrainingSession">
+      <legend><strong>Add New Training Session</strong></legend>
       <fieldset>
-        <label>Certification Name: <input type="text" name="certName" /></label>
-        <label>Certifying Organization:
-          <input type="text" name="certOrg" /></label>
+        <label>Date: <input type="date" name="trainingDate" /></label>
+        <label>Location:
+          <input type="text" name="location" /></label>
         <label>Description: <input type="text" name="description" /></label>
+        <label>Certification:
+          <select id="certifications">
+            <option value="safety_101">Safety 101</option>
+            <option value="drawing_reading_101">Drawing Reading 101</option>
+            <option value="drawing_reading_102">Drawing Reading 102</option>
+            <option value="drawing_reading_103">Drawing Reading 103</option>
+            <option value="ethics_compliance">Ethics Compliance</option>
+            <option value="cyber_security_101">Cyber Security 101</option>
+            <option value="cyber_security_102">Cyber Security 102</option>
+            <option value="torque_cert">Torque Cert</option>
+            <option value="sealing_cert">Sealing Cert</option>
+            <option value="crane_cert">Crane Cert</option>
+          </select>
+        </label>
+        <div>
+          Employees:
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Vladimir_Collier"
+            name="employees"
+            value="Vladimir Collier"
+          />
+          <label for="Vladimir_Collier">Vladimir Collier</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Donna_Lott"
+            name="employees"
+            value="Donna Lott"
+          />
+          <label for="Donna_Lott">Donna Lott</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Athena_Fry"
+            name="employees"
+            value="Athena Fry"
+          />
+          <label for="Igor_Parks">Igor Parks</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Igor_Parks"
+            name="employees"
+            value="Igor Parks"
+          />
+          <label for="Igor_Parks">Sybill Robles</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Sybill_Robles"
+            name="employees"
+            value="Sybill Robles"
+          />
+          <label for="Lucian_Jordan">Lucian Jordan</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Lucian_Jordan"
+            name="employees"
+            value="Lucian Jordan"
+          />
+          <label for="Sharon_Murray">Sharon Murray</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Sharon_Murray"
+            name="employees"
+            value="Sharon Murray"
+          />
+          <label for="Maisie_Herman">Maisie Herman</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Maisie_Herman"
+            name="employees"
+            value="Maisie Herman"
+          />
+          <label for="Maisie_Herman">Maisie Herman</label>
+        </div>
       </fieldset>
       <input class="btn" type="submit" value="Add Certification" />
       <input

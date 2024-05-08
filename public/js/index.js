@@ -118,3 +118,57 @@ function browseEmployees() {
 function showAll() {
   showform("all");
 }
+
+// Training Sessions
+
+function showTrainingForms(dowhat) {
+  var sections = ["browse", "insert", "update", "delete"];
+  sections.forEach(function (section) {
+    var sectionElement = document.getElementById(section);
+    if (dowhat === "all" || dowhat === section) {
+      sectionElement.style.display = "block"; // Show the section
+    } else {
+      sectionElement.style.display = "none"; // Hide the section
+    }
+  });
+}
+
+function newTraining() {
+  showTrainingForms("insert");
+}
+
+function updateTraining(element) {
+  var certID = element.getAttribute("data-id");
+  var certName = element.getAttribute("data-name");
+  var certOrg = element.getAttribute("data-org");
+  var description = element.getAttribute("data-description");
+
+  document.getElementById("updateCertID").value = certID;
+  document.getElementById("updateCertName").value = certName;
+  document.getElementById("updateCertOrg").value = certOrg;
+  document.getElementById("updateCertDescription").value = description;
+
+  showCertForms("update");
+}
+
+function deleteTraining(element) {
+  var certID = element.getAttribute("data-id");
+  var certName = element.getAttribute("data-name");
+  var certOrg = element.getAttribute("data-org");
+  var description = element.getAttribute("data-description");
+
+  document.getElementById("deleteCertID").value = certID;
+  document.getElementById("deleteCertName").value = certName;
+  document.getElementById("deleteCertOrg").value = certOrg;
+  document.getElementById("deleteCertDescription").value = description;
+
+  showCertForms("delete");
+}
+
+function browseTraining() {
+  showTrainingForms("browse");
+}
+
+function showTrainingAll() {
+  showCertForms("all");
+}
