@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
 <header>
   <h1>Departments</h1>
 </header>
@@ -9,33 +31,91 @@
   <a href="training_sessions">Training Sessions</a>
   <a href="employee_certifications">Employee Certifications</a>
 </nav>
-<p>View and manage all company departments below:</p>
+<main>
+  <section>
+    <h2>Engineering Department</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data for Engineering Department -->
+        <tr>
+          <td>1</td>
+          <td>Vladimir</td>
+          <td>Collier</td>
+          <td>hendrerit.neque@aol.org</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Donna</td>
+          <td>Lott</td>
+          <td>id.nunc@yahoo.net</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-<!-- Dropdown box -->
-<label for="departments">Select a department:</label>
-<select id="departments" onchange="showDepartment(this.value)">
-  <option value="engineering" selected>Engineering</option>
-  <option value="human_resources">Human Resources</option>
-  <option value="technicians">Technicians</option>
-</select>
+  <section>
+    <h2>Human Resources Department</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data for Human Resources Department -->
+        <tr>
+          <td>3</td>
+          <td>Athena</td>
+          <td>Fry</td>
+          <td>molestie.sed@hotmail.ca</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-<!-- Department sections -->
-<section id="engineering" class="department-section">
-  <!-- Engineering department content goes here -->
-  <h2>Engineering Department</h2>
-  <p>Content for the Engineering department...</p>
-</section>
-<section id="human_resources" class="department-section">
-  <!-- Human Resources department content goes here -->
-  <h2>Human Resources Department</h2>
-  <p>Content for the Human Resources department...</p>
-</section>
-<section id="technicians" class="department-section">
-  <!-- Technician department content goes here -->
-  <h2>Technicians Department</h2>
-  <p>Content for the Technicians department...</p>
-</section>
-
+  <section>
+    <h2>Technicians Department</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data for Technicians Department -->
+        <tr>
+          <td>4</td>
+          <td>Igor</td>
+          <td>Parks</td>
+          <td>suspendisse.eleifend.cras@yahoo.co.uk</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Sybill</td>
+          <td>Robles</td>
+          <td>elit.a@protonmail.org</td>
+        </tr>
+        <!-- Additional rows for other Technicians -->
+      </tbody>
+    </table>
+  </section>
+</main>
 <footer>
   <p>© 2024 ByteBalancers. All rights reserved.</p>
 </footer>
+</body>
+</html>
