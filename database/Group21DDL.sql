@@ -1,3 +1,4 @@
+-- CS340 Group 21 - Ditrung Duong and Daniel Grossberg
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -29,7 +30,7 @@ ENGINE = InnoDB;
 INSERT INTO `Departments` (`name`) VALUES 
 ('Engineering'),
 ('Human Resources'),
-('Technician');
+('Technicians');
 
 -- -----------------------------------------------------
 -- Table `Certifications`

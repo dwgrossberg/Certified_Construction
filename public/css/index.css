@@ -339,8 +339,49 @@ sup {
   display: none;
 }
 
+#engineering {
+  display: block;
+}
+
 .trainingCheckbox {
   display: inline;
+}
+
+.employeeTable {
+  margin-left: -100px;
+  width: 125%;
+  min-width: 1100px;
+}
+
+.employeeID {
+  width: 50px;
+}
+
+.employeeEmail {
+  width: 350px;
+}
+
+.inputEmployees {
+  width: 750px;
+  text-wrap: wrap;
+}
+
+.trainingTable {
+  width: 110%;
+  margin-left: -25px;
+}
+
+.trainingEmployees {
+  width: 200px;
+}
+
+.employeeCerts {
+  width: 300px;
+}
+
+.employeeCertsTable {
+  width: 115%;
+  margin-left: -45px;
 }
 
 /* Mobile Styling */
