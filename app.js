@@ -50,6 +50,10 @@ app.get("/training_sessions", function (req, res) {
   res.render("training_sessions");
 });
 
+app.get("/employee_certifications", function (req, res) {
+  res.render("employee_certifications");
+});
+
 /*
     LISTENER
 */

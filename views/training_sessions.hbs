@@ -14,7 +14,7 @@
   <div class="form-container" id="browse">
     <button onClick="newTraining()" class="btn">Add New Training Session</button>
     <p><a href="#" onClick="showTrainingAll()">Display all forms</a></p>
-    <table>
+    <table class="trainingTable">
       <tr>
         <th>Actions</th>
         <th>Training ID</th>
@@ -22,11 +22,20 @@
         <th>Location</th>
         <th>Description</th>
         <th>Certification</th>
-        <th>Employees</th>
+        <th class="trainingEmployees">Employees</th>
       </tr>
       <tr>
         <td>
-          <a href="#" onClick="updateTrainingSession(this)" data-id="1">Edit</a>
+          <a
+            href="#"
+            onClick="updateTrainingSession(this)"
+            data-id="1"
+            data-date="2024-04-10"
+            data-location="A1"
+            data-description="Building A - Classroom 1"
+            data-certification="Safety 101"
+            data-employees="Vladimir Collier, Athena Fry, Sybill Robles, Sharon Murray"
+          >Edit</a>
           |
           <a
             href="#"
@@ -35,6 +44,7 @@
             data-date="2024-04-10"
             data-location="A1"
             data-description="Building A - Classroom 1"
+            data-certification="Safety 101"
             data-employees="Vladimir Collier, Athena Fry, Sybill Robles, Sharon Murray"
           >Delete</a>
         </td>
@@ -48,12 +58,26 @@
       </tr>
       <tr>
         <td>
-          <a href="#" onClick="updateTrainingSession(this)" data-id="2">Edit</a>
+          <a
+            href="#"
+            onClick="updateTrainingSession(this)"
+            data-id="2"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
+          >Edit</a>
           |
           <a
             href="#"
             onclick="deleteTrainingSession(this)"
             data-id="2"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
           >Delete</a>
         </td>
         <td align="right">2</td>
@@ -66,12 +90,26 @@
       </tr>
       <tr>
         <td>
-          <a href="#" onClick="updateTrainingSession(this)" data-id="3">Edit</a>
+          <a
+            href="#"
+            onClick="updateTrainingSession(this)"
+            data-id="3"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
+          >Edit</a>
           |
           <a
             href="#"
             onclick="deleteTrainingSession(this)"
             data-id="3"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
           >Delete</a>
         </td>
         <td align="right">3</td>
@@ -84,12 +122,26 @@
       </tr>
       <tr>
         <td>
-          <a href="#" onclick="updateTrainingSession(this)" data-id="4">Edit</a>
+          <a
+            href="#"
+            onclick="updateTrainingSession(this)"
+            data-id="4"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
+          >Edit</a>
           |
           <a
             href="#"
             onclick="deleteTrainingSession(this)"
             data-id="4"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
           >Delete</a>
         </td>
         <td align="right">4</td>
@@ -102,12 +154,26 @@
       </tr>
       <tr>
         <td>
-          <a href="#" onClick="updateTrainingSession(this)" data-id="5">Edit</a>
+          <a
+            href="#"
+            onClick="updateTrainingSession(this)"
+            data-id="5"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
+          >Edit</a>
           |
           <a
             href="#"
             onclick="deleteTrainingSession(this)"
             data-id="5"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
           >Delete</a>
         </td>
         <td align="right">5</td>
@@ -120,12 +186,26 @@
       </tr>
       <tr>
         <td>
-          <a href="#" onClick="updateTrainingSession(this)" data-id="6">Edit</a>
+          <a
+            href="#"
+            onClick="updateTrainingSession(this)"
+            data-id="6"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
+          >Edit</a>
           |
           <a
             href="#"
             onclick="deleteTrainingSession(this)"
             data-id="6"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
           >Delete</a>
         </td>
         <td align="right">6</td>
@@ -137,12 +217,26 @@
       </tr>
       <tr>
         <td>
-          <a href="#" onClick="updateTrainingSession(this)" data-id="7">Edit</a>
+          <a
+            href="#"
+            onClick="updateTrainingSession(this)"
+            data-id="7"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
+          >Edit</a>
           |
           <a
             href="#"
             onclick="deleteTrainingSession(this)"
             data-id="7"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
           >Delete</a>
         </td>
         <td align="right">7</td>
@@ -154,12 +248,26 @@
       </tr>
       <tr>
         <td>
-          <a href="#" onClick="updateTrainingSession(this)" data-id="8">Edit</a>
+          <a
+            href="#"
+            onClick="updateTrainingSession(this)"
+            data-id="8"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
+          >Edit</a>
           |
           <a
             href="#"
             onclick="deleteTrainingSession(this)"
             data-id="8"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
           >Delete</a>
         </td>
         <td align="right">8</td>
@@ -171,12 +279,26 @@
       </tr>
       <tr>
         <td>
-          <a href="#" onClick="updateTrainingSession(this)" data-id="9">Edit</a>
+          <a
+            href="#"
+            onClick="updateTrainingSession(this)"
+            data-id="9"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
+          >Edit</a>
           |
           <a
             href="#"
             onclick="deleteTrainingSession(this)"
             data-id="9"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
           >Delete</a>
         </td>
         <td align="right">9</td>
@@ -192,12 +314,22 @@
             href="#"
             onClick="updateTrainingSession(this)"
             data-id="10"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
           >Edit</a>
           |
           <a
             href="#"
             onclick="deleteTrainingSession(this)"
             data-id="10"
+            data-date=""
+            data-location=""
+            data-description=""
+            data-certification=""
+            data-employees=""
           >Delete</a>
         </td>
         <td align="right">10</td>
@@ -256,7 +388,7 @@
             name="employees"
             value="Athena Fry"
           />
-          <label for="Igor_Parks">Igor Parks</label>
+          <label for="Athena_Fry">Athena Fry</label>
           <input
             class="trainingCheckbox"
             type="checkbox"
@@ -264,7 +396,7 @@
             name="employees"
             value="Igor Parks"
           />
-          <label for="Igor_Parks">Sybill Robles</label>
+          <label for="Igor_Parks">Igor Parks</label>
           <input
             class="trainingCheckbox"
             type="checkbox"
@@ -272,7 +404,7 @@
             name="employees"
             value="Sybill Robles"
           />
-          <label for="Lucian_Jordan">Lucian Jordan</label>
+          <label for="Sybill_Robles">Sybill Robles</label>
           <input
             class="trainingCheckbox"
             type="checkbox"
@@ -280,7 +412,7 @@
             name="employees"
             value="Lucian Jordan"
           />
-          <label for="Sharon_Murray">Sharon Murray</label>
+          <label for="Lucian_Jordan">Lucian Jordan</label>
           <input
             class="trainingCheckbox"
             type="checkbox"
@@ -288,7 +420,7 @@
             name="employees"
             value="Sharon Murray"
           />
-          <label for="Maisie_Herman">Maisie Herman</label>
+          <label for="Sharon_Murray">Sharon Murray</label>
           <input
             class="trainingCheckbox"
             type="checkbox"
@@ -337,7 +469,79 @@
             id="updateTrainingDescription"
             name="trainingDescription"
           /></label>
-
+        <label>Certification:
+          <input
+            type="text"
+            id="updateTrainingCertification"
+            name="trainingCertification"
+          /></label>
+        <div id="updateTrainingEmployees">
+          Employees:
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Vladimir_Collier"
+            name="employees"
+            value="Vladimir Collier"
+          />
+          <label for="Vladimir_Collier">Vladimir Collier</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Donna_Lott"
+            name="employees"
+            value="Donna Lott"
+          />
+          <label for="Donna_Lott">Donna Lott</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Athena_Fry"
+            name="employees"
+            value="Athena Fry"
+          />
+          <label for="Athena_Fry">Athena Fry</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Igor_Parks"
+            name="employees"
+            value="Igor Parks"
+          />
+          <label for="Igor_Parks">Igor Parks</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Sybill_Robles"
+            name="employees"
+            value="Sybill Robles"
+          />
+          <label for="Sybill_Robles">Sybill Robles</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Lucian_Jordan"
+            name="employees"
+            value="Lucian Jordan"
+          />
+          <label for="Lucian_Jordan">Lucian Jordan</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Sharon_Murray"
+            name="employees"
+            value="Sharon Murray"
+          />
+          <label for="Sharon_Murray">Sharon Murray</label>
+          <input
+            class="trainingCheckbox"
+            type="checkbox"
+            id="Maisie_Herman"
+            name="employees"
+            value="Maisie Herman"
+          />
+          <label for="Maisie_Herman">Maisie Herman</label>
+        </div>
       </fieldset>
       <input class="btn" type="submit" value="Update Training Session" />
       <input
@@ -353,31 +557,51 @@
     <form method="POST" action="/deleteTraining" id="deleteTraining">
       <legend><strong>Delete Training Session</strong></legend>
       <fieldset>
-        <label>Certification ID:
-          <input type="text" id="deleteCertID" name="certID" disabled /></label>
-        <label>Certification Name:
+        <label>Training Session ID:
           <input
             type="text"
-            id="deleteCertName"
-            name="certName"
+            id="deleteTrainingID"
+            name="trainingID"
             disabled
           /></label>
-        <label>Certifying Organization:
+        <label>Date:
           <input
             type="text"
-            id="deleteCertOrg"
-            name="certOrg"
+            id="deleteTrainingDate"
+            name="trainingDate"
+            disabled
+          /></label>
+        <label>Location:
+          <input
+            type="text"
+            id="deleteTrainingLocation"
+            name="trainingLocation"
             disabled
           /></label>
         <label>Description:
           <input
             type="text"
-            id="deleteCertDescription"
-            name="description"
+            id="deleteTrainingDescription"
+            name="trainingDescription"
+            disabled
+          /></label>
+        <label>Certification:
+          <input
+            type="text"
+            id="deleteTrainingCertification"
+            name="trainingCertification"
+            disabled
+          /></label>
+        <label>Employees:
+          <input
+            class="inputEmployees"
+            type="text"
+            id="deleteTrainingEmployees"
+            name="trainingEmployees"
             disabled
           /></label>
       </fieldset>
-      <input class="btn" type="submit" value="Delete Certification" />
+      <input class="btn" type="submit" value="Delete Training Session" />
       <input
         class="btn"
         type="button"
