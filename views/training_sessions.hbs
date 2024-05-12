@@ -40,16 +40,12 @@
 
         function updateTrainingSession(element) {
             var id = element.getAttribute('data-id');
+            var employeeID = element.getAttribute('data-employeeID');
+            var trainID = element.getAttribute('data-trainID');
             var date = element.getAttribute('data-date');
             var location = element.getAttribute('data-location');
             var description = element.getAttribute('data-description');
             var certID = element.getAttribute('data-certID');
-
-            document.getElementById('updateTrainingID').value = id;
-            document.getElementById('updateTrainingDate').value = date;
-            document.getElementById('updateTrainingLocation').value = location;
-            document.getElementById('updateTrainingDescription').value = description;
-            document.getElementById('updateTrainingCertID').value = certID;
 
             showForm('update');
         }
