@@ -4,8 +4,9 @@
   "description": "Group21 final project for CS 340",
   "main": "app.js",
   "scripts": {
-    "start": "forever stopall && forever start app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "npm install"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,8 @@
     "express-handlebars": "^7.1.2",
     "forever": "^4.0.3",
     "mysql": "^2.18.1"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
