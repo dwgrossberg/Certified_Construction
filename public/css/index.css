@@ -396,6 +396,14 @@ textarea {
   font-family: inherit;
 }
 
+
+.email {
+  white-space: nowrap;  
+  overflow: hidden;   
+  min-width: 160px; 
+  width: 100%;    
+}
+
 /* Mobile Styling */
 @media screen and (max-width: 75ch) {
   body,
@@ -408,3 +416,4 @@ textarea {
     table-layout: auto;
   }
 }
+

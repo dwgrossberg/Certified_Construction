@@ -28,11 +28,17 @@ app.get("/", function (req, res) {
   res.render("index");
 });
 
-app.get("/departments", function (req, res) {
-  let query1 = "SELECT * FROM Departments;";
-  db.pool.query(query1, function (error, rows, fields) {
-    res.render('departments', { data: rows });
-  })
+app.get('/departments', function(req, res) {
+
+  let query1 = "SELECT Employees.*, Departments.name AS department_name FROM Employees JOIN Departments ON Employees.deptID = Departments.deptID;"
+  
+  db.pool.query("SELECT * FROM Departments", function(error, results) {
+      if (error) {
+          res.status(500).send('Database error: ' + error.message);
+      } else {
+          res.render('departments', { data: results });
+      }
+  });
 });
 
 app.get("/certifications", function (req, res) {
@@ -42,7 +48,13 @@ app.get("/certifications", function (req, res) {
   })});
 
 app.get("/employees", function (req, res) {
-  res.render("employees");
+  db.pool.query('SELECT * FROM Employees;', function(error, results) {
+    if (error) {
+        res.status(500).send('Database error: ' + error.message);
+    } else {
+        res.render('employees', { data: results });
+    }
+});
 });
 
 app.get("/training_sessions", function (req, res) {

@@ -1,323 +1,183 @@
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Certified Construction</title>
-    <link rel="stylesheet" type="text/css" href="../css/index.css" />
-    <script src="../js/index.js"></script>
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .form-container {
+            display: none;
+        }
+    </style>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script language="JavaScript">
+        function showform(dowhat) {
+            var sections = ['browse', 'insert', 'update', 'delete'];
+            sections.forEach(function(section) {
+                var sectionElement = document.getElementById(section);
+                if (dowhat === 'all' || dowhat === section) {
+                    sectionElement.style.display = 'block'; 
+                } else {
+                    sectionElement.style.display = 'none'; 
+                }
+            });
+        }
+        function newEmployee() { 
+            showform('insert'); 
+        }
+        
+        function updateEmployee(element) {
+            var id = element.getAttribute('data-id');
+            var fname = element.getAttribute('data-fname');
+            var lname = element.getAttribute('data-lname');
+            var email = element.getAttribute('data-email');
+            var deptid = element.getAttribute('data-deptid');
+    
+            document.getElementById('updateEmployeeID').value = id;
+            document.getElementById('updateEmployeeIDSpan').textContent = id;
+            document.getElementById('updateEmployeeFName').value = fname;
+            document.getElementById('updateEmployeeLName').value = lname;
+            document.getElementById('updateEmployeeEmail').value = email;
+            document.getElementById('updateEmployeeDeptID').value = deptid;
+    
+            showform('update');
+        }
+        function deleteEmployee(element) {
+            var id = element.getAttribute('data-id');
+            var name = element.getAttribute('data-name');
+    
+            document.getElementById('deleteEmployeeID').value = id;
+            document.getElementById('deleteEmployeeIDSpan').textContent = id;
+            document.getElementById('deleteEmployeeNameSpan').textContent = name;
+    
+            showform('delete');
+        }
+        function browseEmployees() { 
+            showform('browse'); 
+        }
 
+        function showAll() { 
+            showform('all'); 
+        }
+    </script>
+</head>
+<body onload="browseEmployees()">
     <header>
-      <h1>Employees</h1>
+        <h1>Employees</h1>
     </header>
     <nav>
-      <a href="/">Home</a>
-      <a href="departments">Departments</a>
-      <a href="certifications">Certifications</a>
-      <a href="employees">Employees</a>
-      <a href="training_sessions">Training Sessions</a>
-      <a href="employees_cert">Employee Certifications</a>
-      <a href="employees_train">Employee Training Section</a>
-    </nav>
+    <a href="/">Home</a>
+    <a href="departments">Departments</a>
+    <a href="certifications">Certifications</a>
+    <a href="employees">Employees</a>
+    <a href="training_sessions">Training Sessions</a>
+    <a href="employee_cert">Employee Certifications</a>
+    <a href="employee_train">Employee Training</a>
+</nav>
     <main>
-      <div id="browse">
+    <div id="browse">
         <button onClick="newEmployee()" class="btn">Add New Employee</button>
-        <table border="1" cellpadding="5" class="employeeTable">
-          <tr>
-            <th>Action</th>
-            <th class="employeeID">ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th class="employeeEmail">Email</th>
-            <th>Department</th>
-          </tr>
-          <!-- Sample employee data -->
-          <tr>
-            <td>
-              <a
-                href="#"
-                onClick="updateEmployee(this)"
-                data-id="1"
-                data-fname="Vladimir"
-                data-lname="Collier"
-                data-email="hendrerit.neque@aol.org"
-                data-deptid="1"
-              >Edit</a>
-              |
-              <a
-                href="#"
-                onclick="deleteEmployee(this)"
-                data-id="1"
-                data-name="Vladimir Collier"
-              >Delete</a>
-            </td>
-            <td align="right">1</td>
-            <td>Vladimir</td>
-            <td>Collier</td>
-            <td>hendrerit.neque@aol.org</td>
-            <td>Engineering</td>
-          </tr>
-          <tr>
-            <td>
-              <a
-                href="#"
-                onClick="updateEmployee(this)"
-                data-id="2"
-                data-fname="Donna"
-                data-lname="Lott"
-                data-email="id.nunc@yahoo.net"
-                data-deptid="1"
-              >Edit</a>
-              |
-              <a
-                href="#"
-                onclick="deleteEmployee(this)"
-                data-id="2"
-                data-name="Donna Lott"
-              >Delete</a>
-            </td>
-            <td align="right">2</td>
-            <td>Donna</td>
-            <td>Lott</td>
-            <td>id.nunc@yahoo.net</td>
-            <td>Engineering</td>
-          </tr>
-          <tr>
-            <td>
-              <a
-                href="#"
-                onClick="updateEmployee(this)"
-                data-id="3"
-                data-fname="Athena"
-                data-lname="Fry"
-                data-email="molestie.sed@hotmail.ca"
-                data-deptid="2"
-              >Edit</a>
-              |
-              <a
-                href="#"
-                onclick="deleteEmployee(this)"
-                data-id="3"
-                data-name="Athena Fry"
-              >Delete</a>
-            </td>
-            <td align="right">3</td>
-            <td>Athena</td>
-            <td>Fry</td>
-            <td>molestie.sed@hotmail.ca</td>
-            <td>Human Resources</td>
-          </tr>
-          <tr>
-            <td>
-              <a
-                href="#"
-                onClick="updateEmployee(this)"
-                data-id="4"
-                data-fname="Igor"
-                data-lname="Parks"
-                data-email="suspendisse.eleifend.cras@yahoo.co.uk"
-                data-deptid="3"
-              >Edit</a>
-              |
-              <a
-                href="#"
-                onclick="deleteEmployee(this)"
-                data-id="4"
-                data-name="Igor Parks"
-              >Delete</a>
-            </td>
-            <td align="right">4</td>
-            <td>Igor</td>
-            <td>Parks</td>
-            <td>suspendisse.eleifend.cras@yahoo.co.uk</td>
-            <td>Technicians</td>
-          </tr>
-          <tr>
-            <td>
-              <a
-                href="#"
-                onClick="updateEmployee(this)"
-                data-id="5"
-                data-fname="Sybill"
-                data-lname="Robles"
-                data-email="elit.a@protonmail.org"
-                data-deptid="3"
-              >Edit</a>
-              |
-              <a
-                href="#"
-                onclick="deleteEmployee(this)"
-                data-id="5"
-                data-name="Sybill Robles"
-              >Delete</a>
-            </td>
-            <td align="right">5</td>
-            <td>Sybill</td>
-            <td>Robles</td>
-            <td>elit.a@protonmail.org</td>
-            <td>Technicians</td>
-          </tr>
-          <tr>
-            <td>
-              <a
-                href="#"
-                onClick="updateEmployee(this)"
-                data-id="6"
-                data-fname="Lucian"
-                data-lname="Jordan"
-                data-email="cubilia.curae@icloud.ca"
-                data-deptid="3"
-              >Edit</a>
-              |
-              <a
-                href="#"
-                onclick="deleteEmployee(this)"
-                data-id="6"
-                data-name="Lucian Jordan"
-              >Delete</a>
-            </td>
-            <td align="right">6</td>
-            <td>Lucian</td>
-            <td>Jordan</td>
-            <td>cubilia.curae@icloud.ca</td>
-            <td>Technicians</td>
-          </tr>
-          <tr>
-            <td>
-              <a
-                href="#"
-                onClick="updateEmployee(this)"
-                data-id="7"
-                data-fname="Sharon"
-                data-lname="Murray"
-                data-email="et.commodo@aol.net"
-                data-deptid="3"
-              >Edit</a>
-              |
-              <a
-                href="#"
-                onclick="deleteEmployee(this)"
-                data-id="7"
-                data-name="Sharon Murray"
-              >Delete</a>
-            </td>
-            <td align="right">7</td>
-            <td>Sharon</td>
-            <td>Murray</td>
-            <td>et.commodo@aol.net</td>
-            <td>Technicians</td>
-          </tr>
-          <tr>
-            <td>
-              <a
-                href="#"
-                onClick="updateEmployee(this)"
-                data-id="8"
-                data-fname="Maisie"
-                data-lname="Herman"
-                data-email="mus.proin@aol.com"
-                data-deptid="3"
-              >Edit</a>
-              |
-              <a
-                href="#"
-                onclick="deleteEmployee(this)"
-                data-id="8"
-                data-name="Maisie Herman"
-              >Delete</a>
-            </td>
-            <td align="right">8</td>
-            <td>Maisie</td>
-            <td>Herman</td>
-            <td>mus.proin@aol.com</td>
-            <td>Technicians</td>
-          </tr>
+        <p><a href="#" onClick="showAll()">Display all forms</a> </p>
+        <table class="employeeTable" >
+            <tr>
+                <th>Action</th>
+                <th class ="employeeID">ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th class="employeeEmail" >Email</th>
+                <th>Department</th>
+            </tr>
+            {{#each data}}
+            <tr>
+                <td>
+                    <a href="#" onClick="updateEmployee(this)" data-employeeID="{{this.employeeID}}" data-fname="{{this.fName}}" data-lname="{{this.lName}}" data-email="{{this.email}}" data-deptid="{{this.deptID}}">Edit</a> |
+                    <a href="#" onclick="deleteEmployee(this)" data-employeeID="{{this.employeeID}}" data-name="{{this.fName}} {{this.lName}}">Delete</a>
+                </td>
+                <td>{{this.employeeID}}</td>
+                <td>{{this.fName}}</td>
+                <td>{{this.lName}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.deptID}}</td>
+            </tr>
+            {{/each}}
         </table>
-      </div>
+    </div>
+    <div id="insert" style="display: none;">
+    <form method="POST" id="addEmployee">
+      <legend><strong>Add Employee</strong></legend>
+      <fieldset>
+        <label>First Name: <input type="text" name="fname" /></label>
+        <label>Last Name: <input type="text" name="lname" /></label>
+        <label>Email: <input type="text" name="email" /></label>
+        <label>Department ID: <input type="text" name="deptID" /></label>
+      </fieldset>
+      <input class="btn" type="submit" value="Add Employee" />
+      <input
+        class="btn"
+        type="button"
+        value="Cancel"
+        onClick="browseEmployees()"
+      />
+    </form>
+  </div>
 
-      <div id="insert" class="form-container">
-        <form method="POST" id="addEmployee">
-          <legend><strong>Add Employee</strong></legend>
-          <fieldset>
-            <label>First Name: <input type="text" name="fname" /></label>
-            <label>Last Name: <input type="text" name="lname" /></label>
-            <label>Email: <input type="text" name="email" /></label>
-            <label>Department ID: <input type="text" name="deptID" /></label>
-          </fieldset>
-          <input class="btn" type="submit" value="Add Employee" />
-          <input
-            class="btn"
-            type="button"
-            value="Cancel"
-            onClick="browseMain()"
-          />
-        </form>
-      </div>
+  <div id="update" style="display: none;">
+    <form method="POST" id="updateEmployee">
+      <legend><strong>Update Employee</strong></legend>
+      <fieldset>
+        <input type="hidden" name="employeeID" id="updateEmployeeID" />
+        <label>ID: <span id="updateEmployeeIDSpan"></span></label>
+        <label>First Name:
+          <input type="text" name="fname" id="updateEmployeeFName" /></label>
+        <label>Last Name:
+          <input type="text" name="lname" id="updateEmployeeLName" /></label>
+        <label>Email:
+          <input type="text" name="email" id="updateEmployeeEmail" /></label>
+        <label>Department ID:
+          <input type="text" name="deptID" id="updateEmployeeDeptID" /></label>
+      </fieldset>
+      <input class="btn" type="submit" value="Update Employee" />
+      <input
+        class="btn"
+        type="button"
+        value="Cancel"
+        onClick="browseEmployees()"
+      />
+    </form>
+  </div>
 
-      <div id="update" class="form-container">
-        <form method="POST" id="updateEmployee">
-          <legend><strong>Update Employee</strong></legend>
-          <fieldset>
-            <input type="hidden" name="employeeID" id="updateEmployeeID" />
-            <div>
-              <label>ID: <span id="updateEmployeeIDSpan"></span></label>
-            </div>
-            <label>First Name:
-              <input
-                type="text"
-                name="fname"
-                id="updateEmployeeFName"
-              /></label>
-            <label>Last Name:
-              <input
-                type="text"
-                name="lname"
-                id="updateEmployeeLName"
-              /></label>
-            <label>Email:
-              <input
-                type="text"
-                name="email"
-                id="updateEmployeeEmail"
-                class="longInput"
-              /></label>
-            <label>Department:
-              <input
-                type="text"
-                name="deptID"
-                id="updateEmployeeDeptID"
-              /></label>
-          </fieldset>
-          <input class="btn" type="submit" value="Update Employee" />
-          <input
-            class="btn"
-            type="button"
-            value="Cancel"
-            onClick="browseMain()"
-          />
-        </form>
-      </div>
-
-      <div id="delete" class="form-container">
-        <form method="POST" id="deleteEmployee">
-          <legend><strong>Delete Employee</strong></legend>
-          <fieldset>
-            <div>
-              <label>ID: <span id="deleteEmployeeIDSpan"></span></label>
-            </div>
-            <label>Name: <span id="deleteEmployeeNameSpan"></span></label>
-            <input type="hidden" name="employeeID" id="deleteEmployeeID" />
-          </fieldset>
-          <input class="btn" type="submit" value="Delete Employee" />
-          <input
-            class="btn"
-            type="button"
-            value="Cancel"
-            onClick="browseMain()"
-          />
-        </form>
-      </div>
+  <div id="delete" style="display: none;">
+    <form method="POST" id="deleteEmployee">
+      <legend><strong>Delete Employee</strong></legend>
+      <fieldset>
+        <label>ID: <span id="deleteEmployeeIDSpan"></span></label>
+        <label>Name: <span id="deleteEmployeeNameSpan"></span></label>
+        <input type="hidden" name="employeeID" id="deleteEmployeeID" />
+      </fieldset>
+      <input class="btn" type="submit" value="Delete Employee" />
+      <input
+        class="btn"
+        type="button"
+        value="Cancel"
+        onClick="browseEmployees()"
+      />
+    </form>
+  </div>
     </main>
-
-  </body>
+    <footer>
+        <p>© 2024 ByteBalancers. All rights reserved.</p>
+    </footer>
+</body>
 </html>
