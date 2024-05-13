@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Employee Training Section</title>
+    <style>
+        .form-container {
+            display: none;
+        }
+    </style>
+    <script>
+        function showForm(formId) {
+            var forms = ['insert', 'update', 'delete'];
+            forms.forEach(function(form) {
+                document.getElementById(form).style.display = (form === formId) ? 'block' : 'none';
+            });
+        }
+
+        function updateTrainingSession(element) {
+            var employeeID = element.getAttribute('data-employee-id');
+            var trainingID = element.getAttribute('data-training-id');
+
+            document.getElementById('updateTrainingSessionEmployeeID').value = employeeID;
+            document.getElementById('updateTrainingSessionTrainingID').value = trainingID;
+
+            showForm('update');
+        }
+
+        function deleteTrainingSession(element) {
+            var employeeID = element.getAttribute('data-employee-id');
+            var trainingID = element.getAttribute('data-training-id');
+
+            document.getElementById('deleteTrainingSessionEmployeeID').textContent = employeeID;
+            document.getElementById('deleteTrainingSessionTrainingID').textContent = trainingID;
+
+            showForm('delete');
+        }
+
+        function addTrainingSession() {
+            showForm('insert');
+        }
+    </script>
+</head>
+<body>
+<header>
+    <h1>Employee Training Section</h1>
+</header>
+<nav>
+  <a href="/">Home</a>
+  <a href="departments">Departments</a>
+  <a href="certifications">Certifications</a>
+  <a href="employees">Employees</a>
+  <a href="training_sessions">Training Sessions</a>
+  <a href="employees_cert">Employee Certifications</a>
+  <a href="employees_train">Employee Training Section</a>
+</nav>
+<main>
+    <button onClick="addTrainingSession()" class="btn">Add New Training Session</button>
+    <table>
+        <thead>
+            <tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="1" data-training-id="4">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="1" data-training-id="4">Delete</a>
+    </td>
+    <td>1</td>
+    <td>4</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="1" data-training-id="5">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="1" data-training-id="5">Delete</a>
+    </td>
+    <td>1</td>
+    <td>5</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="2" data-training-id="6">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="2" data-training-id="6">Delete</a>
+    </td>
+    <td>2</td>
+    <td>6</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="2" data-training-id="7">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="2" data-training-id="7">Delete</a>
+    </td>
+    <td>2</td>
+    <td>7</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="2" data-training-id="8">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="2" data-training-id="8">Delete</a>
+    </td>
+    <td>2</td>
+    <td>8</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="2" data-training-id="9">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="2" data-training-id="9">Delete</a>
+    </td>
+    <td>2</td>
+    <td>9</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="2" data-training-id="10">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="2" data-training-id="10">Delete</a>
+    </td>
+    <td>2</td>
+    <td>10</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="3" data-training-id="1">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="3" data-training-id="1">Delete</a>
+    </td>
+    <td>3</td>
+    <td>1</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="3" data-training-id="2">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="3" data-training-id="2">Delete</a>
+    </td>
+    <td>3</td>
+    <td>2</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="3" data-training-id="3">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="3" data-training-id="3">Delete</a>
+    </td>
+    <td>3</td>
+    <td>3</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="4" data-training-id="4">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="4" data-training-id="4">Delete</a>
+    </td>
+    <td>4</td>
+    <td>4</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="4" data-training-id="5">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="4" data-training-id="5">Delete</a>
+    </td>
+    <td>4</td>
+    <td>5</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="4" data-training-id="6">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="4" data-training-id="6">Delete</a>
+    </td>
+    <td>4</td>
+    <td>6</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="4" data-training-id="7">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="4" data-training-id="7">Delete</a>
+    </td>
+    <td>4</td>
+    <td>7</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="4" data-training-id="8">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="4" data-training-id="8">Delete</a>
+    </td>
+    <td>4</td>
+    <td>8</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="5" data-training-id="9">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="5" data-training-id="9">Delete</a>
+    </td>
+    <td>5</td>
+    <td>9</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="5" data-training-id="10">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="5" data-training-id="10">Delete</a>
+    </td>
+    <td>5</td>
+    <td>10</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="5" data-training-id="1">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="5" data-training-id="1">Delete</a>
+    </td>
+    <td>5</td>
+    <td>1</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="5" data-training-id="2">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="5" data-training-id="2">Delete</a>
+    </td>
+    <td>5</td>
+    <td>2</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="5" data-training-id="3">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="5" data-training-id="3">Delete</a>
+    </td>
+    <td>5</td>
+    <td>3</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="6" data-training-id="4">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="6" data-training-id="4">Delete</a>
+    </td>
+    <td>6</td>
+    <td>4</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="6" data-training-id="5">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="6" data-training-id="5">Delete</a>
+    </td>
+    <td>6</td>
+    <td>5</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="6" data-training-id="6">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="6" data-training-id="6">Delete</a>
+    </td>
+    <td>6</td>
+    <td>6</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="6" data-training-id="7">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="6" data-training-id="7">Delete</a>
+    </td>
+    <td>6</td>
+    <td>7</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="7" data-training-id="8">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="7" data-training-id="8">Delete</a>
+    </td>
+    <td>7</td>
+    <td>8</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="7" data-training-id="9">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="7" data-training-id="9">Delete</a>
+    </td>
+    <td>7</td>
+    <td>9</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="7" data-training-id="10">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="7" data-training-id="10">Delete</a>
+    </td>
+    <td>7</td>
+    <td>10</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="7" data-training-id="1">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="7" data-training-id="1">Delete</a>
+    </td>
+    <td>7</td>
+    <td>1</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="8" data-training-id="2">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="8" data-training-id="2">Delete</a>
+    </td>
+    <td>8</td>
+    <td>2</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="8" data-training-id="3">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="8" data-training-id="3">Delete</a>
+    </td>
+    <td>8</td>
+    <td>3</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="8" data-training-id="4">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="8" data-training-id="4">Delete</a>
+    </td>
+    <td>8</td>
+    <td>4</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="8" data-training-id="5">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="8" data-training-id="5">Delete</a>
+    </td>
+    <td>8</td>
+    <td>5</td>
+</tr>
+<tr>
+    <td>
+        <a href="#" onClick="updateTrainingSession(this)" data-employee-id="8" data-training-id="6">Edit</a> |
+        <a href="#" onClick="deleteTrainingSession(this)" data-employee-id="8" data-training-id="6">Delete</a>
+    </td>
+    <td>8</td>
+    <td>6</td>
+</tr>
+        </tbody>
+    </table>
+
+    <div id="insert" class="form-container">
+        <form>
+            <legend>Add New Training Session</legend>
+            <label>Employee ID: <input type="text" name="employeeID"></label>
+            <label>Training ID: <input type="text" name="trainingID"></label>
+            <button type="submit">Submit</button>
+            <button type="button" onClick="showForm('')">Cancel</button>
+        </form>
+    </div>
+
+    <div id="update" class="form-container">
+        <form>
+            <legend>Update Training Session</legend>
+            <input type="hidden" id="updateTrainingSessionEmployeeID" name="employeeID">
+            <input type="hidden" id="updateTrainingSessionTrainingID" name="trainingID">
+            <label>Employee ID: <input type="text" id="updateTrainingSessionEmployeeID" name="employeeID"></label>
+            <label>Training ID: <input type="text" id="updateTrainingSessionTrainingID" name="trainingID"></label>
+            <button type="submit">Update</button>
+            <button type="button" onClick="showForm('')">Cancel</button>
+        </form>
+    </div> 
+
+    <div id="delete" class="form-container">
+        <form id="deleteTrainingSessionForm">
+            <legend>Delete Training Session</legend>
+            <p>Are you sure you want to delete the training session with the following details?</p>
+            <p>Employee ID: <span id="deleteTrainingSessionEmployeeID"></span></p>
+            <p>Training ID: <span id="deleteTrainingSessionTrainingID"></span></p>
+            <button type="submit">Delete</button>
+            <button type="button" onClick="showForm('')">Cancel</button>
+        </form>
+    </div>
+
+</main>
+<footer>
+    <p>© 2024 ByteBalancers. All rights reserved.</p>
+</footer>
+</body>
+</html>
