@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "forever": "forever stopall && forever start app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "npm install"
   },

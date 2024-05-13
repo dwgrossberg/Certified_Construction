@@ -29,15 +29,20 @@ app.get("/", function (req, res) {
 });
 
 app.get("/departments", function (req, res) {
-  res.render("departments");
-});
-
-app.get("/employees", function (req, res) {
-  res.render("employees");
+  let query1 = "SELECT * FROM Departments;";
+  db.pool.query(query1, function (error, rows, fields) {
+    res.render('departments', { data: rows });
+  })
 });
 
 app.get("/certifications", function (req, res) {
-  res.render("certifications");
+  let query1 = "SELECT * FROM Certifications;";
+  db.pool.query(query1, function (error, rows, fields) {
+    res.render('certifications', { data: rows });
+  })});
+
+app.get("/employees", function (req, res) {
+  res.render("employees");
 });
 
 app.get("/training_sessions", function (req, res) {

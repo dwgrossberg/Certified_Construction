@@ -8,6 +8,8 @@ SET AUTOCOMMIT = 0;
 
 -- -----------------------------------------------------
 
+USE cs340_grossbed
+
 -- Drop tables in reverse order of creation to avoid foreign key issues
 DROP TABLE IF EXISTS `EmployeesCertifications`;
 DROP TABLE IF EXISTS `EmployeesTrainingSessions`;
@@ -22,15 +24,16 @@ DROP TABLE IF EXISTS `Departments`;
 CREATE TABLE IF NOT EXISTS `Departments` (
   `deptID` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(145) NOT NULL,
+  `description` VARCHAR(145),
   PRIMARY KEY (`deptID`),
   UNIQUE INDEX `deptID_UNIQUE` (`deptID` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 -- Inserts into `Departments` table
-INSERT INTO `Departments` (`name`) VALUES 
-('Engineering'),
-('Human Resources'),
-('Technicians');
+INSERT INTO `Departments` (`name`, `description`) VALUES 
+('HR', 'Human Resources'),
+('ENG', 'Engineering'),
+('TEC', 'Technicians');
 
 -- -----------------------------------------------------
 -- Table `Certifications`
@@ -49,7 +52,7 @@ INSERT INTO `Certifications` (`name`, `certOrg`, `description`) VALUES
 ('Safety 101', 'OSHA', 'Intro to Safety'),
 ('Drawing Reading 101', 'Internal', 'Intro to Drawing Reading Training'),
 ('Drawing Reading 102', 'Internal', 'Intermediate Level Drawing Reading'),
-('Drawing Reading 103', 'Internal', 'Advance Drawing Reading and Generation'),
+('Drawing Reading 103', 'Internal', 'Advanced Drawing Reading and Generation'),
 ('Ethics Compliance', 'OSHA', 'Ethics At Workplace Training'),
 ('Cyber Security 101', 'IT Compliance', 'Intro to Cyber Attack Awareness'),
 ('Cyber Security 102', 'IT Compliance', 'Intermediate Cyber Attack Awareness'),

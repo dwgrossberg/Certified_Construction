@@ -32,35 +32,19 @@
                 </tr>
             </thead>
             <tbody>
+                {{#each data}}
                 <tr>
                     <td>
-                        <a href="#" onClick="updateDepartment(this)" data-id="1" data-name="HR" data-description="Human Resources Management">Edit</a> |
-                        <a href="#" onClick="deleteDepartment(this)" data-id="1" data-name="HR" data-description="Human Resources Management">Delete</a>
+                        <a href="#" onClick="updateDepartment(this)" data-id={{this.deptID}} data-name={{this.name}} data-description={{this.description}}>Edit</a> |
+                        <a href="#" onClick="deleteDepartment(this)" data-id={{this.deptID}} data-name={{this.name}} data-description={{this.description}}>Delete</a>
                     </td>
-                    <td>1</td>
-                    <td>HR</td>
-                    <td>Human Resources Management</td>
+                    <td>{{this.deptID}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.description}}</td>
                 </tr>
+                {{/each}}
             </tbody>
-            <tr>
-                    <td>
-                        <a href="#" onClick="updateDepartment(this)" data-id="2" data-name="ENG" data-description="Engineering">Edit</a> |
-                        <a href="#" onClick="deleteDepartment(this)" data-id="2" data-name="ENG" data-description="Engineering">Delete</a>
-                    </td>
-                    <td>2</td>
-                    <td>ENG</td>
-                    <td>Engineering</td>
-                </tr>
-            <tr>
-                    <td>
-                        <a href="#" onClick="updateDepartment(this)" data-id="3" data-name="TEC" data-description="Technician">Edit</a> |
-                        <a href="#" onClick="deleteDepartment(this)" data-id="3" data-name="TEC" data-description="Technician">Delete</a>
-                    </td>
-                    <td>3</td>
-                    <td>TEC</td>
-                    <td>Technician</td>
-                </tr>
-            </tbody>
+            
         </table>
     </div>
 
