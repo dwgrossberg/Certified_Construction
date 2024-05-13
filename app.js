@@ -54,8 +54,6 @@ app.get("/employee_certifications", function (req, res) {
   res.render("employee_certifications");
 });
 
-// Heroku deployment
-
 /*
     LISTENER
 */
