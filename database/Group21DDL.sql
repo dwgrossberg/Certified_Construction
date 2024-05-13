@@ -27,10 +27,10 @@ CREATE TABLE IF NOT EXISTS `Departments` (
 ENGINE = InnoDB;
 
 -- Inserts into `Departments` table
-INSERT INTO `Departments` (`name`) VALUES 
-('Engineering'),
-('Human Resources'),
-('Technicians');
+INSERT INTO `Departments` (`name`, `description`) VALUES 
+('HR', 'Human Resources'),
+('ENG', 'Engineering'),
+('TEC', 'Technicians');
 
 -- -----------------------------------------------------
 -- Table `Certifications`
