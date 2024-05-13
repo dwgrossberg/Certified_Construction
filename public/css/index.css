@@ -335,6 +335,10 @@ sup {
 
 /* Insert from here */
 
+.form-container {
+  display: none;
+}
+
 .department-section {
   display: none;
 }
@@ -382,6 +386,14 @@ sup {
 .employeeCertsTable {
   width: 115%;
   margin-left: -45px;
+}
+
+.longInput {
+  width: 400px;
+}
+
+textarea {
+  font-family: inherit;
 }
 
 /* Mobile Styling */

@@ -1,69 +1,10 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <script src="../js/index.js"></script>
     <title>Departments</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f2;
-        }
-        .form-container {
-            display: none;
-        }
-    </style>
-    <script>
-        function showForm(formId) {
-        var forms = document.querySelectorAll('.form-container');
-        forms.forEach(form => {
-            form.style.display = 'none';  
-        });
-        var formToShow = document.getElementById(formId);
-        if (formToShow) {
-            formToShow.style.display = 'block';  
-        }
-    }
-
-
-        function updateDepartment(element) {
-            var id = element.getAttribute('data-id');
-            var name = element.getAttribute('data-name');
-            var description = element.getAttribute('data-description');
-
-            document.getElementById('updateDeptID').value = id;
-            document.getElementById('updateDeptName').value = name;
-            document.getElementById('updateDeptDescription').value = description;
-
-            showForm('update');
-        }
-
-        function deleteDepartment(element) {
-            var id = element.getAttribute('data-id');
-            var name = element.getAttribute('data-name');
-            var description = element.getAttribute('data-description');
-
-            document.getElementById('deleteDeptID').textContent = id;
-            document.getElementById('deleteDeptName').textContent = name;
-            document.getElementById('deleteDeptDescription').textContent = description;
-
-
-            showForm('delete');
-        }
-
-        function addDepartment() {
-            showForm('insert');
-        }
-    </script>
 </head>
 <body>
 <header>
@@ -76,50 +17,52 @@
   <a href="employees">Employees</a>
   <a href="training_sessions">Training Sessions</a>
   <a href="employees_cert">Employee Certifications</a>
-  <a href="employees_train">Employee Training Section</a>
+  <a href="employees_train">Employee Training Sessions</a>
 </nav>
 <main>
-    <button onClick="addDepartment()" class="btn">Add New Department</button>
-    <table>
-        <thead>
+    <div id="browse">
+        <button onClick="newDepartment()" class="btn">Add New Department</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="#" onClick="updateDepartment(this)" data-id="1" data-name="HR" data-description="Human Resources Management">Edit</a> |
+                        <a href="#" onClick="deleteDepartment(this)" data-id="1" data-name="HR" data-description="Human Resources Management">Delete</a>
+                    </td>
+                    <td>1</td>
+                    <td>HR</td>
+                    <td>Human Resources Management</td>
+                </tr>
+            </tbody>
             <tr>
-                <th>Action</th>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
+                    <td>
+                        <a href="#" onClick="updateDepartment(this)" data-id="2" data-name="ENG" data-description="Engineering">Edit</a> |
+                        <a href="#" onClick="deleteDepartment(this)" data-id="2" data-name="ENG" data-description="Engineering">Delete</a>
+                    </td>
+                    <td>2</td>
+                    <td>ENG</td>
+                    <td>Engineering</td>
+                </tr>
             <tr>
-                <td>
-                    <a href="#" onClick="updateDepartment(this)" data-id="1" data-name="HR" data-description="Human Resources Management">Edit</a> |
-                    <a href="#" onClick="deleteDepartment(this)" data-id="1" data-name="HR" data-description="Human Resources Management">Delete</a>
-                </td>
-                <td>1</td>
-                <td>HR</td>
-                <td>Human Resources Management</td>
-            </tr>
-        </tbody>
-          <tr>
-                <td>
-                    <a href="#" onClick="updateDepartment(this)" data-id="2" data-name="ENG" data-description="Engineering">Edit</a> |
-                    <a href="#" onClick="deleteDepartment(this)" data-id="2" data-name="ENG" data-description="Engineering">Delete</a>
-                </td>
-                <td>2</td>
-                <td>ENG</td>
-                <td>Engineering</td>
-            </tr>
-          <tr>
-                <td>
-                    <a href="#" onClick="updateDepartment(this)" data-id="3" data-name="TEC" data-description="Technician">Edit</a> |
-                    <a href="#" onClick="deleteDepartment(this)" data-id="3" data-name="TEC" data-description="Technician">Delete</a>
-                </td>
-                <td>3</td>
-                <td>TEC</td>
-                <td>Technician</td>
-            </tr>
-        </tbody>
-    </table>
+                    <td>
+                        <a href="#" onClick="updateDepartment(this)" data-id="3" data-name="TEC" data-description="Technician">Edit</a> |
+                        <a href="#" onClick="deleteDepartment(this)" data-id="3" data-name="TEC" data-description="Technician">Delete</a>
+                    </td>
+                    <td>3</td>
+                    <td>TEC</td>
+                    <td>Technician</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <div id="insert" class="form-container">
         <form>
@@ -127,7 +70,7 @@
             <label>Name: <input type="text" name="name"></label>
             <label>Description: <input type="text" name="description"></label>
             <button type="submit">Submit</button>
-            <button type="button" onClick="showForm('')">Cancel</button>
+            <button type="button" onClick="browseMain()">Cancel</button>
         </form>
     </div>
 
@@ -138,18 +81,18 @@
             <label>Name: <input type="text" id="updateDeptName" name="name"></label>
             <label>Description: <input type="text" id="updateDeptDescription" name="description"></label>
             <button type="submit">Update</button>
-            <button type="button" onClick="showForm('')">Cancel</button>
+            <button type="button" onClick="browseMain()">Cancel</button>
         </form>
     </div> 
 
-<div id="delete" class="form-container">
+    <div id="delete" class="form-container">
         <form id="deleteDepartmentForm">
             <legend>Delete Department</legend>
             <p>Are you sure you want to delete the department <span id="deleteDeptName"></span> with the following description?</p>
             <p>Description: <span id="deleteDeptDescription"></span></p>
             <input type="hidden" name="departmentID" id="deleteDeptID">
             <button type="submit">Delete</button>
-            <button type="button" onClick="showForm('')">Cancel</button>
+            <button type="button" onClick="browseMain()">Cancel</button>
         </form>
     </div>
 

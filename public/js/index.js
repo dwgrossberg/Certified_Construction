@@ -1,22 +1,6 @@
-// Departments
+// showForm function to toggle between different page forms
 
-function showDepartment(department) {
-  // Hide all department sections
-  var departmentSections = document.querySelectorAll(".department-section");
-  departmentSections.forEach(function (section) {
-    section.style.display = "none";
-  });
-
-  // Show the selected department section
-  var selectedDepartment = document.getElementById(department);
-  if (selectedDepartment) {
-    selectedDepartment.style.display = "block";
-  }
-}
-
-// Certifications
-
-function showCertForms(dowhat) {
+function showForm(dowhat) {
   var sections = ["browse", "insert", "update", "delete"];
   sections.forEach(function (section) {
     var sectionElement = document.getElementById(section);
@@ -28,8 +12,44 @@ function showCertForms(dowhat) {
   });
 }
 
+function browseMain() {
+  showForm("browse");
+}
+
+// Departments
+
+function newDepartment() {
+  showForm("insert");
+}
+
+function updateDepartment(element) {
+  var id = element.getAttribute("data-id");
+  var name = element.getAttribute("data-name");
+  var description = element.getAttribute("data-description");
+
+  document.getElementById("updateDeptID").value = id;
+  document.getElementById("updateDeptName").value = name;
+  document.getElementById("updateDeptDescription").value = description;
+
+  showForm("update");
+}
+
+function deleteDepartment(element) {
+  var id = element.getAttribute("data-id");
+  var name = element.getAttribute("data-name");
+  var description = element.getAttribute("data-description");
+
+  document.getElementById("deleteDeptID").textContent = id;
+  document.getElementById("deleteDeptName").textContent = name;
+  document.getElementById("deleteDeptDescription").textContent = description;
+
+  showForm("delete");
+}
+
+// Certifications
+
 function newCertification() {
-  showCertForms("insert");
+  showForm("insert");
 }
 
 function updateCertification(element) {
@@ -43,7 +63,7 @@ function updateCertification(element) {
   document.getElementById("updateCertOrg").value = certOrg;
   document.getElementById("updateCertDescription").value = description;
 
-  showCertForms("update");
+  showForm("update");
 }
 
 function deleteCertification(element) {
@@ -57,32 +77,17 @@ function deleteCertification(element) {
   document.getElementById("deleteCertOrg").value = certOrg;
   document.getElementById("deleteCertDescription").value = description;
 
-  showCertForms("delete");
-}
-
-function browseCertifications() {
-  showCertForms("browse");
+  showForm("delete");
 }
 
 function showCertAll() {
-  showCertForms("all");
+  showForm("all");
 }
 
 // Employees
 
-function showform(dowhat) {
-  var sections = ["browse", "insert", "update", "delete"];
-  sections.forEach(function (section) {
-    var sectionElement = document.getElementById(section);
-    if (dowhat === "all" || dowhat === section) {
-      sectionElement.style.display = "block"; // Show the section
-    } else {
-      sectionElement.style.display = "none"; // Hide the section
-    }
-  });
-}
 function newEmployee() {
-  showform("insert");
+  showForm("insert");
 }
 
 function updateEmployee(element) {
@@ -99,8 +104,9 @@ function updateEmployee(element) {
   document.getElementById("updateEmployeeEmail").value = email;
   document.getElementById("updateEmployeeDeptID").value = deptid;
 
-  showform("update");
+  showForm("update");
 }
+
 function deleteEmployee(element) {
   var id = element.getAttribute("data-id");
   var name = element.getAttribute("data-name");
@@ -109,32 +115,17 @@ function deleteEmployee(element) {
   document.getElementById("deleteEmployeeIDSpan").textContent = id;
   document.getElementById("deleteEmployeeNameSpan").textContent = name;
 
-  showform("delete");
-}
-function browseEmployees() {
-  showform("browse");
+  showForm("delete");
 }
 
 function showAll() {
-  showform("all");
+  showForm("all");
 }
 
 // Training Sessions
 
-function showTrainingForms(dowhat) {
-  var sections = ["browse", "insert", "update", "delete"];
-  sections.forEach(function (section) {
-    var sectionElement = document.getElementById(section);
-    if (dowhat === "all" || dowhat === section) {
-      sectionElement.style.display = "block"; // Show the section
-    } else {
-      sectionElement.style.display = "none"; // Hide the section
-    }
-  });
-}
-
-function newTraining() {
-  showTrainingForms("insert");
+function newTrainingSession() {
+  showForm("insert");
 }
 
 function updateTrainingSession(element) {
@@ -142,18 +133,16 @@ function updateTrainingSession(element) {
   var trainingDate = element.getAttribute("data-date");
   var trainingLocation = element.getAttribute("data-location");
   var trainingDescription = element.getAttribute("data-description");
-  var trainingCertification = element.getAttribute("data-certification");
-  var trainingEmployees = element.getAttribute("data-employees");
+  var trainingCertification = element.getAttribute("data-cert");
 
   document.getElementById("updateTrainingID").value = trainingID;
   document.getElementById("updateTrainingDate").value = trainingDate;
   document.getElementById("updateTrainingLocation").value = trainingLocation;
   document.getElementById("updateTrainingDescription").value =
     trainingDescription;
-  document.getElementById("updateTrainingCertification").value =
-    trainingCertification;
+  document.getElementById("updateTrainingCert").value = trainingCertification;
 
-  showTrainingForms("update");
+  showForm("update");
 }
 
 function deleteTrainingSession(element) {
@@ -161,27 +150,20 @@ function deleteTrainingSession(element) {
   var trainingDate = element.getAttribute("data-date");
   var trainingLocation = element.getAttribute("data-location");
   var trainingDescription = element.getAttribute("data-description");
-  var trainingCertification = element.getAttribute("data-certification");
-  var trainingEmployees = element.getAttribute("data-employees");
+  var trainingCertification = element.getAttribute("data-cert");
 
   document.getElementById("deleteTrainingID").value = trainingID;
   document.getElementById("deleteTrainingDate").value = trainingDate;
   document.getElementById("deleteTrainingLocation").value = trainingLocation;
   document.getElementById("deleteTrainingDescription").value =
     trainingDescription;
-  document.getElementById("deleteTrainingCertification").value =
-    trainingCertification;
-  document.getElementById("deleteTrainingEmployees").value = trainingEmployees;
+  document.getElementById("deleteTrainingCert").value = trainingCertification;
 
-  showTrainingForms("delete");
-}
-
-function browseTraining() {
-  showTrainingForms("browse");
+  showForm("delete");
 }
 
 function showTrainingAll() {
-  showTrainingForms("all");
+  showForm("all");
 }
 
 // Employee Certifications
@@ -234,10 +216,6 @@ function deleteEmployeeCert(element) {
     employeeCertExpirations;
 
   showEmployeeCertForms("delete");
-}
-
-function browseEmployeeCerts() {
-  showEmployeeCertForms("browse");
 }
 
 function showEmployeeCerts() {
