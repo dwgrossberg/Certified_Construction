@@ -1,78 +1,10 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <script src="../js/index.js"></script>
     <title>Employee Certifications</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f2;
-        }
-        .form-container {
-            display: none;
-        }
-        button {
-            margin: 5px;
-        }
-    </style>
-    <script>
-    function showForm(formId) {
-        var forms = document.querySelectorAll('.form-container');
-        forms.forEach(form => {
-            form.style.display = 'none';  
-        });
-        var formToShow = document.getElementById(formId);
-        if (formToShow) {
-            formToShow.style.display = 'block';  
-        }
-    }
-
-    function hideForm() {
-        var forms = document.querySelectorAll('.form-container');
-        forms.forEach(form => {
-            form.style.display = 'none';
-        });
-    }
-
-    function updateCertification(element) {
-        var id = element.getAttribute('data-id');
-        var employeeID = element.getAttribute('data-employeeID');
-        var certID = element.getAttribute('data-certID');
-
-        document.getElementById('updateCertID').value = id;
-        document.getElementById('updateEmployeeID').value = employeeID;
-        document.getElementById('updateCertificationID').value = certID;
-
-        showForm('update');
-    }
-
-    function deleteCertification(element) {
-        var id = element.getAttribute('data-id');
-        var employeeID = element.getAttribute('data-employeeID');
-        var certID = element.getAttribute('data-certID');
-
-        document.getElementById('deleteEmployeeID').textContent = employeeID;
-        document.getElementById('deleteCertificationID').textContent = certID;
-        document.getElementById('deleteCertID').value = id;
-        
-        showForm('delete');
-    }
-
-
-    function addCertification() {
-        showForm('insert');
-    }
-</script>
-
 </head>
 <body>
 <header>
@@ -85,14 +17,15 @@
   <a href="employees">Employees</a>
   <a href="training_sessions">Training Sessions</a>
   <a href="employees_cert">Employee Certifications</a>
-  <a href="employees_train">Employee Training Section</a>
+  <a href="employees_train">Employee Trainings</a>
 </nav>
 <main>
-    <button onClick="addCertification()" class="btn">Add New Certification</button>
+    <button onClick="newEmployeeCert()" class="btn">Add New Certification</button>
     <table>
         <thead>
             <tr>
                 <th>Action</th>
+                <th>Employee Certification ID</th>
                 <th>Employee ID</th>
                 <th>Certification ID</th>
                 <th>Date Obtained</th>
@@ -100,168 +33,19 @@
             </tr>
         </thead>
         <tbody>
+            {{#each data}}
             <tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="1" data-employeeID="1" data-certID="1">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="1" data-employeeID="1" data-certID="1">Delete</a>
-    </td>
-    <td>1</td>
-    <td>1</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="2" data-employeeID="1" data-certID="2">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="2" data-employeeID="1" data-certID="2">Delete</a>
-    </td>
-    <td>1</td>
-    <td>2</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="3" data-employeeID="1" data-certID="3">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="3" data-employeeID="1" data-certID="3">Delete</a>
-    </td>
-    <td>1</td>
-    <td>3</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="4" data-employeeID="1" data-certID="4">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="4" data-employeeID="1" data-certID="4">Delete</a>
-    </td>
-    <td>1</td>
-    <td>4</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="5" data-employeeID="1" data-certID="5">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="5" data-employeeID="1" data-certID="5">Delete</a>
-    </td>
-    <td>1</td>
-    <td>5</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="6" data-employeeID="1" data-certID="6">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="6" data-employeeID="1" data-certID="6">Delete</a>
-    </td>
-    <td>1</td>
-    <td>6</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="7" data-employeeID="1" data-certID="6">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="7" data-employeeID="1" data-certID="6">Delete</a>
-    </td>
-    <td>1</td>
-    <td>6</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="8" data-employeeID="2" data-certID="1">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="8" data-employeeID="2" data-certID="1">Delete</a>
-    </td>
-    <td>2</td>
-    <td>1</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="9" data-employeeID="2" data-certID="2">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="9" data-employeeID="2" data-certID="2">Delete</a>
-    </td>
-    <td>2</td>
-    <td>2</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="10" data-employeeID="2" data-certID="3">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="10" data-employeeID="2" data-certID="3">Delete</a>
-    </td>
-    <td>2</td>
-    <td>3</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="11" data-employeeID="2" data-certID="4">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="11" data-employeeID="2" data-certID="4">Delete</a>
-    </td>
-    <td>2</td>
-    <td>4</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="12" data-employeeID="2" data-certID="5">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="12" data-employeeID="2" data-certID="5">Delete</a>
-    </td>
-    <td>2</td>
-    <td>5</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="13" data-employeeID="2" data-certID="6">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="13" data-employeeID="2" data-certID="6">Delete</a>
-    </td>
-    <td>2</td>
-    <td>6</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="14" data-employeeID="3" data-certID="5">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="14" data-employeeID="3" data-certID="5">Delete</a>
-    </td>
-    <td>3</td>
-    <td>5</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="15" data-employeeID="3" data-certID="6">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="15" data-employeeID="3" data-certID="6">Delete</a>
-    </td>
-    <td>3</td>
-    <td>6</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
-<tr>
-    <td>
-        <a href="#" onClick="updateCertification(this)" data-id="16" data-employeeID="3" data-certID="7">Edit</a> |
-        <a href="#" onClick="deleteCertification(this)" data-id="16" data-employeeID="3" data-certID="7">Delete</a>
-    </td>
-    <td>3</td>
-    <td>7</td>
-    <td>2023-04-29</td>
-    <td>2024-04-29</td>
-</tr>
+                <td>
+                    <a href="#" onClick="updateEmployeeCert(this)" data-id={{data.employeeCertID}} data-employeeID={{data.employeeID}} data-certID={{data.certID}} data-dateObtained={{data.dateObtained}} data-expirationDate={{data.expirationDate}}>Edit</a> |
+                    <a href="#" onClick="deleteEmployeeCert(this)" data-id={{data.employeeCertID}} data-employeeID={{data.employeeID}} data-certID={{data.certID}} data-dateObtained={{data.dateObtained}} data-expirationDate={{data.expirationDate}}>Delete</a>
+                </td>
+                <td>{{data.employeeCertID}}</td>
+                <td>{{data.employeeID}}</td>
+                <td>{{data.certID}}</td>
+                <td>{{data.dateObtained}}</td>
+                <td>{{data.expirationDate}}</td>
+            </tr>
+            {{/each}}
         </tbody>
     </table>
 
@@ -273,37 +57,33 @@
             <label>Date Obtained: <input type="date" name="dateObtained"></label>
             <label>Expiration Date: <input type="date" name="expirationDate"></label>
             <button type="submit">Submit</button>
-            <button type="button" onClick="showForm('')">Cancel</button>
+            <button type="button" onClick="broseMain()">Cancel</button>
         </form>
     </div>
 
     <div id="update" class="form-container">
         <form>
             <legend>Update Certification</legend>
-            <input type="hidden" id="updateCertID" name="id">
-            <label>Employee ID: <input type="number" id="updateEmployeeID" name="employeeID" disabled></label>
-            <label>Certification ID: <input type="number" id="updateCertificationID" name="certID" disabled></label>
-            <label>Date Obtained: <input type="date" id="updateDateObtained" name="dateObtained"></label>
-            <label>Expiration Date: <input type="date" id="updateExpirationDate" name="expirationDate"></label>
+            <input type="hidden" id="updateEmployeeCertID" name="id">
+            <label>Employee ID: <input type="number" id="updateEmployeeCertEmployeeID" name="employeeID" disabled></label>
+            <label>Certification ID: <input type="number" id="updateEmployeeCertCertID" name="certID" disabled></label>
+            <label>Date Obtained: <input type="date" id="updateEmployeeCertDateObtained" name="dateObtained"></label>
+            <label>Expiration Date: <input type="date" id="updateEmployeeCertExpirationDate" name="expirationDate"></label>
             <button type="submit">Update</button>
-            <button type="button" onClick="showForm('')">Cancel</button>
+            <button type="button" onClick="broseMain()">Cancel</button>
         </form>
     </div> 
 
     <div id="delete" class="form-container">
     <form id="deleteCertForm">
         <legend>Delete Certification</legend>
-        <p>Are you sure you want to delete the certification for Employee ID: <span id="deleteEmployeeID"></span> and Certification ID: <span id="deleteCertificationID"></span>?</p>
-        <input type="hidden" name="id" id="deleteCertID">
+        <p>Are you sure you want to delete the certification for Employee ID: <span id="deleteEmployeeCertEmployeeID"></span> and Certification ID: <span id="deleteEmployeeCertCertID"></span>?</p>
+        <input type="hidden" name="id" id="deleteEmployeeCertID" />
         <button type="submit">Delete</button>
-        <button type="button" onClick="showForm('')">Cancel</button>
+        <button type="button" onClick="broseMain()">Cancel</button>
     </form>
     </div>
-
-
 </main>
-
-
 <footer>
     <p>© 2023 Company Name. All rights reserved.</p>
 </footer>

@@ -8,8 +8,6 @@ SET AUTOCOMMIT = 0;
 
 -- -----------------------------------------------------
 
-USE cs340_grossbed
-
 -- Drop tables in reverse order of creation to avoid foreign key issues
 DROP TABLE IF EXISTS `EmployeesCertifications`;
 DROP TABLE IF EXISTS `EmployeesTrainingSessions`;
@@ -96,7 +94,7 @@ INSERT INTO `Employees` (`fName`, `lName`, `email`, `deptID`) VALUES
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `TrainingSessions` (
   `trainingID` INT NOT NULL AUTO_INCREMENT,
-  `date` DATETIME NOT NULL,
+  `date` DATE NOT NULL,
   `location` VARCHAR(90) NOT NULL,
   `description` VARCHAR(145) NULL DEFAULT NULL,
   `certID` INT NOT NULL,
@@ -112,16 +110,16 @@ CREATE TABLE IF NOT EXISTS `TrainingSessions` (
 ENGINE = InnoDB;
 
 INSERT INTO `TrainingSessions` (`date`, `location`, `description`, `certID`) VALUES 
-('2024-04-10 00:00:00', 'A1', 'Building A - Classroom 1', 1),
-('2024-04-12 00:00:00', 'A2', 'Building A - Classroom 1', 2),
-('2024-04-14 00:00:00', 'A3', 'Building A - Classroom 2', 3),
-('2024-04-16 00:00:00', 'A4', 'Building A - Classroom 3', 4),
-('2024-04-18 00:00:00', 'A5', 'Building A - Classroom 4', 5),
-('2024-04-20 00:00:00', 'B1', 'Building B - Classroom 1', 6),
-('2024-04-22 00:00:00', 'B2', 'Building B - Classroom 2', 7),
-('2024-04-24 00:00:00', 'B3', 'Building B - Classroom 3', 8),
-('2024-04-26 00:00:00', 'B4', 'Building B - Classroom 4', 9),
-('2024-04-28 00:00:00', 'B5', 'Building B - Classroom 5', 10);
+('2024-04-10', 'A1', 'Building A - Classroom 1', 1),
+('2024-04-12', 'A2', 'Building A - Classroom 1', 2),
+('2024-04-14', 'A3', 'Building A - Classroom 2', 3),
+('2024-04-16', 'A4', 'Building A - Classroom 3', 4),
+('2024-04-18', 'A5', 'Building A - Classroom 4', 5),
+('2024-04-20', 'B1', 'Building B - Classroom 1', 6),
+('2024-04-22', 'B2', 'Building B - Classroom 2', 7),
+('2024-04-24', 'B3', 'Building B - Classroom 3', 8),
+('2024-04-26', 'B4', 'Building B - Classroom 4', 9),
+('2024-04-28', 'B5', 'Building B - Classroom 5', 10);
 
 -- -----------------------------------------------------
 -- Table `EmployeesTrainingSessions`

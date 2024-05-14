@@ -5,7 +5,7 @@
 */
 var express = require("express"); // We are using the express library for the web server
 var app = express(); // We need to instantiate an express object to interact with the server in our code
-const PORT = process.env.PORT || 1911; // Set a port number at the top so it's easy to change in the future
+const PORT = process.env.PORT || 1912; // Set a port number at the top so it's easy to change in the future
 
 //handlebars setup
 
@@ -44,8 +44,13 @@ app.get('/departments', function(req, res) {
 app.get("/certifications", function (req, res) {
   let query1 = "SELECT * FROM Certifications;";
   db.pool.query(query1, function (error, rows, fields) {
-    res.render('certifications', { data: rows });
-  })});
+    if (error) {
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.render('certifications', { data: rows });
+    }
+  })
+});
 
 app.get("/employees", function (req, res) {
   db.pool.query('SELECT * FROM Employees;', function(error, results) {
@@ -57,13 +62,37 @@ app.get("/employees", function (req, res) {
 });
 });
 
+var hbs = exphbs.create({});
+
+// hbs.handlebars.registerHelper('spliceDate', function (date) {
+//   strDate = date.split('T')[0];
+//   console.log(typeof date, strDate);
+//   return strDate
+// });
+
 app.get("/training_sessions", function (req, res) {
-  res.render("training_sessions");
+  let query1 = "SELECT * FROM TrainingSessions;";
+  let query2 = "SELECT Certifications.certID as cert_ID, Certifications.name as cert_name FROM Certifications JOIN TrainingSessions ON Certifications.certID = TrainingSessions.certID;"
+  db.pool.query(query1, function (error, rows, fields) {
+    if (error) {
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.render('training_sessions', { data: rows });
+    }
+  })
 });
 
 app.get("/employees_cert", function (req, res) {
-  res.render("employees_cert");
+  let query1 = "SELECT * FROM EmployeesCertifications;";
+  db.pool.query(query1, function (error, rows, fields) {
+    if (error) {
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.render('employees_cert', { data: rows });
+    }
+  })
 });
+
 app.get("/employees_train", function (req, res) {
   res.render("employees_train");
 });

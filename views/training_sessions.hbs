@@ -35,287 +35,36 @@
             </tr>
           </thead>
           <tbody>
+            {{#each data}}
             <tr>
               <td>
                 <a
                   href="#"
                   onClick="updateTrainingSession(this)"
-                  data-id="1"
-                  data-date="2024-04-10"
-                  data-location="A1"
-                  data-description="Building A - Classroom 1"
-                  data-cert="Safety 101"
+                  data-id={{this.trainingID}}
+                  data-date={{this.date}}
+                  data-location={{this.location}}
+                  data-description={{this.description}}
+                  data-cert={{this.certID}}
                 >Edit</a>
                 |
                 <a
                   href="#"
                   onClick="deleteTrainingSession(this)"
-                  data-id="1"
-                  data-date="2024-04-10"
-                  data-location="A1"
-                  data-description="Building A - Classroom 1"
-                  data-cert="Safety 101"
+                  data-id={{this.trainingID}}
+                  data-date={{this.date}}
+                  data-location={{this.location}}
+                  data-description={{this.description}}
+                  data-cert={{this.certID}}
                 >Delete</a>
               </td>
-              <td>1</td>
-              <td>2024-04-10</td>
-              <td>A1</td>
-              <td>Building A - Classroom 1</td>
-              <td>Safety 101</td>
+              <td>{{this.trainingID}}</td>
+              <td>{{this.date}}</td>
+              <td>{{this.location}}</td>
+              <td>{{this.description}}</td>
+              <td>{{this.certID}}</td>
             </tr>
-            <tr>
-              <td>
-                <a
-                  href="#"
-                  onClick="updateTrainingSession(this)"
-                  data-id="2"
-                  data-date="2024-04-12"
-                  data-location="A2"
-                  data-description="Building A - Classroom 1"
-                  data-cert="Drawing Reading 101"
-                >Edit</a>
-                |
-                <a
-                  href="#"
-                  onClick="deleteTrainingSession(this)"
-                  data-id="Drawing Reading 101"
-                  data-date="2024-04-12"
-                  data-location="A2"
-                  data-description="Building A - Classroom 1"
-                  data-cert="Drawing Reading 101"
-                >Delete</a>
-              </td>
-              <td>2</td>
-              <td>2024-04-12</td>
-              <td>A2</td>
-              <td>Building A - Classroom 1</td>
-              <td>Drawing Reading 101</td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="#"
-                  onClick="updateTrainingSession(this)"
-                  data-id="3"
-                  data-date="2024-04-14"
-                  data-location="A3"
-                  data-description="Building A - Classroom 2"
-                  data-cert="Drawing Reading 102"
-                >Edit</a>
-                |
-                <a
-                  href="#"
-                  onClick="deleteTrainingSession(this)"
-                  data-id="Drawing Reading 102"
-                  data-date="2024-04-14"
-                  data-location="A3"
-                  data-description="Building A - Classroom 2"
-                  data-cert="Drawing Reading 102"
-                >Delete</a>
-              </td>
-              <td>3</td>
-              <td>2024-04-14</td>
-              <td>A3</td>
-              <td>Building A - Classroom 2</td>
-              <td>Drawing Reading 102</td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="#"
-                  onClick="updateTrainingSession(this)"
-                  data-id="4"
-                  data-date="2024-04-16"
-                  data-location="A4"
-                  data-description="Building A - Classroom 3"
-                  data-cert="Drawing Reading 103"
-                >Edit</a>
-                |
-                <a
-                  href="#"
-                  onClick="deleteTrainingSession(this)"
-                  data-id="4"
-                  data-date="2024-04-16"
-                  data-location="A4"
-                  data-description="Building A - Classroom 3"
-                  data-cert="Drawing Reading 103"
-                >Delete</a>
-              </td>
-              <td>4</td>
-              <td>2024-04-16</td>
-              <td>A4</td>
-              <td>Building A - Classroom 3</td>
-              <td>Drawing Reading 103</td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="#"
-                  onClick="updateTrainingSession(this)"
-                  data-id="5"
-                  data-date="2024-04-18"
-                  data-location="A5"
-                  data-description="Building A - Classroom 4"
-                  data-cert="Ethics Compliance"
-                >Edit</a>
-                |
-                <a
-                  href="#"
-                  onClick="deleteTrainingSession(this)"
-                  data-id="5"
-                  data-date="2024-04-18"
-                  data-location="A5"
-                  data-description="Building A - Classroom 4"
-                  data-cert="Ethics Compliance"
-                >Delete</a>
-              </td>
-              <td>5</td>
-              <td>2024-04-18</td>
-              <td>A5</td>
-              <td>Building A - Classroom 4</td>
-              <td>Ethics Compliance</td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="#"
-                  onClick="updateTrainingSession(this)"
-                  data-id="6"
-                  data-date="2024-04-20"
-                  data-location="B1"
-                  data-description="Building B - Classroom 1"
-                  data-cert="Cyber Security 101"
-                >Edit</a>
-                |
-                <a
-                  href="#"
-                  onClick="deleteTrainingSession(this)"
-                  data-id="6"
-                  data-date="2024-04-20"
-                  data-location="B1"
-                  data-description="Building B - Classroom 1"
-                  data-cert="Cyber Security 101"
-                >Delete</a>
-              </td>
-              <td>6</td>
-              <td>2024-04-20</td>
-              <td>B1</td>
-              <td>Building B - Classroom 1</td>
-              <td>Cyber Security 101</td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="#"
-                  onClick="updateTrainingSession(this)"
-                  data-id="7"
-                  data-date="2024-04-22"
-                  data-location="B2"
-                  data-description="Building B - Classroom 2"
-                  data-cert="Cyber Security 102"
-                >Edit</a>
-                |
-                <a
-                  href="#"
-                  onClick="deleteTrainingSession(this)"
-                  data-id="7"
-                  data-date="2024-04-22"
-                  data-location="B2"
-                  data-description="Building B - Classroom 2"
-                  data-cert="Cyber Security 102"
-                >Delete</a>
-              </td>
-              <td>7</td>
-              <td>2024-04-22</td>
-              <td>B2</td>
-              <td>Building B - Classroom 2</td>
-              <td>Cyber Security 102</td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="#"
-                  onClick="updateTrainingSession(this)"
-                  data-id="8"
-                  data-date="2024-04-24"
-                  data-location="B3"
-                  data-description="Building B - Classroom 3"
-                  data-cert="Torque Cert"
-                >Edit</a>
-                |
-                <a
-                  href="#"
-                  onClick="deleteTrainingSession(this)"
-                  data-id="8"
-                  data-date="2024-04-24"
-                  data-location="B3"
-                  data-description="Building B - Classroom 3"
-                  data-cert="Torque Cert"
-                >Delete</a>
-              </td>
-              <td>8</td>
-              <td>2024-04-24</td>
-              <td>B3</td>
-              <td>Building B - Classroom 3</td>
-              <td>Torque Cert</td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="#"
-                  onClick="updateTrainingSession(this)"
-                  data-id="9"
-                  data-date="2024-04-26"
-                  data-location="B4"
-                  data-description="Building B - Classroom 4"
-                  data-cert="Sealing Cert"
-                >Edit</a>
-                |
-                <a
-                  href="#"
-                  onClick="deleteTrainingSession(this)"
-                  data-id="9"
-                  data-date="2024-04-26"
-                  data-location="B4"
-                  data-description="Building B - Classroom 4"
-                  data-cert="Sealing Cert"
-                >Delete</a>
-              </td>
-              <td>9</td>
-              <td>2024-04-26</td>
-              <td>B4</td>
-              <td>Building B - Classroom 4</td>
-              <td>Sealing Cert</td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="#"
-                  onClick="updateTrainingSession(this)"
-                  data-id="10"
-                  data-date="2024-04-28"
-                  data-location="B5"
-                  data-description="Building B - Classroom 5"
-                  data-cert="Crane Cert"
-                >Edit</a>
-                |
-                <a
-                  href="#"
-                  onClick="deleteTrainingSession(this)"
-                  data-id="10"
-                  data-date="2024-04-28"
-                  data-location="B5"
-                  data-description="Building B - Classroom 5"
-                  data-cert="Crane Cert"
-                >Delete</a>
-              </td>
-              <td>10</td>
-              <td>2024-04-28</td>
-              <td>B5</td>
-              <td>Building B - Classroom 5</td>
-              <td>Crane Cert</td>
-            </tr>
-
+            {{/each}}
           </tbody>
         </table>
       </div>

@@ -168,56 +168,43 @@ function showTrainingAll() {
 
 // Employee Certifications
 
-function showEmployeeCertForms(dowhat) {
-  var sections = ["browse", "insert", "update", "delete"];
-  sections.forEach(function (section) {
-    var sectionElement = document.getElementById(section);
-    if (dowhat === "all" || dowhat === section) {
-      sectionElement.style.display = "block"; // Show the section
-    } else {
-      sectionElement.style.display = "none"; // Hide the section
-    }
-  });
-}
-
 function newEmployeeCert() {
-  showEmployeeCertForms("insert");
+  showForm("insert");
 }
 
 function updateEmployeeCert(element) {
   var employeeCertID = element.getAttribute("data-id");
-  var employeeCertFName = element.getAttribute("data-fname");
-  var employeeCertLName = element.getAttribute("data-lname");
-  var employeeCerts = element.getAttribute("data-certs");
-  var employeeCertExpirations = element.getAttribute("data-expirationDates");
+  var employeeCertEmployeeID = element.getAttribute("data-employeeID");
+  var employeeCertCertID = element.getAttribute("data-certID");
+  var employeeCertDateObtained = element.getAttribute("data-dateObtained");
+  var employeeCertExpirationDate = element.getAttribute("data-expirationDate");
 
   document.getElementById("updateEmployeeCertID").value = employeeCertID;
-  document.getElementById("updateEmployeeCertFName").value = employeeCertFName;
-  document.getElementById("updateEmployeeCertLName").value = employeeCertLName;
-  document.getElementById("updateEmployeeCert").value = employeeCerts;
-  document.getElementById("updateEmployeeCertDate").value =
-    employeeCertExpirations;
+  document.getElementById("updateEmployeeCertEmployeeID").value = employeeCertEmployeeID;
+  document.getElementById("updateEmployeeCertCertID").value = employeeCertCertID;
+  document.getElementById("updateEmployeeCertDateObtained").value = employeeCertDateObtained;
+  document.getElementById("updateEmployeeCertExpirationDate").value = employeeCertExpirationDate;
 
-  showEmployeeCertForms("update");
+
+  showForm("update");
 }
 
 function deleteEmployeeCert(element) {
   var employeeCertID = element.getAttribute("data-id");
-  var employeeCertFName = element.getAttribute("data-fname");
-  var employeeCertLName = element.getAttribute("data-lname");
-  var employeeCerts = element.getAttribute("data-certs");
-  var employeeCertExpirations = element.getAttribute("data-expirationDates");
+  var employeeCertEmployeeID = element.getAttribute("data-employeeID");
+  var employeeCertCertID = element.getAttribute("data-certID");
+  var employeeCertDateObtained = element.getAttribute("data-dateObtained");
+  var employeeCertExpirationDate = element.getAttribute("data-expirationDate");
 
-  document.getElementById("deleteEmployeeCertID").value = employeeCertID;
-  document.getElementById("deleteEmployeeCertFName").value = employeeCertFName;
-  document.getElementById("deleteEmployeeCertLName").value = employeeCertLName;
-  document.getElementById("deleteEmployeeCert").value = employeeCerts;
-  document.getElementById("deleteEmployeeCertDate").value =
-    employeeCertExpirations;
+  document.getElementById("updateEmployeeCertID").value = employeeCertID;
+  document.getElementById("updateEmployeeCertEmployeeID").value = employeeCertEmployeeID;
+  document.getElementById("updateEmployeeCertCertID").value = employeeCertCertID;
+  document.getElementById("updateEmployeeCertDateObtained").value = employeeCertDateObtained;
+  document.getElementById("updateEmployeeCertExpirationDate").value = employeeCertExpirationDate;
 
-  showEmployeeCertForms("delete");
+  showForm("delete");
 }
 
 function showEmployeeCerts() {
-  showEmployeeCertForms("all");
+  showForm("all");
 }
