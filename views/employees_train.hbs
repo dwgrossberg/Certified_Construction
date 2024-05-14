@@ -2,8 +2,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="../css/index.css" />
-    <script src="../js/index.js"></script>
     <title>Employee Trainings</title>
   </head>
   <body>
@@ -17,7 +15,7 @@
     <a href="employees">Employees</a>
     <a href="training_sessions">Training Sessions</a>
     <a href="employees_cert">Employee Certifications</a>
-    <a href="employees_train">Employee Trainings</a>
+    <a href="employees_train">Employee Training Sessions</a>
     </nav>
     <main>
       <div id="browse">
@@ -27,8 +25,9 @@
           <thead>
             <tr>
               <th>Action</th>
-              <th>Employee ID</th>
-              <th>Training ID</th>
+              <th class="rowID employeeCertID">ID</th>
+              <th>Employee</th>
+              <th>Training</th>
             </tr>
           </thead>
           <tbody>
@@ -38,6 +37,7 @@
                   <a
                     href="#"
                     onClick="updateEmployeeTrainingSession(this)"
+                    data-employeeTrainingID={{this.employeeTrainingID}}
                     data-employeeID={{this.employeeID}}
                     data-trainingID={{this.trainingID}}
                   >Edit</a>
@@ -45,10 +45,12 @@
                   <a
                     href="#"
                     onClick="deleteEmployeeTrainingSession(this)"
+                    data-employeeTrainingID={{this.employeeTrainingID}}
                     data-employeeID={{this.employeeID}}
                     data-trainingID={{this.trainingID}}
                   >Delete</a>
                 </td>
+                <td>{{this.employeeTrainingID}}</td>
                 <td>{{this.employeeID}}</td>
                 <td>{{this.trainingID}}</td>
               </tr>
