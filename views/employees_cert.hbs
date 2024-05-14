@@ -20,7 +20,7 @@
   <a href="employees_train">Employee Trainings</a>
 </nav>
 <main>
-    <button onClick="newEmployeeCert()" class="btn">Add New Certification</button>
+    <button onClick="newEmployeeCert()" class="btn">Add New Employee Certification</button>
     <table>
         <thead>
             <tr>
@@ -39,11 +39,11 @@
                     <a href="#" onClick="updateEmployeeCert(this)" data-id={{data.employeeCertID}} data-employeeID={{data.employeeID}} data-certID={{data.certID}} data-dateObtained={{data.dateObtained}} data-expirationDate={{data.expirationDate}}>Edit</a> |
                     <a href="#" onClick="deleteEmployeeCert(this)" data-id={{data.employeeCertID}} data-employeeID={{data.employeeID}} data-certID={{data.certID}} data-dateObtained={{data.dateObtained}} data-expirationDate={{data.expirationDate}}>Delete</a>
                 </td>
-                <td>{{data.employeeCertID}}</td>
-                <td>{{data.employeeID}}</td>
-                <td>{{data.certID}}</td>
-                <td>{{data.dateObtained}}</td>
-                <td>{{data.expirationDate}}</td>
+                <td>{{this.employeeCertID}}</td>
+                <td>{{this.employeeID}}</td>
+                <td>{{this.certID}}</td>
+                <td>{{this.dateObtained}}</td>
+                <td>{{this.expirationDate}}</td>
             </tr>
             {{/each}}
         </tbody>
@@ -51,7 +51,7 @@
 
      <div id="insert" class="form-container">
         <form>
-            <legend>Add New Certification</legend>
+            <legend>Add New Employee Certification</legend>
             <label>Employee ID: <input type="number" name="employeeID"></label>
             <label>Certification ID: <input type="number" name="certID"></label>
             <label>Date Obtained: <input type="date" name="dateObtained"></label>
@@ -63,7 +63,7 @@
 
     <div id="update" class="form-container">
         <form>
-            <legend>Update Certification</legend>
+            <legend>Update Employee Certification</legend>
             <input type="hidden" id="updateEmployeeCertID" name="id">
             <label>Employee ID: <input type="number" id="updateEmployeeCertEmployeeID" name="employeeID" disabled></label>
             <label>Certification ID: <input type="number" id="updateEmployeeCertCertID" name="certID" disabled></label>
@@ -76,7 +76,7 @@
 
     <div id="delete" class="form-container">
     <form id="deleteCertForm">
-        <legend>Delete Certification</legend>
+        <legend>Delete Employee Certification</legend>
         <p>Are you sure you want to delete the certification for Employee ID: <span id="deleteEmployeeCertEmployeeID"></span> and Certification ID: <span id="deleteEmployeeCertCertID"></span>?</p>
         <input type="hidden" name="id" id="deleteEmployeeCertID" />
         <button type="submit">Delete</button>

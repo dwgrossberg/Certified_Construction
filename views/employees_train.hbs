@@ -25,8 +25,8 @@
         <thead>
             <tr>
                 <th>Action</th>
-                <th>Employee</th>
-                <th>Training Session</th>
+                <th>Employee ID</th>
+                <th>Training ID</th>
             </tr>
         </thead>
         <tbody>
@@ -36,8 +36,8 @@
                     <a href="#" onClick="updateEmployeeTrainingSession(this)" data-employeeID="1" data-trainingID="4">Edit</a> |
                     <a href="#" onClick="deleteEmployeeTrainingSession(this)" data-employeeID="1" data-trainingID="4">Delete</a>
                 </td>
-                <td>1</td>
-                <td>4</td>
+                <td>{{this.employeeID}}</td>
+                <td>{{this.trainingID}}</td>
         </tr>
         {{/each}}
         </tbody>

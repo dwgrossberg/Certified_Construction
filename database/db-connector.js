@@ -21,7 +21,7 @@ const credentials = {
 };
 
 
-var dbUser = process.env.DB_USER || 'grossbed'; // Default to 'duongdi' if not set
+var dbUser = process.env.DB_USER || 'duongdi'; // Default to 'duongdi' if not set
 
 
 var pool = mysql.createPool(credentials[dbUser]);
