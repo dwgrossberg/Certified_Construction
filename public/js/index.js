@@ -209,12 +209,12 @@ function addEmployeeTrainingSession() {
     showForm('insert');
 }
 
-function updateEmployeeTrainingSession(element) {q
+function updateEmployeeTrainingSession(element) {
     var employeeID = element.getAttribute('data-employeeID');
     var trainingID = element.getAttribute('data-trainingID');
 
-    document.getElementById('updateEmployeeTrainingSessionEmployeeID').value = employeeID;
-    document.getElementById('updateEmployeeTrainingSessionTrainingID').value = trainingID;
+    document.getElementById('updateEmployeeTrainingEmployeeID').value = employeeID;
+    document.getElementById('updateEmployeeTrainingTrainingID').value = trainingID;
 
     showForm('update');
 }
@@ -223,8 +223,8 @@ function deleteEmployeeTrainingSession(element) {
     var employeeID = element.getAttribute('data-employeeID');
     var trainingID = element.getAttribute('data-trainingID');
 
-    document.getElementById('deleteEmployeeTrainingSessionEmployeeID').textContent = employeeID;
-    document.getElementById('deleteEmployeeTrainingSessionTrainingID').textContent = trainingID;
+    document.getElementById('deleteEmployeeTrainingSessionEmployeeID').value = employeeID;
+    document.getElementById('deleteEmployeeTrainingSessionTrainingID').value = trainingID;
 
     showForm('delete');
 }
