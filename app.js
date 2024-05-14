@@ -94,7 +94,14 @@ app.get("/employees_cert", function (req, res) {
 });
 
 app.get("/employees_train", function (req, res) {
-  res.render("employees_train");
+  let query1 = "SELECT * FROM EmployeesTrainingSessions;";
+  db.pool.query(query1, function (error, rows, fields) {
+    if (error) {
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.render('employees_train', { data: rows });
+    }
+  })
 });
 
 /*

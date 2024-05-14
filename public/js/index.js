@@ -196,15 +196,41 @@ function deleteEmployeeCert(element) {
   var employeeCertDateObtained = element.getAttribute("data-dateObtained");
   var employeeCertExpirationDate = element.getAttribute("data-expirationDate");
 
-  document.getElementById("updateEmployeeCertID").value = employeeCertID;
-  document.getElementById("updateEmployeeCertEmployeeID").value = employeeCertEmployeeID;
-  document.getElementById("updateEmployeeCertCertID").value = employeeCertCertID;
-  document.getElementById("updateEmployeeCertDateObtained").value = employeeCertDateObtained;
-  document.getElementById("updateEmployeeCertExpirationDate").value = employeeCertExpirationDate;
+  document.getElementById("deleteEmployeeCertID").value = employeeCertID;
+  document.getElementById("deleteEmployeeCertEmployeeID").value = employeeCertEmployeeID;
+  document.getElementById("deleteEmployeeCertCertID").value = employeeCertCertID;
+  document.getElementById("deleteEmployeeCertDateObtained").value = employeeCertDateObtained;
+  document.getElementById("deleteEmployeeCertExpirationDate").value = employeeCertExpirationDate;
 
   showForm("delete");
 }
 
 function showEmployeeCerts() {
   showForm("all");
+}
+
+// Employee Training Sessions
+
+function addEmployeeTrainingSession() {
+    showForm('insert');
+}
+
+function updateEmployeeTrainingSession(element) {
+    var employeeID = element.getAttribute('data-employeeID');
+    var trainingID = element.getAttribute('data-trainingID');
+
+    document.getElementById('updateEmployeeTrainingSessionEmployeeID').value = employeeID;
+    document.getElementById('updateEmployeeTrainingSessionTrainingID').value = trainingID;
+
+    showForm('update');
+}
+
+function deleteEmployeeTrainingSession(element) {
+    var employeeID = element.getAttribute('data-employeeID');
+    var trainingID = element.getAttribute('data-trainingID');
+
+    document.getElementById('deleteEmployeeTrainingSessionEmployeeID').textContent = employeeID;
+    document.getElementById('deleteEmployeeTrainingSessionTrainingID').textContent = trainingID;
+
+    showForm('delete');
 }
