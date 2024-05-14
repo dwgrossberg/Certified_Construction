@@ -1,140 +1,155 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" type="text/css" href="../css/index.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <script src="../js/index.js"></script>
     <title>Employee Trainings</title>
-</head>
-<body>
-<header>
-    <h1>Employee Training Sessions</h1>
-</header>
-<nav>
-  <a href="/">Home</a>
-  <a href="departments">Departments</a>
-  <a href="certifications">Certifications</a>
-  <a href="employees">Employees</a>
-  <a href="training_sessions">Training Sessions</a>
-  <a href="employees_cert">Employee Certifications</a>
-  <a href="employees_train">Employee Training Sessions</a>
-</nav>
-<main>
-    <div id="browse">
-        <button onClick="addEmployeeTrainingSession()" class="btn">Add New Employee Training</button>
+  </head>
+  <body>
+    <header>
+      <h1>Employee Training Sessions</h1>
+    </header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="departments">Departments</a>
+      <a href="certifications">Certifications</a>
+      <a href="employees">Employees</a>
+      <a href="training_sessions">Training Sessions</a>
+      <a href="employees_cert">Employee Certifications</a>
+      <a href="employees_train">Employee Training Sessions</a>
+    </nav>
+    <main>
+      <div id="browse">
+        <button onClick="addEmployeeTrainingSession()" class="btn">Add New
+          Employee Training</button>
         <table>
-            <thead>
-                <tr>
-                    <th>Action</th>
-                    <th>Employee ID</th>
-                    <th>Training ID</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each data}}
-                <tr>
-                    <td>
-                        <a href="#" onClick="updateEmployeeTrainingSession(this)" data-employeeID={{this.employeeID}} data-trainingID={{this.trainingID}}>Edit</a> |
-                        <a href="#" onClick="deleteEmployeeTrainingSession(this)" data-employeeID={{this.employeeID}} data-trainingID={{this.trainingID}}>Delete</a>
-                    </td>
-                    <td>{{this.employeeID}}</td>
-                    <td>{{this.trainingID}}</td>
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Employee ID</th>
+              <th>Training ID</th>
             </tr>
+          </thead>
+          <tbody>
+            {{#each data}}
+              <tr>
+                <td>
+                  <a
+                    href="#"
+                    onClick="updateEmployeeTrainingSession(this)"
+                    data-employeeID={{this.employeeID}}
+                    data-trainingID={{this.trainingID}}
+                  >Edit</a>
+                  |
+                  <a
+                    href="#"
+                    onClick="deleteEmployeeTrainingSession(this)"
+                    data-employeeID={{this.employeeID}}
+                    data-trainingID={{this.trainingID}}
+                  >Delete</a>
+                </td>
+                <td>{{this.employeeID}}</td>
+                <td>{{this.trainingID}}</td>
+              </tr>
             {{/each}}
-            </tbody>
+          </tbody>
         </table>
-    </div>
+      </div>
 
-    <div id="insert" class="form-container">
+      <div id="insert" class="form-container">
         <form id="newEmployeeTrainingForm">
-            <legend>Add New Employee Training Session</legend>
-            <div>
-                <label>Employee:
-                    <select id="newEmployeeTrainingEmployeeID">
-                        <option value=1>Vladimir Collier</option>
-                        <option value=2>Donna	Lott</option>
-                        <option value=3>Athena	Fry</option>
-                        <option value=4>Igor	Parks</option>
-                        <option value=5>Sybill	Robles</option>
-                        <option value=6>Lucian	Jordan</option>
-                        <option value=7>Sharon	Murray</option>
-                        <option value=8>Maisie	Herman</option>
-                    </select>
-                </label>
-            </div>        
-            <div>
-                <label>Training: 
-                    <select id="newEmployeeTrainingTrainingID">
-                        <option value=1>1</option>
-                        <option value=2>2</option>
-                        <option value=3>3</option>
-                        <option value=4>4</option>
-                        <option value=5>5</option>
-                        <option value=6>6</option>
-                        <option value=7>7</option>
-                        <option value=8>8</option>
-                        <option value=9>9</option>
-                        <option value=10>10</option>
-                </select>
-                </label>
-            </div>
-            <button type="submit">Submit</button>
-            <button type="button" onClick="browseMain()">Cancel</button>
+          <legend>Add New Employee Training Session</legend>
+          <div>
+            <label>Employee:
+              <select id="newEmployeeTrainingEmployeeID">
+                <option value="1">Vladimir Collier</option>
+                <option value="2">Donna Lott</option>
+                <option value="3">Athena Fry</option>
+                <option value="4">Igor Parks</option>
+                <option value="5">Sybill Robles</option>
+                <option value="6">Lucian Jordan</option>
+                <option value="7">Sharon Murray</option>
+                <option value="8">Maisie Herman</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            <label>Training:
+              <select id="newEmployeeTrainingTrainingID">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </label>
+          </div>
+          <button type="submit">Submit</button>
+          <button type="button" onClick="browseMain()">Cancel</button>
         </form>
-    </div>
+      </div>
 
-    <div id="update" class="form-container">
+      <div id="update" class="form-container">
         <form id="updateEmployeeTrainingForm">
-            <legend>Update Employee Training Session</legend>
-            <div>
-                <label>Employee:
-                    <select id="updateEmployeeTrainingEmployeeID">
-                        <option value=1>Vladimir Collier</option>
-                        <option value=2>Donna	Lott</option>
-                        <option value=3>Athena	Fry</option>
-                        <option value=4>Igor	Parks</option>
-                        <option value=5>Sybill	Robles</option>
-                        <option value=6>Lucian	Jordan</option>
-                        <option value=7>Sharon	Murray</option>
-                        <option value=8>Maisie	Herman</option>
-                    </select>
-                </label>
-            </div>        
-            <div>
-                <label>Training: 
-                    <select id="updateEmployeeTrainingTrainingID">
-                        <option value=1>1</option>
-                        <option value=2>2</option>
-                        <option value=3>3</option>
-                        <option value=4>4</option>
-                        <option value=5>5</option>
-                        <option value=6>6</option>
-                        <option value=7>7</option>
-                        <option value=8>8</option>
-                        <option value=9>9</option>
-                        <option value=10>10</option>
-                </select>
-                </label>
-            </div>
-            <button type="submit">Update</button>
-            <button type="button" onClick="browseMain()">Cancel</button>
+          <legend>Update Employee Training Session</legend>
+          <div>
+            <label>Employee:
+              <select id="updateEmployeeTrainingEmployeeID">
+                <option value="1">Vladimir Collier</option>
+                <option value="2">Donna Lott</option>
+                <option value="3">Athena Fry</option>
+                <option value="4">Igor Parks</option>
+                <option value="5">Sybill Robles</option>
+                <option value="6">Lucian Jordan</option>
+                <option value="7">Sharon Murray</option>
+                <option value="8">Maisie Herman</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            <label>Training:
+              <select id="updateEmployeeTrainingTrainingID">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </label>
+          </div>
+          <button type="submit">Update</button>
+          <button type="button" onClick="browseMain()">Cancel</button>
         </form>
-    </div> 
+      </div>
 
-    <div id="delete" class="form-container">
+      <div id="delete" class="form-container">
         <form id="deleteEmployeeTrainingForm">
-            <legend>Delete Employee Training Session</legend>
-            <p>Are you sure you want to delete the training session with the following details?</p>
-            <p>Employee ID: <input id="deleteEmployeeTrainingSessionEmployeeID" disabled /></p>
-            <p>Training ID: <input id="deleteEmployeeTrainingSessionTrainingID" disabled /></p>
-            <button type="submit">Delete</button>
-            <button type="button" onClick="browseMain()">Cancel</button>
+          <legend>Delete Employee Training Session</legend>
+          <p>Are you sure you want to delete the training session with the
+            following details?</p>
+          <p>Employee ID:
+            <input id="deleteEmployeeTrainingSessionEmployeeID" disabled /></p>
+          <p>Training ID:
+            <input id="deleteEmployeeTrainingSessionTrainingID" disabled /></p>
+          <button type="submit">Delete</button>
+          <button type="button" onClick="browseMain()">Cancel</button>
         </form>
-    </div>
+      </div>
 
-</main>
-<footer>
-    <p>© 2024 ByteBalancers. All rights reserved.</p>
-</footer>
-</body>
+    </main>
+    <footer>
+      <p>© 2024 ByteBalancers. All rights reserved.</p>
+    </footer>
+  </body>
 </html>

@@ -180,11 +180,14 @@ function updateEmployeeCert(element) {
   var employeeCertExpirationDate = element.getAttribute("data-expirationDate");
 
   document.getElementById("updateEmployeeCertID").value = employeeCertID;
-  document.getElementById("updateEmployeeCertEmployeeID").value = employeeCertEmployeeID;
-  document.getElementById("updateEmployeeCertCertID").value = employeeCertCertID;
-  document.getElementById("updateEmployeeCertDateObtained").value = employeeCertDateObtained;
-  document.getElementById("updateEmployeeCertExpirationDate").value = employeeCertExpirationDate;
-
+  document.getElementById("updateEmployeeCertEmployeeID").value =
+    employeeCertEmployeeID;
+  document.getElementById("updateEmployeeCertCertID").value =
+    employeeCertCertID;
+  document.getElementById("updateEmployeeCertDateObtained").value =
+    employeeCertDateObtained;
+  document.getElementById("updateEmployeeCertExpirationDate").value =
+    employeeCertExpirationDate;
 
   showForm("update");
 }
@@ -193,8 +196,10 @@ function deleteEmployeeCert(element) {
   var employeeCertEmployeeID = element.getAttribute("data-employeeID");
   var employeeCertCertID = element.getAttribute("data-certID");
 
-  document.getElementById("deleteEmployeeCertEmployeeID").value = employeeCertEmployeeID;
-  document.getElementById("deleteEmployeeCertCertID").value = employeeCertCertID;
+  document.getElementById("deleteEmployeeCertEmployeeID").value =
+    employeeCertEmployeeID;
+  document.getElementById("deleteEmployeeCertCertID").value =
+    employeeCertCertID;
 
   showForm("delete");
 }
@@ -206,25 +211,29 @@ function showEmployeeCerts() {
 // Employee Training Sessions
 
 function addEmployeeTrainingSession() {
-    showForm('insert');
+  showForm("insert");
 }
 
 function updateEmployeeTrainingSession(element) {
-    var employeeID = element.getAttribute('data-employeeID');
-    var trainingID = element.getAttribute('data-trainingID');
+  var employeeID = element.getAttribute("data-employeeID");
+  var trainingID = element.getAttribute("data-trainingID");
 
-    document.getElementById('updateEmployeeTrainingEmployeeID').value = employeeID;
-    document.getElementById('updateEmployeeTrainingTrainingID').value = trainingID;
+  document.getElementById("updateEmployeeTrainingEmployeeID").value =
+    employeeID;
+  document.getElementById("updateEmployeeTrainingTrainingID").value =
+    trainingID;
 
-    showForm('update');
+  showForm("update");
 }
 
 function deleteEmployeeTrainingSession(element) {
-    var employeeID = element.getAttribute('data-employeeID');
-    var trainingID = element.getAttribute('data-trainingID');
+  var employeeID = element.getAttribute("data-employeeID");
+  var trainingID = element.getAttribute("data-trainingID");
 
-    document.getElementById('deleteEmployeeTrainingSessionEmployeeID').value = employeeID;
-    document.getElementById('deleteEmployeeTrainingSessionTrainingID').value = trainingID;
+  document.getElementById("deleteEmployeeTrainingSessionEmployeeID").value =
+    employeeID;
+  document.getElementById("deleteEmployeeTrainingSessionTrainingID").value =
+    trainingID;
 
-    showForm('delete');
+  showForm("delete");
 }

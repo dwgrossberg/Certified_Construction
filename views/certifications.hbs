@@ -27,42 +27,42 @@
         <button onClick="newCertification()" class="btn">Add New Certification</button>
         <table>
           <thead>
-          <tr>
-            <th>Actions</th>
-            <th>Certification ID</th>
-            <th>Name</th>
-            <th>Certifying Organization</th>
-            <th>Description</th>
-          </tr>
+            <tr>
+              <th>Actions</th>
+              <th>Certification ID</th>
+              <th>Name</th>
+              <th>Certifying Organization</th>
+              <th>Description</th>
+            </tr>
           </thead>
           <tbody>
             {{#each data}}
-          <tr>
-            <td>
-              <a
-                href="#"
-                onClick="updateCertification(this)"
-                data-id={{this.certID}}
-                data-name={{this.name}}
-                data-org={{this.certOrg}}
-                data-description={{this.description}}
-              >Edit</a>
-              |
-              <a
-                href="#"
-                onclick="deleteCertification(this)"
-                data-id={{this.certID}}
-                data-name={{this.name}}
-                data-org={{this.certOrg}}
-                data-description={{this.description}}
-              >Delete</a>
-            </td>
-            <td align="right">{{this.certID}}</td>
-            <td>{{this.name}}</td>
-            <td>{{this.certOrg}}</td>
-            <td>{{this.description}}</td>
-          </tr>
-          {{/each}}
+              <tr>
+                <td>
+                  <a
+                    href="#"
+                    onClick="updateCertification(this)"
+                    data-id={{this.certID}}
+                    data-name={{this.name}}
+                    data-org={{this.certOrg}}
+                    data-description={{this.description}}
+                  >Edit</a>
+                  |
+                  <a
+                    href="#"
+                    onclick="deleteCertification(this)"
+                    data-id={{this.certID}}
+                    data-name={{this.name}}
+                    data-org={{this.certOrg}}
+                    data-description={{this.description}}
+                  >Delete</a>
+                </td>
+                <td align="right">{{this.certID}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.certOrg}}</td>
+                <td>{{this.description}}</td>
+              </tr>
+            {{/each}}
           </tbody>
         </table>
       </div>

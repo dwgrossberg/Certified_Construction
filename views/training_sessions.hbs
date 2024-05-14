@@ -36,34 +36,34 @@
           </thead>
           <tbody>
             {{#each data}}
-            <tr>
-              <td>
-                <a
-                  href="#"
-                  onClick="updateTrainingSession(this)"
-                  data-id={{this.trainingID}}
-                  data-date={{this.date}}
-                  data-location={{this.location}}
-                  data-description={{this.description}}
-                  data-cert={{this.certID}}
-                >Edit</a>
-                |
-                <a
-                  href="#"
-                  onClick="deleteTrainingSession(this)"
-                  data-id={{this.trainingID}}
-                  data-date={{this.date}}
-                  data-location={{this.location}}
-                  data-description={{this.description}}
-                  data-cert={{this.certID}}
-                >Delete</a>
-              </td>
-              <td>{{this.trainingID}}</td>
-              <td>{{this.date}}</td>
-              <td>{{this.location}}</td>
-              <td>{{this.description}}</td>
-              <td>{{this.certID}}</td>
-            </tr>
+              <tr>
+                <td>
+                  <a
+                    href="#"
+                    onClick="updateTrainingSession(this)"
+                    data-id={{this.trainingID}}
+                    data-date={{this.date}}
+                    data-location={{this.location}}
+                    data-description={{this.description}}
+                    data-cert={{this.certID}}
+                  >Edit</a>
+                  |
+                  <a
+                    href="#"
+                    onClick="deleteTrainingSession(this)"
+                    data-id={{this.trainingID}}
+                    data-date={{this.date}}
+                    data-location={{this.location}}
+                    data-description={{this.description}}
+                    data-cert={{this.certID}}
+                  >Delete</a>
+                </td>
+                <td>{{this.trainingID}}</td>
+                <td>{{this.date}}</td>
+                <td>{{this.location}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.certID}}</td>
+              </tr>
             {{/each}}
           </tbody>
         </table>
@@ -108,21 +108,21 @@
           <label>Description:
             <input type="text" id="updateTrainingDescription" /></label>
           <div>
-                <label>Certification: 
-                    <select id="updateTrainingCert">
-                        <option value=1>Safety 101</option>
-                        <option value=2>Drawing Reading 101</option>
-                        <option value=3>Drawing Reading 102</option>
-                        <option value=4>Drawing Reading 103</option>
-                        <option value=5>Ethics Compliance</option>
-                        <option value=6>Cyber Security 101</option>
-                        <option value=7>Cyber Security 102</option>
-                        <option value=8>Torque Cert</option>
-                        <option value=9>Sealing Cert</option>
-                        <option value=10>Crane Cert</option>
-                    </select>
-                </label>
-            </div>
+            <label>Certification:
+              <select id="updateTrainingCert">
+                <option value="1">Safety 101</option>
+                <option value="2">Drawing Reading 101</option>
+                <option value="3">Drawing Reading 102</option>
+                <option value="4">Drawing Reading 103</option>
+                <option value="5">Ethics Compliance</option>
+                <option value="6">Cyber Security 101</option>
+                <option value="7">Cyber Security 102</option>
+                <option value="8">Torque Cert</option>
+                <option value="9">Sealing Cert</option>
+                <option value="10">Crane Cert</option>
+              </select>
+            </label>
+          </div>
           <button type="submit">Update</button>
           <button type="button" onClick="browseMain()">Cancel</button>
         </form>

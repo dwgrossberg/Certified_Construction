@@ -1,88 +1,109 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <script src="../js/index.js"></script>
     <title>Departments</title>
-</head>
-<body>
-<header>
-    <h1>Departments</h1>
-</header>
-<nav>
-  <a href="/">Home</a>
-  <a href="departments">Departments</a>
-  <a href="certifications">Certifications</a>
-  <a href="employees">Employees</a>
-  <a href="training_sessions">Training Sessions</a>
-  <a href="employees_cert">Employee Certifications</a>
-  <a href="employees_train">Employee Training Sessions</a>
-</nav>
-<main>
-    <div id="browse">
+  </head>
+  <body>
+    <header>
+      <h1>Departments</h1>
+    </header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="departments">Departments</a>
+      <a href="certifications">Certifications</a>
+      <a href="employees">Employees</a>
+      <a href="training_sessions">Training Sessions</a>
+      <a href="employees_cert">Employee Certifications</a>
+      <a href="employees_train">Employee Training Sessions</a>
+    </nav>
+    <main>
+      <div id="browse">
         <button onClick="newDepartment()" class="btn">Add New Department</button>
         <table>
-            <thead>
-                <tr>
-                    <th>Action</th>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each data}}
-                <tr>
-                    <td>
-                        <a href="#" onClick="updateDepartment(this)" data-id={{this.deptID}} data-name={{this.name}} data-description={{this.description}}>Edit</a> |
-                        <a href="#" onClick="deleteDepartment(this)" data-id={{this.deptID}} data-name={{this.name}} data-description={{this.description}}>Delete</a>
-                    </td>
-                    <td>{{this.deptID}}</td>
-                    <td>{{this.name}}</td>
-                    <td>{{this.description}}</td>
-                </tr>
-                {{/each}}
-            </tbody>
-            
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each data}}
+              <tr>
+                <td>
+                  <a
+                    href="#"
+                    onClick="updateDepartment(this)"
+                    data-id={{this.deptID}}
+                    data-name={{this.name}}
+                    data-description={{this.description}}
+                  >Edit</a>
+                  |
+                  <a
+                    href="#"
+                    onClick="deleteDepartment(this)"
+                    data-id={{this.deptID}}
+                    data-name={{this.name}}
+                    data-description={{this.description}}
+                  >Delete</a>
+                </td>
+                <td>{{this.deptID}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.description}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+
         </table>
-    </div>
+      </div>
 
-    <div id="insert" class="form-container">
+      <div id="insert" class="form-container">
         <form>
-            <legend>Add New Department</legend>
-            <label>Name: <input type="text" name="name"></label>
-            <label>Description: <input type="text" name="description"></label>
-            <button type="submit">Submit</button>
-            <button type="button" onClick="browseMain()">Cancel</button>
+          <legend>Add New Department</legend>
+          <label>Name: <input type="text" name="name" /></label>
+          <label>Description: <input type="text" name="description" /></label>
+          <button type="submit">Submit</button>
+          <button type="button" onClick="browseMain()">Cancel</button>
         </form>
-    </div>
+      </div>
 
-    <div id="update" class="form-container">
+      <div id="update" class="form-container">
         <form>
-            <legend>Update Department</legend>
-            <input type="hidden" id="updateDeptID" name="id">
-            <label>Name: <input type="text" id="updateDeptName" name="name"></label>
-            <label>Description: <input type="text" id="updateDeptDescription" name="description"></label>
-            <button type="submit">Update</button>
-            <button type="button" onClick="browseMain()">Cancel</button>
+          <legend>Update Department</legend>
+          <input type="hidden" id="updateDeptID" name="id" />
+          <label>Name:
+            <input type="text" id="updateDeptName" name="name" /></label>
+          <label>Description:
+            <input
+              type="text"
+              id="updateDeptDescription"
+              name="description"
+            /></label>
+          <button type="submit">Update</button>
+          <button type="button" onClick="browseMain()">Cancel</button>
         </form>
-    </div> 
+      </div>
 
-    <div id="delete" class="form-container">
+      <div id="delete" class="form-container">
         <form id="deleteDepartmentForm">
-            <legend>Delete Department</legend>
-            <p>Are you sure you want to delete the department <span id="deleteDeptName"></span> with the following description?</p>
-            <p>Description: <span id="deleteDeptDescription"></span></p>
-            <input type="hidden" name="departmentID" id="deleteDeptID">
-            <button type="submit">Delete</button>
-            <button type="button" onClick="browseMain()">Cancel</button>
+          <legend>Delete Department</legend>
+          <p>Are you sure you want to delete the department
+            <span id="deleteDeptName"></span>
+            with the following description?</p>
+          <p>Description: <span id="deleteDeptDescription"></span></p>
+          <input type="hidden" name="departmentID" id="deleteDeptID" />
+          <button type="submit">Delete</button>
+          <button type="button" onClick="browseMain()">Cancel</button>
         </form>
-    </div>
+      </div>
 
-</main>
-<footer>
-    <p>© 2024 ByteBalancers. All rights reserved.</p>
-</footer>
-</body>
+    </main>
+    <footer>
+      <p>© 2024 ByteBalancers. All rights reserved.</p>
+    </footer>
+  </body>
 </html>
