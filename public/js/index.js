@@ -190,17 +190,11 @@ function updateEmployeeCert(element) {
 }
 
 function deleteEmployeeCert(element) {
-  var employeeCertID = element.getAttribute("data-id");
   var employeeCertEmployeeID = element.getAttribute("data-employeeID");
   var employeeCertCertID = element.getAttribute("data-certID");
-  var employeeCertDateObtained = element.getAttribute("data-dateObtained");
-  var employeeCertExpirationDate = element.getAttribute("data-expirationDate");
 
-  document.getElementById("deleteEmployeeCertID").value = employeeCertID;
   document.getElementById("deleteEmployeeCertEmployeeID").value = employeeCertEmployeeID;
   document.getElementById("deleteEmployeeCertCertID").value = employeeCertCertID;
-  document.getElementById("deleteEmployeeCertDateObtained").value = employeeCertDateObtained;
-  document.getElementById("deleteEmployeeCertExpirationDate").value = employeeCertExpirationDate;
 
   showForm("delete");
 }
@@ -215,7 +209,7 @@ function addEmployeeTrainingSession() {
     showForm('insert');
 }
 
-function updateEmployeeTrainingSession(element) {
+function updateEmployeeTrainingSession(element) {q
     var employeeID = element.getAttribute('data-employeeID');
     var trainingID = element.getAttribute('data-trainingID');
 

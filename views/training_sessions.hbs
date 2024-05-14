@@ -77,7 +77,8 @@
             <input type="text" id="newTrainingLocation" /></label>
           <label>Description:
             <input type="text" id="newTrainingDescription" /></label>
-          <div><label>Certification:
+          <div>
+            <label>Certification:
               <select id="newTrainingCert">
                 <option value="Safety 101">Safety 101</option>
                 <option value="Drawing Reading 101">Drawing Reading 101</option>
@@ -108,16 +109,9 @@
             <input type="text" id="updateTrainingDescription" /></label>
           <div><label>Certification:
               <select id="updateTrainingCert">
-                <option value="Safety 101">Safety 101</option>
-                <option value="Drawing Reading 101">Drawing Reading 101</option>
-                <option value="Drawing Reading 102">Drawing Reading 102</option>
-                <option value="Drawing Reading 103">Drawing Reading 103</option>
-                <option value="Ethics Compliance">Ethics Compliance</option>
-                <option value="Cyber Security 101">Cyber Security 101</option>
-                <option value="Cyber Security 102">Cyber Security 102</option>
-                <option value="Torque Cert">Torque Cert</option>
-                <option value="Sealing Cert">Sealing Cert</option>
-                <option value="Crane Cert">Crane Cert</option>
+                {{#each certs}}
+                <option value={{certs.name}} data-updateCertID={{certs.certID}}>{{certs.name}}</option>
+                {{/each}}
               </select>
             </label>
           </div>

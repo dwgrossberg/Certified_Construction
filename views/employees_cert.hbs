@@ -20,40 +20,56 @@
   <a href="employees_train">Employee Trainings</a>
 </nav>
 <main>
-    <button onClick="newEmployeeCert()" class="btn">Add New Employee Certification</button>
-    <table>
-        <thead>
-            <tr>
-                <th>Action</th>
-                <th>Employee Certification ID</th>
-                <th>Employee ID</th>
-                <th>Certification ID</th>
-                <th>Date Obtained</th>
-                <th>Expiration Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each data}}
-            <tr>
-                <td>
-                    <a href="#" onClick="updateEmployeeCert(this)" data-id={{data.employeeCertID}} data-employeeID={{data.employeeID}} data-certID={{data.certID}} data-dateObtained={{data.dateObtained}} data-expirationDate={{data.expirationDate}}>Edit</a> |
-                    <a href="#" onClick="deleteEmployeeCert(this)" data-id={{data.employeeCertID}} data-employeeID={{data.employeeID}} data-certID={{data.certID}} data-dateObtained={{data.dateObtained}} data-expirationDate={{data.expirationDate}}>Delete</a>
-                </td>
-                <td>{{this.employeeCertID}}</td>
-                <td>{{this.employeeID}}</td>
-                <td>{{this.certID}}</td>
-                <td>{{this.dateObtained}}</td>
-                <td>{{this.expirationDate}}</td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
-
+    <div id="browse">
+        <button onClick="newEmployeeCert()" class="btn">Add New Employee Certification</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>Employee Certification ID</th>
+                    <th>Employee ID</th>
+                    <th>Certification ID</th>
+                    <th>Date Obtained</th>
+                    <th>Expiration Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data}}
+                <tr>
+                    <td>
+                        <a href="#" onClick="updateEmployeeCert(this)" data-id={{this.employeeCertID}} data-employeeID={{this.employeeID}} data-certID={{this.certID}} data-dateObtained={{this.dateObtained}} data-expirationDate={{this.expirationDate}}>Edit</a> |
+                        <a href="#" onClick="deleteEmployeeCert(this)" data-id={{this.employeeCertID}} data-employeeID={{this.employeeID}} data-certID={{this.certID}} data-dateObtained={{this.dateObtained}} data-expirationDate={{this.expirationDate}}>Delete</a>
+                    </td>
+                    <td>{{this.employeeCertID}}</td>
+                    <td>{{this.employeeID}}</td>
+                    <td>{{this.certID}}</td>
+                    <td>{{this.dateObtained}}</td>
+                    <td>{{this.expirationDate}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
      <div id="insert" class="form-container">
         <form>
             <legend>Add New Employee Certification</legend>
-            <label>Employee ID: <input type="number" name="employeeID"></label>
-            <label>Certification ID: <input type="number" name="certID"></label>
+            <label>Employee: <input type="number" name="employeeID"></label>        
+            <div>
+                <label>Certification: 
+                    <select id="newEmployeeTrainingCert">
+                        <option value="Safety 101">Safety 101</option>
+                        <option value="Drawing Reading 101">Drawing Reading 101</option>
+                        <option value="Drawing Reading 102">Drawing Reading 102</option>
+                        <option value="Drawing Reading 103">Drawing Reading 103</option>
+                        <option value="Ethics Compliance">Ethics Compliance</option>
+                        <option value="Cyber Security 101">Cyber Security 101</option>
+                        <option value="Cyber Security 102">Cyber Security 102</option>
+                        <option value="Torque Cert">Torque Cert</option>
+                        <option value="Sealing Cert">Sealing Cert</option>
+                        <option value="Crane Cert">Crane Cert</option>
+                </select>
+                </label>
+            </div>
             <label>Date Obtained: <input type="date" name="dateObtained"></label>
             <label>Expiration Date: <input type="date" name="expirationDate"></label>
             <button type="submit">Submit</button>
@@ -65,8 +81,36 @@
         <form>
             <legend>Update Employee Certification</legend>
             <input type="hidden" id="updateEmployeeCertID" name="id">
-            <label>Employee ID: <input type="number" id="updateEmployeeCertEmployeeID" name="employeeID" disabled></label>
-            <label>Certification ID: <input type="number" id="updateEmployeeCertCertID" name="certID" disabled></label>
+            <div>
+                <label>Employee:
+                    <select id="updateEmployeeCertEmployeeID">
+                        <option value=1>Vladimir Collier</option>
+                        <option value=2>Donna	Lott</option>
+                        <option value=3>Athena	Fry</option>
+                        <option value=4>Igor	Parks</option>
+                        <option value=5>Sybill	Robles</option>
+                        <option value=6>Lucian	Jordan</option>
+                        <option value=7>Sharon	Murray</option>
+                        <option value=8>Maisie	Herman</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label>Certification:
+                    <select id="updateEmployeeCertCertID">
+                        <option value=1>Safety 101</option>
+                        <option value=2>Drawing Reading 101</option>
+                        <option value=3>Drawing Reading 102</option>
+                        <option value=4>Drawing Reading 103</option>
+                        <option value=5>Ethics Compliance</option>
+                        <option value=6>Cyber Security 101</option>
+                        <option value=7>Cyber Security 102</option>
+                        <option value=8>Torque Cert</option>
+                        <option value=9>Sealing Cert</option>
+                        <option value=10>Crane Cert</option>
+                    </select>
+                </label>
+            </div>
             <label>Date Obtained: <input type="date" id="updateEmployeeCertDateObtained" name="dateObtained"></label>
             <label>Expiration Date: <input type="date" id="updateEmployeeCertExpirationDate" name="expirationDate"></label>
             <button type="submit">Update</button>
@@ -75,13 +119,14 @@
     </div> 
 
     <div id="delete" class="form-container">
-    <form id="deleteCertForm">
-        <legend>Delete Employee Certification</legend>
-        <p>Are you sure you want to delete the certification for Employee ID: <span id="deleteEmployeeCertEmployeeID"></span> and Certification ID: <span id="deleteEmployeeCertCertID"></span>?</p>
-        <input type="hidden" name="id" id="deleteEmployeeCertID" />
-        <button type="submit">Delete</button>
-        <button type="button" onClick="browseMain()">Cancel</button>
-    </form>
+        <form id="deleteCertForm">
+            <legend>Delete Employee Certification</legend>
+            <p>Are you sure you want to delete this employee certification?</p>
+            <p>Employee ID: <input id="deleteEmployeeCertEmployeeID" disabled /></p>
+            <p>Certification ID: <input id="deleteEmployeeCertCertID" disabled /></p>
+            <button type="submit">Delete</button>
+            <button type="button" onClick="browseMain()">Cancel</button>
+        </form>
     </div>
 </main>
 <footer>

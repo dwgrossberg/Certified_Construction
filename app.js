@@ -62,7 +62,7 @@ app.get("/employees", function (req, res) {
 });
 });
 
-var hbs = exphbs.create({});
+// var hbs = exphbs.create({});
 
 // hbs.handlebars.registerHelper('spliceDate', function (date) {
 //   strDate = date.split('T')[0];
@@ -72,16 +72,24 @@ var hbs = exphbs.create({});
 
 app.get("/training_sessions", function (req, res) {
   let query1 = "SELECT * FROM TrainingSessions;";
-  let query2 = "SELECT Certifications.certID as cert_ID, Certifications.name as cert_name FROM Certifications JOIN TrainingSessions ON Certifications.certID = TrainingSessions.certID;"
+  let query2 = "SELECT * FROM Certifications;"
   db.pool.query(query1, function (error, rows, fields) {
     if (error) {
       res.status(500).send('Database error: ' + error.message);
     } else {
-      res.render('training_sessions', { data: rows });
+      let ts = rows;
+      db.pool.query(query2, function (error, rows, fields) {
+        if (error) {
+          res.status(500).send('Database error: ' + error.message);
+        } else {
+          let certs = rows;
+          res.render('training_sessions', { data: ts, certs: certs });
+        }
+      })
     }
   })
 });
-
+    
 app.get("/employees_cert", function (req, res) {
   let query1 = "SELECT * FROM EmployeesCertifications;";
   db.pool.query(query1, function (error, rows, fields) {
