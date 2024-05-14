@@ -1,66 +1,13 @@
 <html lang="en">
   <head>
-<<<<<<< Updated upstream
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Employees</title>
-    <style>
-      table { border-collapse: collapse; width: 100%; } th, td { border: 1px
-      solid #dddddd; text-align: left; padding: 8px; } th { background-color:
-      #f2f2f2; } .form-container { display: none; }
-    </style>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <script language="JavaScript">
-      function showform(dowhat) { var sections = ['browse', 'insert', 'update',
-      'delete']; sections.forEach(function(section) { var sectionElement =
-      document.getElementById(section); if (dowhat === 'all' || dowhat ===
-      section) { sectionElement.style.display = 'block'; } else {
-      sectionElement.style.display = 'none'; } }); } function newEmployee() {
-      showform('insert'); } function updateEmployee(element) { var id =
-      element.getAttribute('data-id'); var fname =
-      element.getAttribute('data-fname'); var lname =
-      element.getAttribute('data-lname'); var email =
-      element.getAttribute('data-email'); var deptid =
-      element.getAttribute('data-deptid');
-      document.getElementById('updateEmployeeID').value = id;
-      document.getElementById('updateEmployeeIDSpan').textContent = id;
-      document.getElementById('updateEmployeeFName').value = fname;
-      document.getElementById('updateEmployeeLName').value = lname;
-      document.getElementById('updateEmployeeEmail').value = email;
-      document.getElementById('updateEmployeeDeptID').value = deptid;
-      showform('update'); } function deleteEmployee(element) { var id =
-      element.getAttribute('data-id'); var name =
-      element.getAttribute('data-name');
-      document.getElementById('deleteEmployeeID').value = id;
-      document.getElementById('deleteEmployeeIDSpan').textContent = id;
-      document.getElementById('deleteEmployeeNameSpan').textContent = name;
-      showform('delete'); } function browseEmployees() { showform('browse'); }
-      function showAll() { showform('all'); }
-    </script>
   </head>
   <body onload="browseEmployees()">
-=======
-    <meta charset="utf-8" />
-    <title>Certified Construction</title>
-    <link rel="stylesheet" type="text/css" href="../css/index.css" />
-    <script src="../js/index.js"></script>
-</head>
-<body onload="browseEmployees()">
->>>>>>> Stashed changes
     <header>
       <h1>Employees</h1>
     </header>
-<<<<<<< Updated upstream
-    <nav>
-      <a href="/">Home</a>
-      <a href="departments">Departments</a>
-      <a href="certifications">Certifications</a>
-      <a href="employees">Employees</a>
-      <a href="training_sessions">Training Sessions</a>
-      <a href="employee_cert">Employee Certifications</a>
-      <a href="employee_train">Employee Training Sessions</a>
-    </nav>
-=======
     <nav class="navbar">
     <a href="/">Home</a>
     <a href="departments">Departments</a>
@@ -69,8 +16,7 @@
     <a href="training_sessions">Training Sessions</a>
     <a href="employees_cert">Employee Certifications</a>
     <a href="employees_train">Employee Trainings</a>
-  </nav>
->>>>>>> Stashed changes
+    </nav>
     <main>
       <div id="browse">
         <button onClick="newEmployee()" class="btn">Add New Employee</button>
