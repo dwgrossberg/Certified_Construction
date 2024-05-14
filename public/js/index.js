@@ -23,9 +23,9 @@ function newDepartment() {
 }
 
 function updateDepartment(element) {
-  var id = element.getAttribute("data-id");
-  var name = element.getAttribute("data-name");
-  var description = element.getAttribute("data-description");
+  const id = element.getAttribute("data-id");
+  const name = element.getAttribute("data-name");
+  const description = element.getAttribute("data-description");
 
   document.getElementById("updateDeptID").value = id;
   document.getElementById("updateDeptName").value = name;
@@ -35,11 +35,11 @@ function updateDepartment(element) {
 }
 
 function deleteDepartment(element) {
-  var id = element.getAttribute("data-id");
-  var name = element.getAttribute("data-name");
-  var description = element.getAttribute("data-description");
+  const id = element.getAttribute("data-id");
+  const name = element.getAttribute("data-name");
+  const description = element.getAttribute("data-description");
 
-  document.getElementById("deleteDeptID").textContent = id;
+  document.getElementById("deleteDeptID").value = id;
   document.getElementById("deleteDeptName").textContent = name;
   document.getElementById("deleteDeptDescription").textContent = description;
 
@@ -85,41 +85,53 @@ function showCertAll() {
 }
 
 // Employees
-
-function newEmployee() {
-  showForm("insert");
+function showform(dowhat) {
+  var sections = ['browse', 'insert', 'update', 'delete'];
+  sections.forEach(function(section) {
+      var sectionElement = document.getElementById(section);
+      if (dowhat === 'all' || dowhat === section) {
+          sectionElement.style.display = 'block'; 
+      } else {
+          sectionElement.style.display = 'none'; 
+      }
+  });
+}
+function newEmployee() { 
+  showform('insert'); 
 }
 
 function updateEmployee(element) {
-  var id = element.getAttribute("data-id");
-  var fname = element.getAttribute("data-fname");
-  var lname = element.getAttribute("data-lname");
-  var email = element.getAttribute("data-email");
-  var deptid = element.getAttribute("data-deptid");
+  var id = element.getAttribute('data-id');
+  var fname = element.getAttribute('data-fname');
+  var lname = element.getAttribute('data-lname');
+  var email = element.getAttribute('data-email');
+  var deptid = element.getAttribute('data-deptid');
 
-  document.getElementById("updateEmployeeID").value = id;
-  document.getElementById("updateEmployeeIDSpan").textContent = id;
-  document.getElementById("updateEmployeeFName").value = fname;
-  document.getElementById("updateEmployeeLName").value = lname;
-  document.getElementById("updateEmployeeEmail").value = email;
-  document.getElementById("updateEmployeeDeptID").value = deptid;
+  document.getElementById('updateEmployeeID').value = id;
+  document.getElementById('updateEmployeeIDSpan').textContent = id;
+  document.getElementById('updateEmployeeFName').value = fname;
+  document.getElementById('updateEmployeeLName').value = lname;
+  document.getElementById('updateEmployeeEmail').value = email;
+  document.getElementById('updateEmployeeDeptID').value = deptid;
 
-  showForm("update");
+  showform('update');
 }
-
 function deleteEmployee(element) {
-  var id = element.getAttribute("data-id");
-  var name = element.getAttribute("data-name");
+  var id = element.getAttribute('data-id');
+  var name = element.getAttribute('data-name');
 
-  document.getElementById("deleteEmployeeID").value = id;
-  document.getElementById("deleteEmployeeIDSpan").textContent = id;
-  document.getElementById("deleteEmployeeNameSpan").textContent = name;
+  document.getElementById('deleteEmployeeID').value = id;
+  document.getElementById('deleteEmployeeIDSpan').textContent = id;
+  document.getElementById('deleteEmployeeNameSpan').textContent = name;
 
-  showForm("delete");
+  showform('delete');
+}
+function browseEmployees() { 
+  showform('browse'); 
 }
 
-function showAll() {
-  showForm("all");
+function showAll() { 
+  showform('all'); 
 }
 
 // Training Sessions
