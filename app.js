@@ -128,7 +128,7 @@ app.get("/training_sessions", (req, res) => {
 });
 
 app.get("/employees_cert", (req, res) => {
-  const query1 = "SELECT * FROM EmployeesCertifications;";
+  const query1 = "SELECT employeeCertID, employeeID, certID, DATE_FORMAT(dateObtained, '%Y-%m-%d') AS dateObtained, DATE_FORMAT(expirationDate, '%Y-%m-%d') AS expirationDate FROM EmployeesCertifications;";
   db.pool.query(query1, (error, rows) => {
     if (error) {
       res.status(500).send('Database error: ' + error.message);

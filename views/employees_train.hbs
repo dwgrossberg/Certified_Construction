@@ -18,7 +18,7 @@
       <thead>
         <tr>
           <th>Action</th>
-          <th class="rowID employeeCertID">ID</th>
+          <th class="hidden">ID</th>
           <th>Employee</th>
           <th>Training</th>
         </tr>
@@ -43,7 +43,7 @@
                 data-trainingID={{this.trainingID}}
               >Delete</a>
             </td>
-            <td>{{this.employeeTrainingID}}</td>
+            <td class="hidden">{{this.employeeTrainingID}}</td>
             <td>{{this.employeeID}}</td>
             <td>{{this.trainingID}}</td>
           </tr>
@@ -52,7 +52,7 @@
     </table>
   </div>
 
-  <div id="insert" class="form-container">
+  <div id="insert" class="form-container" style="display:none;">
     <form id="newEmployeeTrainingForm">
       <legend>Add New Employee Training Session</legend>
       <div>
@@ -90,7 +90,7 @@
     </form>
   </div>
 
-  <div id="update" class="form-container">
+  <div id="update" class="form-container" style="display:none;">
     <form id="updateEmployeeTrainingForm">
       <legend>Update Employee Training Session</legend>
       <div>
@@ -128,7 +128,7 @@
     </form>
   </div>
 
-  <div id="delete" class="form-container">
+  <div id="delete" class="form-container" style="display:none;">
     <form id="deleteEmployeeTrainingForm">
       <legend>Delete Employee Training Session</legend>
       <p>Are you sure you want to delete the training session with the
