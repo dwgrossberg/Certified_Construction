@@ -85,53 +85,45 @@ function showCertAll() {
 }
 
 // Employees
-function showform(dowhat) {
-  var sections = ['browse', 'insert', 'update', 'delete'];
-  sections.forEach(function(section) {
-      var sectionElement = document.getElementById(section);
-      if (dowhat === 'all' || dowhat === section) {
-          sectionElement.style.display = 'block'; 
-      } else {
-          sectionElement.style.display = 'none'; 
-      }
-  });
-}
 function newEmployee() { 
-  showform('insert'); 
+  showForm("insert"); 
 }
 
 function updateEmployee(element) {
-  var id = element.getAttribute('data-id');
-  var fname = element.getAttribute('data-fname');
-  var lname = element.getAttribute('data-lname');
-  var email = element.getAttribute('data-email');
-  var deptid = element.getAttribute('data-deptid');
+  const id = element.getAttribute("data-id");
+  const fname = element.getAttribute("data-fname");
+  const lname = element.getAttribute("data-lname");
+  const email = element.getAttribute("data-email");
+  const deptid = element.getAttribute("data-deptid");
 
-  document.getElementById('updateEmployeeID').value = id;
-  document.getElementById('updateEmployeeIDSpan').textContent = id;
-  document.getElementById('updateEmployeeFName').value = fname;
-  document.getElementById('updateEmployeeLName').value = lname;
-  document.getElementById('updateEmployeeEmail').value = email;
-  document.getElementById('updateEmployeeDeptID').value = deptid;
+  console.log('Updating Employee:', { id, fname, lname, email, deptid });
 
-  showform('update');
+  document.getElementById("updateEmployeeID").value = id;
+  document.getElementById("updateEmployeeFName").value = fname;
+  document.getElementById("updateEmployeeLName").value = lname;
+  document.getElementById("updateEmployeeEmail").value = email;
+  document.getElementById("updateEmployeeDeptID").value = deptid;
+
+  showForm("update");
 }
+
 function deleteEmployee(element) {
-  var id = element.getAttribute('data-id');
-  var name = element.getAttribute('data-name');
+  const id = element.getAttribute("data-id");
+  const name = element.getAttribute("data-name");
 
-  document.getElementById('deleteEmployeeID').value = id;
-  document.getElementById('deleteEmployeeIDSpan').textContent = id;
-  document.getElementById('deleteEmployeeNameSpan').textContent = name;
+  document.getElementById("deleteEmployeeID").value = id;
+  document.getElementById("deleteEmployeeIDSpan").textContent = id;
+  document.getElementById("deleteEmployeeNameSpan").textContent = name;
 
-  showform('delete');
+  showForm("delete");
 }
+
 function browseEmployees() { 
-  showform('browse'); 
+  showForm("browse"); 
 }
 
 function showAll() { 
-  showform('all'); 
+  showForm("all"); 
 }
 
 // Training Sessions

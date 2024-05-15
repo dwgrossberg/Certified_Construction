@@ -1,14 +1,17 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Employees</title>
-  </head>
-  <body onload="browseEmployees()">
-    <header>
-      <h1>Employees</h1>
-    </header>
-    <nav class="navbar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employees</title>
+  <link rel="stylesheet" type="text/css" href="../css/index.css" />
+  <script src="../js/index.js"></script>
+</head>
+<body onload="browseEmployees()">
+  <header>
+    <h1>Employees</h1>
+  </header>
+  <nav class="navbar">
     <a href="/">Home</a>
     <a href="departments">Departments</a>
     <a href="certifications">Certifications</a>
@@ -16,130 +19,91 @@
     <a href="training_sessions">Training Sessions</a>
     <a href="employees_cert">Employee Certifications</a>
     <a href="employees_train">Employee Training Sessions</a>
-    </nav>
-    <main>
-      <div id="browse">
-        <button onClick="newEmployee()" class="btn">Add New Employee</button>
-        <p><a href="#" onClick="showAll()">Display all forms</a> </p>
-        <table class="employeeTable">
+  </nav>
+  <main>
+    <div id="browse">
+      <button onClick="newEmployee()" class="btn">Add New Employee</button>
+      <p><a href="#" onClick="showAll()">Display all forms</a></p>
+      <table class="employeeTable">
+        <thead>
           <tr>
             <th>Action</th>
             <th class="rowID">ID</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th class="employeeEmail">Email</th>
+            <th>Email</th>
             <th>Department</th>
           </tr>
+        </thead>
+        <tbody>
           {{#each data}}
-            <tr>
-              <td>
-                <a
-                  href="#"
-                  onClick="updateEmployee(this)"
-                  data-employeeID="{{this.employeeID}}"
-                  data-fname="{{this.fName}}"
-                  data-lname="{{this.lName}}"
-                  data-email="{{this.email}}"
-                  data-deptid="{{this.deptID}}"
-                >Edit</a>
-                |
-                <a
-                  href="#"
-                  onclick="deleteEmployee(this)"
-                  data-employeeID="{{this.employeeID}}"
-                  data-name="{{this.fName}} {{this.lName}}"
-                >Delete</a>
-              </td>
-              <td>{{this.employeeID}}</td>
-              <td>{{this.fName}}</td>
-              <td>{{this.lName}}</td>
-              <td>{{this.email}}</td>
-              <td>{{this.deptID}}</td>
-            </tr>
+          <tr>
+            <td>
+              <a href="#" onClick="updateEmployee(this)"
+                 data-id="{{this.employeeID}}"
+                 data-fname="{{this.fName}}"
+                 data-lname="{{this.lName}}"
+                 data-email="{{this.email}}"
+                 data-deptid="{{this.deptID}}">Edit</a> |
+              <a href="#" onClick="deleteEmployee(this)"
+                 data-id="{{this.employeeID}}"
+                 data-name="{{this.fName}} {{this.lName}}">Delete</a>
+            </td>
+            <td>{{this.employeeID}}</td>
+            <td>{{this.fName}}</td>
+            <td>{{this.lName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.deptID}}</td>
+          </tr>
           {{/each}}
-        </table>
-      </div>
-      <div id="insert" style="display: none;">
-        <form method="POST" id="addEmployee">
-          <legend><strong>Add Employee</strong></legend>
-          <fieldset>
-            <label>First Name: <input type="text" name="fname" /></label>
-            <label>Last Name: <input type="text" name="lname" /></label>
-            <label>Email:
-              <input class="longInput" type="text" name="email" /></label>
-            <label>Department ID: <input type="text" name="deptID" /></label>
-          </fieldset>
-          <input class="btn" type="submit" value="Add Employee" />
-          <input
-            class="btn"
-            type="button"
-            value="Cancel"
-            onClick="browseEmployees()"
-          />
-        </form>
-      </div>
+        </tbody>
+      </table>
+    </div>
 
-      <div id="update" style="display: none;">
-        <form method="POST" id="updateEmployee">
-          <legend><strong>Update Employee</strong></legend>
-          <fieldset>
-            <input type="hidden" name="employeeID" id="updateEmployeeID" />
-            <label>ID: <span id="updateEmployeeIDSpan"></span></label>
-            <label>First Name:
-              <input
-                type="text"
-                name="fname"
-                id="updateEmployeeFName"
-              /></label>
-            <label>Last Name:
-              <input
-                type="text"
-                name="lname"
-                id="updateEmployeeLName"
-              /></label>
-            <label>Email:
-              <input
-                type="text"
-                name="email"
-                id="updateEmployeeEmail"
-              /></label>
-            <label>Department ID:
-              <input
-                type="text"
-                name="deptID"
-                id="updateEmployeeDeptID"
-              /></label>
-          </fieldset>
-          <input class="btn" type="submit" value="Update Employee" />
-          <input
-            class="btn"
-            type="button"
-            value="Cancel"
-            onClick="browseEmployees()"
-          />
-        </form>
-      </div>
+    <div id="insert" class="form-container" style="display: none;">
+      <form method="POST" id="addEmployee">
+        <legend><strong>Add Employee</strong></legend>
+        <fieldset>
+          <label>First Name: <input type="text" id="input-fname" name="fname" /></label>
+          <label>Last Name: <input type="text" id="input-lname" name="lname" /></label>
+          <label>Email: <input type="text" id="input-email" name="email" /></label>
+          <label>Department ID: <input type="text" id="input-deptid" name="deptID" /></label>
+        </fieldset>
+        <input class="btn" type="submit" value="Add Employee" />
+        <input class="btn" type="button" value="Cancel" onClick="browseEmployees()" />
+      </form>
+    </div>
 
-      <div id="delete" style="display: none;">
-        <form method="POST" id="deleteEmployee">
-          <legend><strong>Delete Employee</strong></legend>
-          <fieldset>
-            <label>ID: <span id="deleteEmployeeIDSpan"></span></label>
-            <label>Name: <span id="deleteEmployeeNameSpan"></span></label>
-            <input type="hidden" name="employeeID" id="deleteEmployeeID" />
-          </fieldset>
-          <input class="btn" type="submit" value="Delete Employee" />
-          <input
-            class="btn"
-            type="button"
-            value="Cancel"
-            onClick="browseEmployees()"
-          />
-        </form>
-      </div>
-    </main>
-    <footer>
-      <p>© 2024 ByteBalancers. All rights reserved.</p>
-    </footer>
-  </body>
+    <div id="update" class="form-container" style="display: none;">
+      <form method="POST" id="updateEmployee">
+        <legend><strong>Update Employee</strong></legend>
+        <fieldset>
+          <input type="hidden" name="employeeID" id="updateEmployeeID" />
+          <label>First Name: <input type="text" name="fname" id="updateEmployeeFName" /></label>
+          <label>Last Name: <input type="text" name="lname" id="updateEmployeeLName" /></label>
+          <label>Email: <input type="text" name="email" id="updateEmployeeEmail" /></label>
+          <label>Department ID: <input type="text" name="deptID" id="updateEmployeeDeptID" /></label>
+        </fieldset>
+        <input class="btn" type="submit" value="Update Employee" />
+        <input class="btn" type="button" value="Cancel" onClick="browseEmployees()" />
+      </form>
+    </div>
+
+    <div id="delete" class="form-container" style="display: none;">
+      <form method="POST" id="deleteEmployee">
+        <legend><strong>Delete Employee</strong></legend>
+        <fieldset>
+          <label>ID: <span id="deleteEmployeeIDSpan"></span></label>
+          <label>Name: <span id="deleteEmployeeNameSpan"></span></label>
+          <input type="hidden" name="employeeID" id="deleteEmployeeID" />
+        </fieldset>
+        <input class="btn" type="submit" value="Delete Employee" />
+        <input class="btn" type="button" value="Cancel" onClick="browseEmployees()" />
+      </form>
+    </div>
+  </main>
+  <footer>
+    <p>© 2024 ByteBalancers. All rights reserved.</p>
+  </footer>
+</body>
 </html>
