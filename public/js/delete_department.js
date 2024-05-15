@@ -2,29 +2,53 @@ document.addEventListener('DOMContentLoaded', function() {
     let deleteDepartmentForm = document.getElementById('delete-department-form');
 
     if (deleteDepartmentForm) {
-        deleteDepartmentForm.addEventListener("submit", function (e) {
+        deleteDepartmentForm.addEventListener("submit", function(e) {
             e.preventDefault();
 
             let departmentID = document.getElementById("deleteDeptID").value;
 
-            let data = { id: departmentID };
-
+            // Setup our AJAX request
             var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "/delete-department-form-ajax", true);
+            xhttp.open("DELETE", `/delete-department/${departmentID}`, true);
             xhttp.setRequestHeader("Content-type", "application/json");
 
+            // Tell our AJAX request how to resolve
             xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
+                if (xhttp.readyState == 4 && xhttp.status == 204) {
                     console.log("Department deleted successfully");
-                    location.reload(); // Reload the page to see the updated table
-                } else if (this.readyState == 4 && this.status != 200) {
-                    console.log("There was an error with the input.");
+                    location.reload(); 
+                } else if (xhttp.readyState == 4 && xhttp.status != 204) {
+                    console.log("There was an error with the deletion.");
                 }
             };
 
-            xhttp.send(JSON.stringify(data));
+            // Send the request
+            xhttp.send();
         });
     } else {
         console.error("Form with ID 'delete-department-form' not found.");
     }
 });
+
+function deleteDepartment(element) {
+    const id = element.getAttribute("data-id");
+    const name = element.getAttribute("data-name");
+    const description = element.getAttribute("data-description");
+
+    document.getElementById("deleteDeptID").value = id;
+    document.getElementById("deleteDeptName").textContent = name;
+    document.getElementById("deleteDeptDescription").textContent = description;
+
+    showForm("delete");
+}
+
+function showForm(formType) {
+    const sections = ["browse", "insert", "update", "delete"];
+    sections.forEach(section => {
+        document.getElementById(section).style.display = section === formType ? 'block' : 'none';
+    });
+}
+
+function browseMain() {
+    showForm("browse");
+}

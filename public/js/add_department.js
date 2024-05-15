@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
             };
 
             var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "/add-department-form-ajax", true);
+            xhttp.open("POST", "/add-department-form", true);
             xhttp.setRequestHeader("Content-type", "application/json");
 
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log("Department added successfully");
-                    location.reload(); // Reload the page to see the updated table
+                    location.reload(); 
                 } else if (this.readyState == 4 && this.status != 200) {
                     console.log("There was an error with the input.");
                 }

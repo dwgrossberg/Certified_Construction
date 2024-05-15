@@ -37,7 +37,7 @@ app.get('/departments', (req, res) => {
   });
 });
 
-app.post('/add-department-form-ajax', (req, res) => {
+app.post('/add-department-form', (req, res) => {
   const data = req.body;
   const query1 = `INSERT INTO Departments (name, description) VALUES (?, ?)`;
   db.pool.query(query1, [data.name, data.description], (error, rows) => {
@@ -57,6 +57,21 @@ app.post('/add-department-form-ajax', (req, res) => {
     }
   });
 });
+
+app.delete('/delete-department/:departmentID', (req, res) => {
+  const departmentID = req.params.departmentID;
+  const query1 = `DELETE FROM Departments WHERE deptID = ?`;
+
+  db.pool.query(query1, [departmentID], (error, rows) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(204).send(); // Send 204 No Content status for successful deletion
+    }
+  });
+});
+
 
 app.get("/certifications", (req, res) => {
   const query1 = "SELECT * FROM Certifications;";

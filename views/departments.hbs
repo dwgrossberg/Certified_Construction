@@ -28,7 +28,6 @@
           <thead>
             <tr>
               <th>Action</th>
-              <th>ID</th>
               <th>Name</th>
               <th>Description</th>
             </tr>
@@ -53,16 +52,13 @@
                     data-description={{this.description}}
                   >Delete</a>
                 </td>
-                <td class="rowID">{{this.deptID}}</td>
                 <td>{{this.name}}</td>
                 <td>{{this.description}}</td>
               </tr>
             {{/each}}
           </tbody>
-
         </table>
       </div>
-
         <div id="insert" class="form-container" style="display:none;">
             <form id="add-department-form">
                 <legend>Add New Department</legend>
@@ -85,14 +81,14 @@
         </div>
 
         <div id="delete" class="form-container" style="display:none;">
-            <form id="delete-department-form">
-                <legend>Delete Department</legend>
-                <p>Are you sure you want to delete the department <span id="deleteDeptName"></span> with the following description?</p>
-                <p>Description: <span id="deleteDeptDescription"></span></p>
-                <input type="hidden" name="departmentID" id="deleteDeptID" />
-                <button type="submit">Delete</button>
-                <button type="button" onClick="browseMain()">Cancel</button>
-            </form>
-        </div>
+          <form id="delete-department-form">
+              <legend>Delete Department</legend>
+              <p>Are you sure you want to delete the department <span id="deleteDeptName"></span> with the following description?</p>
+              <p>Description: <span id="deleteDeptDescription"></span></p>
+              <input type="hidden" name="departmentID" id="deleteDeptID" />
+              <button type="submit">Delete</button>
+              <button type="button" onClick="browseMain()">Cancel</button>
+          </form>
+      </div>
     </main>
 </body>
