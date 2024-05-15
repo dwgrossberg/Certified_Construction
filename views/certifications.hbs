@@ -24,7 +24,7 @@
         <thead>
           <tr>
             <th>Actions</th>
-            <th class="rowID">ID</th>
+            <th class="hidden">ID</th>
             <th>Name</th>
             <th>Certifying Organization</th>
             <th>Description</th>
@@ -52,10 +52,10 @@
                   data-description="{{this.description}}"
                 >Delete</a>
               </td>
-              <td>{{this.certID}}</td>
+              <td class="hidden">{{this.certID}}</td>
               <td>{{this.name}}</td>
               <td>{{this.certOrg}}</td>
-              <td>{{this.description}}</td>
+     ce       <td>{{this.description}}</td>
             </tr>
           {{/each}}
         </tbody>

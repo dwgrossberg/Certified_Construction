@@ -1,87 +1,16 @@
 /* Citation: CSS Basline file borrowed from vanilla-css project: https://github.com/bradleytaunt/vanilla-css/blob/master/vanilla.css */
 
 /* Reset */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del,
+dfn, em, img, ins, kbd, q, s, samp, small, strike,
+strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output,
+ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -114,102 +43,89 @@ table {
 body {
   color: var(--text-color);
   margin: 0 auto;
-  max-width: 75ch;
-  padding: 0 0.5rem;
+  padding: 0 1rem;
+  max-width: 1200px;
+  background-color: #f4f4f4;
 }
-body,
-input {
+
+body, input {
   font: var(--desktop-font-size) -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-dl,
-img,
-figure {
+h1, h2, h3, h4, h5, h6, p, blockquote, dl, img, figure {
   margin: 2rem 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   line-height: 1.2;
 }
+
 h1 {
   font-size: 200%;
 }
+
 h2 {
   font-size: 150%;
 }
+
 h3 {
   font-size: 120%;
 }
-h4,
-h5,
-h6 {
+
+h4, h5, h6 {
   font-size: 100%;
 }
-h5,
-h6 {
+
+h5, h6 {
   text-transform: uppercase;
 }
 
-header h1 {
-}
+header h1 {}
 
-a,
-a:visited {
+a, a:visited {
   color: var(--link-color);
 }
-a:hover,
-a:focus {
+
+a:hover, a:focus {
   color: var(--link-color-alt);
 }
 
-strong,
-time,
-b {
+strong, time, b {
   font-weight: bold;
 }
-em,
-dfn,
-i {
+
+em, dfn, i {
   font-style: italic;
 }
+
 sub {
   font-size: 60%;
   vertical-align: bottom;
 }
+
 small {
   font-size: 80%;
 }
 
-blockquote,
-q {
+blockquote, q {
   background: var(--secondary-color);
   border-left: 10px solid var(--primary-color);
   display: block;
   font-family: "Georgia", serif;
   padding: 1rem;
 }
+
 blockquote p:first-child {
   margin-top: 0;
 }
+
 blockquote p:last-child {
   margin-bottom: 0;
 }
+
 cite {
   font-family: "Georgia", serif;
   font-style: italic;
@@ -217,22 +133,18 @@ cite {
   margin-top: 1rem;
 }
 
-kbd,
-code,
-samp,
-pre,
-var {
+kbd, code, samp, pre, var {
   font: var(--mobile-font-size) monospace;
 }
-code,
-pre {
+
+code, pre {
   background: var(--tertiary-color);
   border: 1px solid;
   overflow: auto;
   padding: 0.25rem 0.5rem;
 }
-code pre,
-pre code {
+
+code pre, pre code {
   border: 0;
   padding: 0;
 }
@@ -257,31 +169,32 @@ figure {
   padding: 1rem;
   width: 100%;
 }
+
 figure img {
   margin: 0 auto;
 }
+
 figure figcaption {
   font-size: 80%;
   margin-top: 0.5rem;
   text-align: center;
 }
 
-ul,
-ol {
+ul, ol {
   margin: 2rem 0;
   padding: 0 0 0 2rem;
 }
-ul li,
-ol li {
+
+ul li, ol li {
   margin-bottom: 1rem;
 }
-li > ul,
-li > ol {
+
+li > ul, li > ol {
   margin: 0.25rem 0 0.5rem;
   padding: 0 0 0 2rem;
 }
-li > ul li,
-li > ol li {
+
+li > ul li, li > ol li {
   margin-bottom: 0.5rem;
 }
 
@@ -294,41 +207,45 @@ table {
   border-collapse: collapse;
   table-layout: fixed;
   text-align: left;
-  width: 110%;
-  margin-left: -75px;
-  min-width: 900px;
+  width: 100%;
+  min-width: 600px;
 }
+
 table caption {
   margin: 2rem 0;
 }
+
 table tr {
   border-bottom: 1px solid var(--primary-color);
 }
+
 table thead {
   position: sticky;
   top: 0;
 }
+
 table tbody tr:nth-child(even) {
   background: var(--tertiary-color);
 }
+
 table th {
   background: var(--secondary-color);
   font-weight: bold;
 }
-table th,
-table td {
+
+table th, table td {
   padding: 0.5rem;
 }
 
-input {
-  /* appearance: none; */
-  border: 1px solid var(--text-color);
-  display: block;
-  margin: 0.5rem 0;
-  padding: 0.8rem;
+input[type="text"] {
+  width: 100%; /* Adjust this as needed */
+  max-width: 500px; /* Set a max-width to prevent it from being too wide */
+  padding: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
-input:focus,
-input:active {
+
+input:focus, input:active {
   background-color: var(--secondary-color);
   border-color: var(--link-color);
 }
@@ -340,10 +257,24 @@ sup {
 
 /* Insert from here */
 
-.form-container {
-  display: none;
+.form-container form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
+.form-container label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-container input {
+  display: block;
+  margin-bottom: 20px;
+}
 .department-section {
   display: none;
 }
@@ -391,8 +322,7 @@ sup {
   margin-left: -45px;
 }
 
-.longInput,
-#updateEmployeeEmail {
+.longInput, #updateEmployeeEmail {
   width: 400px;
 }
 
@@ -403,25 +333,24 @@ textarea {
 button {
   padding: 9px 15px;
   font-family: inherit;
-  border: .25px solid var(--primary-color);
+  border: 0.25px solid var(--primary-color);
   border-radius: 3px;
   background-color: var(--primary-color);
+  cursor: pointer;
   margin-top: 10px;
+
 }
 
 button:hover {
-  cursor: pointer;
-  scale: 1.05;
-  border: .25px solid var(--button-color);
   background-color: var(--button-color);
-  border-radius: 3px;
+  border-color: var(--button-color);
 }
 
 .email {
-  white-space: nowrap;  
-  overflow: hidden;   
-  min-width: 160px; 
-  width: 100%;    
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 160px;
+  width: 100%;
 }
 
 select {
@@ -440,7 +369,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  align-items: center; 
+  align-items: center;
+  width: 100%;
 }
 
 /* Header Styles */
@@ -521,32 +451,28 @@ main p {
   margin: 0.5rem 0;
 }
 
-
 /* Footer Styles */
 footer {
   background: #333;
   color: #fff;
   text-align: center;
   padding: 1rem;
-  width: 98vw;
+  width: 100%;
   margin-top: auto;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
-
-
-
+.hidden {
+  display: none;
+}
 /* Mobile Styling */
 @media screen and (max-width: 110ch) {
-  body,
-  input {
+  body, input {
     font: var(--mobile-font-size) -apple-system, BlinkMacSystemFont, "Segoe UI",
       Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
       "Segoe UI Emoji", "Segoe UI Symbol";
   }
   table {
     table-layout: auto;
-    margin-left: 0;
   }
 }
-
