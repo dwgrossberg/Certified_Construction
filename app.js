@@ -16,9 +16,6 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static(__dirname + '/public'));         // this is needed to allow for the form to use the ccs style sheet/javscript
 
-
-
-
 /*
     ROUTES
 */

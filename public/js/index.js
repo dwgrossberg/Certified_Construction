@@ -26,6 +26,7 @@ function updateDepartment(element) {
   const id = element.getAttribute("data-id");
   const name = element.getAttribute("data-name");
   const description = element.getAttribute("data-description");
+  console.log(description);
 
   document.getElementById("updateDeptID").value = id;
   document.getElementById("updateDeptName").value = name;
@@ -96,8 +97,6 @@ function updateEmployee(element) {
   const email = element.getAttribute("data-email");
   const deptid = element.getAttribute("data-deptid");
 
-  console.log('Updating Employee:', { id, fname, lname, email, deptid });
-
   document.getElementById("updateEmployeeID").value = id;
   document.getElementById("updateEmployeeFName").value = fname;
   document.getElementById("updateEmployeeLName").value = lname;
@@ -138,6 +137,7 @@ function updateTrainingSession(element) {
   var trainingLocation = element.getAttribute("data-location");
   var trainingDescription = element.getAttribute("data-description");
   var trainingCertification = element.getAttribute("data-cert");
+  console.log(trainingDate.slice(0, 15));
 
   document.getElementById("updateTrainingID").value = trainingID;
   document.getElementById("updateTrainingDate").value = trainingDate;
