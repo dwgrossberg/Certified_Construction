@@ -287,8 +287,8 @@ sup {
   display: inline;
 }
 
-.rowID {
-  width: 50px;
+.thinColumn {
+  width: 150px;
 }
 
 .employeeCertID {
