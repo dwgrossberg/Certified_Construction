@@ -69,6 +69,21 @@ app.delete('/delete-department/:departmentID', (req, res) => {
   });
 });
 
+app.put('/update-department/:departmentID', (req, res) => {
+  const departmentID = req.params.departmentID;
+  const { name, description } = req.body;
+
+  const query = `UPDATE Departments SET name = ?, description = ? WHERE deptID = ?`;
+
+  db.pool.query(query, [name, description, departmentID], (error, results) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(200).send('Department updated successfully');
+    }
+  });
+});
 
 app.get("/certifications", (req, res) => {
   const query1 = "SELECT * FROM Certifications;";
@@ -93,7 +108,7 @@ app.get("/employees", (req, res) => {
 });
 
 app.get("/training_sessions", (req, res) => {
-  const query1 = "SELECT * FROM TrainingSessions;";
+  const query1 = "SELECT trainingID, DATE_FORMAT(date, '%Y-%m-%d') AS date, location, description, certID FROM TrainingSessions;";
   const query2 = "SELECT * FROM Certifications;";
   db.pool.query(query1, (error, rows) => {
     if (error) {
