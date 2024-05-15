@@ -109,7 +109,7 @@ app.get("/employees", (req, res) => {
 
 app.get("/training_sessions", (req, res) => {
   const query1 = "SELECT trainingID, DATE_FORMAT(date, '%Y-%m-%d') AS date, location, description, certID FROM TrainingSessions;";
-  const query2 = "SELECT * FROM Certifications;";
+  const query2 = "SELECT certID, name FROM Certifications;";
   db.pool.query(query1, (error, rows) => {
     if (error) {
       res.status(500).send('Database error: ' + error.message);
@@ -120,7 +120,7 @@ app.get("/training_sessions", (req, res) => {
           res.status(500).send('Database error: ' + error.message);
         } else {
           const certs = rows;
-          res.render('training_sessions', { data: ts, certs: certs });
+          return res.render('training_sessions', { data: ts, cert: certs });
         }
       });
     }

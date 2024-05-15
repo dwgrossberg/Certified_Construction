@@ -101,16 +101,9 @@
       <div>
         <label>Certification:
           <select id="updateTrainingCert">
-            <option value="1">Safety 101</option>
-            <option value="2">Drawing Reading 101</option>
-            <option value="3">Drawing Reading 102</option>
-            <option value="4">Drawing Reading 103</option>
-            <option value="5">Ethics Compliance</option>
-            <option value="6">Cyber Security 101</option>
-            <option value="7">Cyber Security 102</option>
-            <option value="8">Torque Cert</option>
-            <option value="9">Sealing Cert</option>
-            <option value="10">Crane Cert</option>
+            {{#each cert}}
+            <option value={{this.certID}}>{{this.name}}</option>
+            {{/each}}
           </select>
         </label>
       </div>
