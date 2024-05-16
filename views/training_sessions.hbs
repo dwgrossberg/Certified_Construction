@@ -36,7 +36,7 @@
                 data-date="{{this.date}}"
                 data-location={{this.location}}
                 data-description="{{this.description}}"
-                data-cert={{this.certID}}
+                data-cert="{{this.name}}"
               >Edit</a>
               |
               <a
@@ -46,14 +46,14 @@
                 data-date="{{this.date}}"
                 data-location={{this.location}}
                 data-description="{{this.description}}"
-                data-cert={{this.certID}}
+                data-cert="{{this.name}}"
               >Delete</a>
             </td>
             <td class="hidden">{{this.trainingID}}</td>
             <td>{{this.date}}</td>
             <td>{{this.location}}</td>
             <td>{{this.description}}</td>
-            <td>{{this.certID}}</td>
+            <td>{{this.name}}</td>
           </tr>
         {{/each}}
       </tbody>
@@ -102,7 +102,7 @@
         <label>Certification:
           <select id="updateTrainingCert">
             {{#each cert}}
-            <option value={{this.certID}}>{{this.name}}</option>
+            <option value="{{this.name}}">{{this.name}}</option>
             {{/each}}
           </select>
         </label>

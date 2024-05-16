@@ -137,7 +137,6 @@ function updateTrainingSession(element) {
   var trainingLocation = element.getAttribute("data-location");
   var trainingDescription = element.getAttribute("data-description");
   var trainingCertification = element.getAttribute("data-cert");
-  console.log(trainingDate.slice(0, 15));
 
   document.getElementById("updateTrainingID").value = trainingID;
   document.getElementById("updateTrainingDate").value = trainingDate;
