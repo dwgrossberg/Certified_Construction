@@ -66,14 +66,14 @@ CREATE TABLE IF NOT EXISTS `Employees` (
   `fName` VARCHAR(145) NOT NULL,
   `lName` VARCHAR(145) NOT NULL,
   `email` VARCHAR(145) NOT NULL,
-  `deptID` INT, -- Removed NOT NULL to make department assignment optional
+  `deptID` INT NULL, -- Made deptID nullable
   PRIMARY KEY (`employeeID`),
   INDEX `fk_Employees_Departments` (`deptID` ASC) VISIBLE,
   UNIQUE INDEX `employeeID_UNIQUE` (`employeeID` ASC) VISIBLE,
   CONSTRAINT `Employees_ibfk_1`
     FOREIGN KEY (`deptID`)
     REFERENCES `Departments` (`deptID`)
-    ON DELETE SET NULL -- Changed to SET NULL to handle deletion of department
+    ON DELETE SET NULL
     ON UPDATE CASCADE
 )
 ENGINE = InnoDB;
@@ -195,16 +195,17 @@ CREATE TABLE IF NOT EXISTS `EmployeesCertifications` (
   PRIMARY KEY (`employeeCertID`),
   UNIQUE INDEX `employeeCertID_UNIQUE` (`employeeCertID` ASC) VISIBLE,
   INDEX `fk_EmployeesCertifications_Certifications` (`certID` ASC) VISIBLE,
+  INDEX `fk_EmployeesCertifications_Employees` (`employeeID` ASC) VISIBLE,
   CONSTRAINT `EmployeesCertifications_ibfk_1`
     FOREIGN KEY (`employeeID`)
     REFERENCES `Employees` (`employeeID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE -- Changed to CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `EmployeesCertifications_ibfk_2`
     FOREIGN KEY (`certID`)
     REFERENCES `Certifications` (`certID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 -- Inserts into `EmployeesCertifications` table
@@ -247,4 +248,4 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 COMMIT;
-SET AUTOCOMMIT = 0;
+SET AUTOCOMMIT = 1;
