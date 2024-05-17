@@ -1,3 +1,7 @@
+// Citation for the following function
+// Date: 5/18/2024
+// Based on:
+// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app
 document.addEventListener('DOMContentLoaded', function() {
     let addDepartmentForm = document.getElementById('add-department-form');
 
