@@ -20,7 +20,7 @@
           <th>Action</th>
           <th class="hidden">ID</th>
           <th>Employee</th>
-          <th>Training</th>
+          <th>Training <em style="font-size: .75rem">(Date and Certification)</em></th>
         </tr>
       </thead>
       <tbody>
@@ -31,7 +31,7 @@
                 href="#"
                 onClick="updateEmployeeTrainingSession(this)"
                 data-employeeTrainingID={{this.employeeTrainingID}}
-                data-employeeID="{{this.fName}} {{this.lName}}"
+                data-employeeID={{this.employeeID}}
                 data-trainingID={{this.trainingID}}
               >Edit</a>
               |
@@ -39,13 +39,15 @@
                 href="#"
                 onClick="deleteEmployeeTrainingSession(this)"
                 data-employeeTrainingID={{this.employeeTrainingID}}
-                data-employeeID="{{this.fName}} {{this.lName}}"
+                data-employeeID={{this.employeeID}}
+                data-employeeName="{{this.fName}} {{this.lName}}"
                 data-trainingID={{this.trainingID}}
+                data-trainingName="{{this.date}} | {{this.certName}}"
               >Delete</a>
             </td>
             <td class="hidden">{{this.employeeTrainingID}}</td>
             <td>{{this.fName}} {{this.lName}}</td>
-            <td>{{this.trainingID}}</td>
+            <td>{{this.date}} | {{this.certName}}</td>
           </tr>
         {{/each}}
       </tbody>
@@ -54,12 +56,12 @@
 
   <div id="insert" class="form-container" style="display:none;">
     <form id="newEmployeeTrainingForm">
-      <legend>Add New Employee Training Session</legend>
+      <legend><strong>Add New Employee Training Session</strong></legend>
       <div>
         <label>Employee:
           <select id="newEmployeeTrainingEmployeeID">
-             {{#each data}}
-            <option value="{{this.fName}} {{this.lName}}">{{this.fName}} {{this.lName}}</option>
+            {{#each employee}}
+            <option value={{this.employeeID}}>{{this.fName}} {{this.lName}}</option>
             {{/each}}
           </select>
         </label>
@@ -67,16 +69,9 @@
       <div>
         <label>Training:
           <select id="newEmployeeTrainingTrainingID">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
+            {{#each training}}
+            <option value={{this.trainingID}}>{{this.date}} | {{this.certName}}</option>
+            {{/each}}
           </select>
         </label>
       </div>
@@ -87,34 +82,22 @@
 
   <div id="update" class="form-container" style="display:none;">
     <form id="updateEmployeeTrainingForm">
-      <legend>Update Employee Training Session</legend>
+      <legend><strong>Update Employee Training Session</strong></legend>
       <div>
         <label>Employee:
           <select id="updateEmployeeTrainingEmployeeID">
-            <option value="1">Vladimir Collier</option>
-            <option value="2">Donna Lott</option>
-            <option value="3">Athena Fry</option>
-            <option value="4">Igor Parks</option>
-            <option value="5">Sybill Robles</option>
-            <option value="6">Lucian Jordan</option>
-            <option value="7">Sharon Murray</option>
-            <option value="8">Maisie Herman</option>
+            {{#each employee}}
+            <option value={{this.employeeID}}>{{this.fName}} {{this.lName}}</option>
+            {{/each}}
           </select>
         </label>
       </div>
       <div>
         <label>Training:
           <select id="updateEmployeeTrainingTrainingID">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
+            {{#each training}}
+            <option value={{this.trainingID}}>{{this.date}} | {{this.certName}}</option>
+            {{/each}}
           </select>
         </label>
       </div>
@@ -125,13 +108,11 @@
 
   <div id="delete" class="form-container" style="display:none;">
     <form id="deleteEmployeeTrainingForm">
-      <legend>Delete Employee Training Session</legend>
-      <p>Are you sure you want to delete the training session with the
-        following details?</p>
-      <p>Employee ID:
-        <input id="deleteEmployeeTrainingSessionEmployeeID" disabled /></p>
-      <p>Training ID:
-        <input id="deleteEmployeeTrainingSessionTrainingID" disabled /></p>
+      <legend><strong>Delete Employee Training Session</strong></legend>
+      <label>Employee:
+        <input type="text" id="deleteEmployeeTrainingSessionEmployeeID" disabled /></label>
+      <label>Training:
+        <input type="text" id="deleteEmployeeTrainingSessionTrainingID" disabled /><label/>
       <button type="submit">Delete</button>
       <button type="button" onClick="browseMain()">Cancel</button>
     </form>
