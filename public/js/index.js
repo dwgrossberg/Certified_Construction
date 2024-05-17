@@ -108,11 +108,17 @@ function updateEmployee(element) {
 
 function deleteEmployee(element) {
   const id = element.getAttribute("data-id");
-  const name = element.getAttribute("data-name");
+  const fname = element.getAttribute("data-fname");
+  const lname = element.getAttribute("data-lname");
+  const email = element.getAttribute("data-email");
+  const deptid = element.getAttribute("data-deptid");
 
   document.getElementById("deleteEmployeeID").value = id;
   document.getElementById("deleteEmployeeIDSpan").textContent = id;
-  document.getElementById("deleteEmployeeNameSpan").textContent = name;
+  document.getElementById("deleteEmployeeFNameSpan").textContent = fname;
+  document.getElementById("deleteEmployeeLNameSpan").textContent = lname;
+  document.getElementById("deleteEmployeeEmailSpan").textContent = email;
+  document.getElementById("deleteEmployeeDeptIDSpan").textContent = deptid;
 
   showForm("delete");
 }

@@ -1,3 +1,13 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employees</title>
+  <link rel="stylesheet" type="text/css" href="/css/index.css" />
+  <script src="/js/index.js"></script>
+  <script src="/js/add_employee.js"></script>
+  <script src="/js/delete_employee.js"></script>
+  <script src="/js/update_employee.js"></script> 
+</head>
 <body onload="browseEmployees()">
   <header>
     <h1>Employees</h1>
@@ -27,24 +37,29 @@
           </tr>
         </thead>
         <tbody>
-          {{#each data}}
+          {{#each employees}}
           <tr>
             <td>
               <a href="#" onClick="updateEmployee(this)"
                  data-id="{{this.employeeID}}"
-                 data-fname="{{this.fName}}"
-                 data-lname="{{this.lName}}"
+                 data-fname="{{this.fname}}"
+                 data-lname="{{this.lname}}"
                  data-email="{{this.email}}"
-                 data-deptid="{{this.deptID}}">Edit</a> |
+                 data-deptid="{{this.deptID}}"
+                 data-deptname="{{this.departmentName}}">Edit</a> |
               <a href="#" onClick="deleteEmployee(this)"
                  data-id="{{this.employeeID}}"
-                 data-name="{{this.fName}} {{this.lName}}">Delete</a>
+                 data-fname="{{this.fname}}"
+                 data-lname="{{this.lname}}"
+                 data-email="{{this.email}}"
+                 data-deptid="{{this.deptID}}"
+                 data-deptname="{{this.departmentName}}">Delete</a>
             </td>
             <td class="hidden">{{this.employeeID}}</td>
-            <td>{{this.fName}}</td>
-            <td>{{this.lName}}</td>
+            <td>{{this.fname}}</td>
+            <td>{{this.lname}}</td>
             <td>{{this.email}}</td>
-            <td>{{this.deptID}}</td>
+            <td>{{this.departmentName}}</td>
           </tr>
           {{/each}}
         </tbody>
@@ -58,7 +73,13 @@
           <label>First Name: <input type="text" id="input-fname" name="fname" /></label>
           <label>Last Name: <input type="text" id="input-lname" name="lname" /></label>
           <label>Email: <input type="text" id="input-email" name="email" /></label>
-          <label>Department ID: <input type="text" id="input-deptid" name="deptID" /></label>
+          <label>Department:
+            <select id="input-deptid" name="deptID">
+              {{#each departments}}
+                <option value="{{this.deptID}}">{{this.name}}</option>
+              {{/each}}
+            </select>
+          </label>
         </fieldset>
         <input class="btn" type="submit" value="Add Employee" />
         <input class="btn" type="button" value="Cancel" onClick="browseEmployees()" />
@@ -73,7 +94,13 @@
           <label>First Name: <input type="text" name="fname" id="updateEmployeeFName" /></label>
           <label>Last Name: <input type="text" name="lname" id="updateEmployeeLName" /></label>
           <label>Email: <input type="text" name="email" id="updateEmployeeEmail" /></label>
-          <label>Department ID: <input type="text" name="deptID" id="updateEmployeeDeptID" /></label>
+          <label>Department:
+            <select id="updateEmployeeDeptID" name="deptID">
+              {{#each departments}}
+                <option value="{{this.deptID}}">{{this.name}}</option>
+              {{/each}}
+            </select>
+          </label>
         </fieldset>
         <input class="btn" type="submit" value="Update Employee" />
         <input class="btn" type="button" value="Cancel" onClick="browseEmployees()" />
@@ -85,7 +112,10 @@
         <legend><strong>Delete Employee</strong></legend>
         <fieldset>
           <label>ID: <span id="deleteEmployeeIDSpan"></span></label>
-          <label>Name: <span id="deleteEmployeeNameSpan"></span></label>
+          <label>First Name: <span id="deleteEmployeeFNameSpan"></span></label>
+          <label>Last Name: <span id="deleteEmployeeLNameSpan"></span></label>
+          <label>Email: <span id="deleteEmployeeEmailSpan"></span></label>
+          <label>Department: <span id="deleteEmployeeDeptIDSpan"></span></label>
           <input type="hidden" name="employeeID" id="deleteEmployeeID" />
         </fieldset>
         <input class="btn" type="submit" value="Delete Employee" />
@@ -93,5 +123,4 @@
       </form>
     </div>
   </main>
-
 </body>

@@ -64,7 +64,7 @@ app.delete('/delete-department/:departmentID', (req, res) => {
       console.log(error);
       res.status(500).send('Database error: ' + error.message);
     } else {
-      res.status(204).send(); // Send 204 No Content status for successful deletion
+      res.status(204).send(); 
     }
   });
 });
@@ -96,16 +96,128 @@ app.get("/certifications", (req, res) => {
   });
 });
 
+app.post('/add-certification', (req, res) => {
+  const { name, certOrg, description } = req.body;
+  const query = `INSERT INTO Certifications (name, certOrg, description) VALUES (?, ?, ?)`;
+
+  db.pool.query(query, [name, certOrg, description], (error, rows) => {
+      if (error) {
+          console.log(error);
+          res.status(500).send('Database error: ' + error.message);
+      } else {
+          res.status(200).send('Certification added successfully');
+      }
+  });
+});
+
+app.delete('/delete-certification/:certID', (req, res) => {
+  const certID = req.params.certID;
+  const query = `DELETE FROM Certifications WHERE certID = ?`;
+
+  db.pool.query(query, [certID], (error, rows) => {
+      if (error) {
+          console.log(error);
+          res.status(500).send('Database error: ' + error.message);
+      } else {
+          res.status(204).send(); 
+      }
+  });
+});
+
+app.put('/update-certification/:certID', (req, res) => {
+  const certID = req.params.certID;
+  const { name, certOrg, description } = req.body;
+  const query = `UPDATE Certifications SET name = ?, certOrg = ?, description = ? WHERE certID = ?`;
+
+  db.pool.query(query, [name, certOrg, description, certID], (error, results) => {
+      if (error) {
+          console.log(error);
+          res.status(500).send('Database error: ' + error.message);
+      } else {
+          res.status(200).send('Certification updated successfully');
+      }
+  });
+});
+
+
 app.get("/employees", (req, res) => {
-  const query1 = "SELECT * FROM Employees;";
-  db.pool.query(query1, (error, results) => {
+  const query = `
+    SELECT Employees.employeeID, Employees.fname, Employees.lname, Employees.email, Departments.name AS departmentName
+    FROM Employees
+    LEFT JOIN Departments ON Employees.deptID = Departments.deptID;
+  `;
+  db.pool.query(query, (error, results) => {
     if (error) {
       res.status(500).send('Database error: ' + error.message);
     } else {
-      res.render('employees', { data: results });
+      db.pool.query("SELECT deptID, name FROM Departments;", (error, departmentResults) => {
+        if (error) {
+          res.status(500).send('Database error: ' + error.message);
+        } else {
+          res.render('employees', { employees: results, departments: departmentResults });
+        }
+      });
     }
   });
 });
+
+
+
+app.post('/add-employee', (req, res) => {
+  const data = req.body;
+  const query1 = `INSERT INTO Employees (fname, lname, email, deptID) VALUES (?, ?, ?, ?)`;
+  db.pool.query(query1, [data.fname, data.lname, data.email, data.deptID], (error, rows) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      const query2 = "SELECT * FROM Employees";
+      db.pool.query(query2, (error, results) => {
+        if (error) {
+          console.log(error);
+          res.status(500).send('Database error: ' + error.message);
+        } else {
+          res.json(results);
+        }
+      });
+    }
+  });
+});
+
+app.delete('/delete-employee/:employeeID', (req, res) => {
+  const employeeID = req.params.employeeID;
+  const query1 = `DELETE FROM Employees WHERE employeeID = ?`;
+
+  db.pool.query(query1, [employeeID], (error, rows) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(204).send(); 
+    }
+  });
+});
+
+app.put('/update-employee/:employeeID', (req, res) => {
+  const employeeID = req.params.employeeID;
+  const { fname, lname, email, deptID } = req.body;
+
+  // Handle the case where deptID is not provided or is empty
+  const deptIDValue = deptID ? deptID : null;
+
+  const query = `UPDATE Employees SET fname = ?, lname = ?, email = ?, deptID = ? WHERE employeeID = ?`;
+
+  db.pool.query(query, [fname, lname, email, deptIDValue, employeeID], (error, results) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(200).send('Employee updated successfully');
+    }
+  });
+});
+
+
 
 app.get("/training_sessions", (req, res) => {
   const query1 = "SELECT TrainingSessions.trainingID, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.location, TrainingSessions.description, TrainingSessions.certID, Certifications.name FROM TrainingSessions JOIN Certifications ON TrainingSessions.certID = Certifications.certID;";
