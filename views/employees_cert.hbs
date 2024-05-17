@@ -32,8 +32,8 @@
               <a
                 href="#"
                 onClick="updateEmployeeCert(this)"
-                data-id={{this.employeeCertID}}
                 data-employeeID={{this.employeeID}}
+                data-id={{this.employeeCertID}}
                 data-certID={{this.certID}}
                 data-dateObtained={{this.dateObtained}}
                 data-expirationDate={{this.expirationDate}}
@@ -42,15 +42,15 @@
               <a
                 href="#"
                 onClick="deleteEmployeeCert(this)"
-                data-id={{this.employeeCertID}}
                 data-employeeID={{this.employeeID}}
+                data-id={{this.employeeCertID}}
                 data-certID={{this.certID}}
                 data-dateObtained={{this.dateObtained}}
                 data-expirationDate={{this.expirationDate}}
               >Delete</a>
             </td>
+            <td>{{this.fName}} {{this.lName}}</td>
             <td>{{this.employeeCertID}}</td>
-            <td>{{this.employeeID}}</td>
             <td class="hidden">{{this.certID}}</td>
             <td>{{this.dateObtained}}</td>
             <td>{{this.expirationDate}}</td>
@@ -65,14 +65,9 @@
       <div>
         <label>Employee:
           <select id="newEmployeeCertEmployeeID">
-            <option value="1">Vladimir Collier</option>
-            <option value="2">Donna Lott</option>
-            <option value="3">Athena Fry</option>
-            <option value="4">Igor Parks</option>
-            <option value="5">Sybill Robles</option>
-            <option value="6">Lucian Jordan</option>
-            <option value="7">Sharon Murray</option>
-            <option value="8">Maisie Herman</option>
+            {{#each data}}
+            <option value="{{this.fName}} {{this.lName}}">{{this.fName}} {{this.lName}}</option>
+            {{/each}}
           </select>
         </label>
       </div>

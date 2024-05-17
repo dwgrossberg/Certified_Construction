@@ -220,27 +220,18 @@ app.put('/update-employee/:employeeID', (req, res) => {
 
 
 app.get("/training_sessions", (req, res) => {
-  const query1 = "SELECT trainingID, DATE_FORMAT(date, '%Y-%m-%d') AS date, location, description, certID FROM TrainingSessions;";
-  const query2 = "SELECT certID, name FROM Certifications;";
+  const query1 = "SELECT TrainingSessions.trainingID, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.location, TrainingSessions.description, TrainingSessions.certID, Certifications.name FROM TrainingSessions JOIN Certifications ON TrainingSessions.certID = Certifications.certID;";
   db.pool.query(query1, (error, rows) => {
     if (error) {
       res.status(500).send('Database error: ' + error.message);
     } else {
-      const ts = rows;
-      db.pool.query(query2, (error, rows) => {
-        if (error) {
-          res.status(500).send('Database error: ' + error.message);
-        } else {
-          const certs = rows;
-          return res.render('training_sessions', { data: ts, cert: certs });
-        }
-      });
+      res.render('training_sessions', { data: rows });
     }
   });
 });
 
 app.get("/employees_cert", (req, res) => {
-  const query1 = "SELECT employeeCertID, employeeID, certID, DATE_FORMAT(dateObtained, '%Y-%m-%d') AS dateObtained, DATE_FORMAT(expirationDate, '%Y-%m-%d') AS expirationDate FROM EmployeesCertifications;";
+  const query1 = "SELECT EmployeesCertifications.employeeCertID, EmployeesCertifications.employeeID, EmployeesCertifications.certID, DATE_FORMAT(EmployeesCertifications.dateObtained, '%Y-%m-%d') AS dateObtained, DATE_FORMAT(EmployeesCertifications.expirationDate, '%Y-%m-%d') AS expirationDate, Employees.fName, Employees.lName, Certifications.name AS certName FROM EmployeesCertifications JOIN Employees ON EmployeesCertifications.employeeID = Employees.employeeID JOIN Certifications ON EmployeesCertifications.certID = Certifications.certID;";
   db.pool.query(query1, (error, rows) => {
     if (error) {
       res.status(500).send('Database error: ' + error.message);
