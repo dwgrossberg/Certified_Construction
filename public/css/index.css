@@ -238,8 +238,8 @@ table th, table td {
 }
 
 input[type="text"] {
-  width: 100%; /* Adjust this as needed */
-  max-width: 500px; /* Set a max-width to prevent it from being too wide */
+  width: 100%;
+  max-width: 500px; 
   padding: 10px;
   font-size: 1rem;
   box-sizing: border-box;
