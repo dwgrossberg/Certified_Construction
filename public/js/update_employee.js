@@ -15,9 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
             let employeeEmail = document.getElementById("updateEmployeeEmail").value;
             let employeeDeptID = document.getElementById("updateEmployeeDeptID").value;
 
-            // Set deptID to null if it is empty
-            let deptIDValue = employeeDeptID ? employeeDeptID : null;
-
             // Setup our AJAX request
             var xhttp = new XMLHttpRequest();
             xhttp.open("PUT", `/update-employee/${employeeID}`, true);
@@ -38,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 fname: employeeFName,
                 lname: employeeLName,
                 email: employeeEmail,
-                deptID: deptIDValue
+                deptID: employeeDeptID
             };
             xhttp.send(JSON.stringify(data));
         });
@@ -58,18 +55,15 @@ function updateEmployee(element) {
     document.getElementById("updateEmployeeFName").value = fname;
     document.getElementById("updateEmployeeLName").value = lname;
     document.getElementById("updateEmployeeEmail").value = email;
-    document.getElementById("updateEmployeeDeptID").value = deptID;
+
+    // Pre-select the current department in the dropdown
+    const deptSelect = document.getElementById("updateEmployeeDeptID");
+    for (let i = 0; i < deptSelect.options.length; i++) {
+        if (deptSelect.options[i].value == deptID) {
+            deptSelect.selectedIndex = i;
+            break;
+        }
+    }
 
     showForm("update");
-}
-
-function showForm(formType) {
-    const sections = ["browse", "insert", "update", "delete"];
-    sections.forEach(section => {
-        document.getElementById(section).style.display = section === formType ? 'block' : 'none';
-    });
-}
-
-function browseEmployees() {
-    showForm("browse");
 }

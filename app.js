@@ -28,6 +28,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+// Get all departments
 app.get('/departments', (req, res) => {
   const query1 = "SELECT * FROM Departments";
   db.pool.query(query1, (error, results) => {
@@ -39,6 +40,7 @@ app.get('/departments', (req, res) => {
   });
 });
 
+// Add departments
 app.post('/add-department-form', (req, res) => {
   const data = req.body;
   const query1 = `INSERT INTO Departments (name, description) VALUES (?, ?)`;
@@ -60,6 +62,7 @@ app.post('/add-department-form', (req, res) => {
   });
 });
 
+// Delete department
 app.delete('/delete-department/:departmentID', (req, res) => {
   const departmentID = req.params.departmentID;
   const query1 = `DELETE FROM Departments WHERE deptID = ?`;
@@ -74,6 +77,7 @@ app.delete('/delete-department/:departmentID', (req, res) => {
   });
 });
 
+// Update Department
 app.put('/update-department/:departmentID', (req, res) => {
   const departmentID = req.params.departmentID;
   const { name, description } = req.body;
@@ -90,6 +94,7 @@ app.put('/update-department/:departmentID', (req, res) => {
   });
 });
 
+// Getting certifications
 app.get("/certifications", (req, res) => {
   const query1 = "SELECT * FROM Certifications;";
   db.pool.query(query1, (error, rows) => {
@@ -101,6 +106,7 @@ app.get("/certifications", (req, res) => {
   });
 });
 
+// Add certification
 app.post('/add-certification', (req, res) => {
   const { name, certOrg, description } = req.body;
   const query = `INSERT INTO Certifications (name, certOrg, description) VALUES (?, ?, ?)`;
@@ -115,6 +121,7 @@ app.post('/add-certification', (req, res) => {
   });
 });
 
+// Delete certification
 app.delete('/delete-certification/:certID', (req, res) => {
   const certID = req.params.certID;
   const query = `DELETE FROM Certifications WHERE certID = ?`;
@@ -129,6 +136,7 @@ app.delete('/delete-certification/:certID', (req, res) => {
   });
 });
 
+// Update certification
 app.put('/update-certification/:certID', (req, res) => {
   const certID = req.params.certID;
   const { name, certOrg, description } = req.body;
@@ -144,7 +152,7 @@ app.put('/update-certification/:certID', (req, res) => {
   });
 });
 
-
+// Get employees info
 app.get("/employees", (req, res) => {
   const query = `
     SELECT Employees.employeeID, Employees.fname, Employees.lname, Employees.email, Departments.name AS departmentName
@@ -166,8 +174,7 @@ app.get("/employees", (req, res) => {
   });
 });
 
-
-
+// Add employee
 app.post('/add-employee', (req, res) => {
   const data = req.body;
   const query1 = `INSERT INTO Employees (fname, lname, email, deptID) VALUES (?, ?, ?, ?)`;
@@ -189,6 +196,7 @@ app.post('/add-employee', (req, res) => {
   });
 });
 
+// Delete employee
 app.delete('/delete-employee/:employeeID', (req, res) => {
   const employeeID = req.params.employeeID;
   const query1 = `DELETE FROM Employees WHERE employeeID = ?`;
@@ -203,6 +211,7 @@ app.delete('/delete-employee/:employeeID', (req, res) => {
   });
 });
 
+// Update employee info
 app.put('/update-employee/:employeeID', (req, res) => {
   const employeeID = req.params.employeeID;
   const { fname, lname, email, deptID } = req.body;
@@ -222,24 +231,24 @@ app.put('/update-employee/:employeeID', (req, res) => {
   });
 });
 
-
-
+// Get all training sessions and certifications
 app.get("/training_sessions", (req, res) => {
   const query1 = `
     SELECT TrainingSessions.trainingID, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.location, TrainingSessions.description, TrainingSessions.certID, Certifications.name 
     FROM TrainingSessions
-    JOIN Certifications ON TrainingSessions.certID = Certifications.certID;`;
-  const query2 = "SELECT Certifications.name FROM Certifications;"
+    JOIN Certifications ON TrainingSessions.certID = Certifications.certID;
+  `;
+  const query2 = "SELECT certID, name FROM Certifications;";
   db.pool.query(query1, (error, rows) => {
     if (error) {
       res.status(500).send('Database error: ' + error.message);
     } else {
-      let ts = rows;
+      const ts = rows;
       db.pool.query(query2, (error, rows) => {
         if (error) {
           res.status(500).send('Database error: ' + error.message);
         } else {
-          let certs = rows;
+          const certs = rows;
           res.render('training_sessions', { data: ts, cert: certs });
         }
       });
@@ -247,6 +256,53 @@ app.get("/training_sessions", (req, res) => {
   });
 });
 
+// Add a new training session
+app.post('/add-training-session', (req, res) => {
+  const { date, location, description, certID } = req.body;
+  const query = `INSERT INTO TrainingSessions (date, location, description, certID) VALUES (?, ?, ?, ?)`;
+  
+  db.pool.query(query, [date, location, description, certID], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(200).send('Training session added successfully');
+    }
+  });
+});
+
+// Delete a training session
+app.delete('/delete-training-session/:trainingID', (req, res) => {
+  const trainingID = req.params.trainingID;
+  const query = `DELETE FROM TrainingSessions WHERE trainingID = ?`;
+
+  db.pool.query(query, [trainingID], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(204).send(); // No Content
+    }
+  });
+});
+
+// Update a training session
+app.put('/update-training-session/:trainingID', (req, res) => {
+  const trainingID = req.params.trainingID;
+  const { date, location, description, certID } = req.body;
+  const query = `UPDATE TrainingSessions SET date = ?, location = ?, description = ?, certID = ? WHERE trainingID = ?`;
+
+  db.pool.query(query, [date, location, description, certID, trainingID], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(200).send('Training session updated successfully');
+    }
+  });
+});
+
+// Get employee certifications
 app.get("/employees_cert", (req, res) => {
   const query1 = `
     SELECT EmployeesCertifications.employeeCertID, EmployeesCertifications.employeeID, EmployeesCertifications.certID, DATE_FORMAT(EmployeesCertifications.dateObtained, '%Y-%m-%d') AS dateObtained, DATE_FORMAT(EmployeesCertifications.expirationDate, '%Y-%m-%d') AS expirationDate, Employees.fName, Employees.lName, Certifications.name AS certName
