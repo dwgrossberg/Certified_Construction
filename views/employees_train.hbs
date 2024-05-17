@@ -31,7 +31,7 @@
                 href="#"
                 onClick="updateEmployeeTrainingSession(this)"
                 data-employeeTrainingID={{this.employeeTrainingID}}
-                data-employeeID={{this.employeeID}}
+                data-employeeID="{{this.fName}} {{this.lName}}"
                 data-trainingID={{this.trainingID}}
               >Edit</a>
               |
@@ -39,12 +39,12 @@
                 href="#"
                 onClick="deleteEmployeeTrainingSession(this)"
                 data-employeeTrainingID={{this.employeeTrainingID}}
-                data-employeeID={{this.employeeID}}
+                data-employeeID="{{this.fName}} {{this.lName}}"
                 data-trainingID={{this.trainingID}}
               >Delete</a>
             </td>
             <td class="hidden">{{this.employeeTrainingID}}</td>
-            <td>{{this.employeeID}}</td>
+            <td>{{this.fName}} {{this.lName}}</td>
             <td>{{this.trainingID}}</td>
           </tr>
         {{/each}}
@@ -58,14 +58,9 @@
       <div>
         <label>Employee:
           <select id="newEmployeeTrainingEmployeeID">
-            <option value="1">Vladimir Collier</option>
-            <option value="2">Donna Lott</option>
-            <option value="3">Athena Fry</option>
-            <option value="4">Igor Parks</option>
-            <option value="5">Sybill Robles</option>
-            <option value="6">Lucian Jordan</option>
-            <option value="7">Sharon Murray</option>
-            <option value="8">Maisie Herman</option>
+             {{#each data}}
+            <option value="{{this.fName}} {{this.lName}}">{{this.fName}} {{this.lName}}</option>
+            {{/each}}
           </select>
         </label>
       </div>

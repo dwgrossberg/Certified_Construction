@@ -71,16 +71,9 @@
       <div>
         <label>Certification:
           <select id="newTrainingCert">
-            <option value="Safety 101">Safety 101</option>
-            <option value="Drawing Reading 101">Drawing Reading 101</option>
-            <option value="Drawing Reading 102">Drawing Reading 102</option>
-            <option value="Drawing Reading 103">Drawing Reading 103</option>
-            <option value="Ethics Compliance">Ethics Compliance</option>
-            <option value="Cyber Security 101">Cyber Security 101</option>
-            <option value="Cyber Security 102">Cyber Security 102</option>
-            <option value="Torque Cert">Torque Cert</option>
-            <option value="Sealing Cert">Sealing Cert</option>
-            <option value="Crane Cert">Crane Cert</option>
+            {{#each cert}}
+            <option value="{{this.name}}">{{this.name}}</option>
+            {{/each}}
           </select>
         </label>
       </div>
@@ -101,7 +94,7 @@
       <div>
         <label>Certification:
           <select id="updateTrainingCert">
-            {{#each data}}
+            {{#each cert}}
             <option value="{{this.name}}">{{this.name}}</option>
             {{/each}}
           </select>
