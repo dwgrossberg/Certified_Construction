@@ -330,7 +330,7 @@ textarea {
   font-family: inherit;
 }
 
-button {
+button, .btn {
   padding: 9px 15px;
   font-family: inherit;
   border: 0.25px solid var(--primary-color);
@@ -338,10 +338,10 @@ button {
   background-color: var(--primary-color);
   cursor: pointer;
   margin-top: 10px;
-
+  font-size: .75rem;
 }
 
-button:hover {
+button:hover, .btn:hover {
   background-color: var(--button-color);
   border-color: var(--button-color);
 }
@@ -403,11 +403,11 @@ header p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: 0 auto;
   background-color: #444;
-  padding: 1rem;
+  padding: 1.5rem;
   max-width: 1200px;
   width: 100%;
-  margin: 0 auto;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
@@ -416,7 +416,7 @@ header p {
   color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .navbar a:hover {

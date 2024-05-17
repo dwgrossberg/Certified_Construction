@@ -2,13 +2,13 @@
   <h1>Employee Certifications</h1>
 </header>
 <nav class="navbar">
-<a href="/">Home</a>
-<a href="departments">Departments</a>
-<a href="certifications">Certifications</a>
-<a href="employees">Employees</a>
-<a href="training_sessions">Training Sessions</a>
-<a href="employees_cert">Employee Certifications</a>
-<a href="employees_train">Employee Training Sessions</a>
+  <a href="/">Home</a>
+  <a href="departments">Departments</a>
+  <a href="certifications">Certifications</a>
+  <a href="employees">Employees</a>
+  <a href="training_sessions">Training Sessions</a>
+  <a href="employees_cert">Employee Certifications</a>
+  <a href="employees_train">Employee Training Sessions</a>
 </nav>
 <main>
   <div id="browse">
@@ -32,9 +32,9 @@
               <a
                 href="#"
                 onClick="updateEmployeeCert(this)"
-                data-employeeID="{{this.fName}} {{this.lName}}"
+                data-employeeID={{this.employeeID}}
                 data-id={{this.employeeCertID}}
-                data-certID={{this.certName}}
+                data-certID={{this.certID}}
                 data-dateObtained={{this.dateObtained}}
                 data-expirationDate={{this.expirationDate}}
               >Edit</a>
@@ -42,9 +42,11 @@
               <a
                 href="#"
                 onClick="deleteEmployeeCert(this)"
-                data-employeeID="{{this.fName}} {{this.lName}}"
+                data-employeeID={{this.employeeID}}
+                data-employeeName="{{this.fName}} {{this.lName}}"
                 data-id={{this.employeeCertID}}
-                data-certID="{{this.certName}}"
+                data-certID={{this.certID}}
+                data-certName="{{this.certName}}"
                 data-dateObtained={{this.dateObtained}}
                 data-expirationDate={{this.expirationDate}}
               >Delete</a>
@@ -61,12 +63,12 @@
   </div>
   <div id="insert" class="form-container" style="display:none;">
     <form id="newEmployeeCertForm">
-      <legend>Add New Employee Certification</legend>
+      <legend><strong>Add New Employee Certification</strong></legend>
       <div>
         <label>Employee:
           <select id="newEmployeeCertEmployeeID">
             {{#each employee}}
-            <option value="{{this.fName}} {{this.lName}}">{{this.fName}} {{this.lName}}</option>
+            <option value={{this.employeeID}}>{{this.fName}} {{this.lName}}</option>
             {{/each}}
           </select>
         </label>
@@ -75,7 +77,7 @@
         <label>Certification:
           <select id="newEmployeeCertCertID">
             {{#each cert}}
-            <option value={{this.name}}>{{this.name}}</option>
+            <option value={{this.certID}}>{{this.name}}</option>
             {{/each}}
           </select>
         </label>
@@ -91,13 +93,13 @@
 
   <div id="update" class="form-container" style="display:none;">
     <form id="updateEmployeeCertForm">
-      <legend>Update Employee Certification</legend>
+      <legend><strong>Update Employee Certification</strong></legend>
       <input type="hidden" id="updateEmployeeCertID" name="id" />
       <div>
         <label>Employee:
           <select id="updateEmployeeCertEmployeeID">
             {{#each employee}}
-            <option value="{{this.fName}} {{this.lName}}">{{this.fName}} {{this.lName}}</option>
+            <option value={{this.employeeID}}>{{this.fName}} {{this.lName}}</option>
             {{/each}}
           </select>
         </label>
@@ -106,7 +108,7 @@
         <label>Certification:
           <select id="updateEmployeeCertCertID">
             {{#each cert}}
-            <option value={{this.name}}>{{this.name}}</option>
+            <option value={{this.certID}}>{{this.name}}</option>
             {{/each}}
           </select>
         </label>
@@ -130,12 +132,11 @@
 
   <div id="delete" class="form-container" style="display:none;">
     <form id="deleteEmployeeCertForm">
-      <legend>Delete Employee Certification</legend>
-      <p>Are you sure you want to delete this employee certification?</p>
-      <p>Employee:
-        <input id="deleteEmployeeCertEmployeeID" disabled /></p>
-      <p>Certification:
-        <input id="deleteEmployeeCertCertID" disabled /></p>
+      <legend><strong>Delete Employee Certification</strong></legend>
+      <label>Employee:
+        <input type="text" id="deleteEmployeeCertEmployeeID" disabled /></label>
+      <label>Certification:
+        <input type="text" id="deleteEmployeeCertCertID" disabled /></label>
       <button type="submit">Delete</button>
       <button type="button" onClick="browseMain()">Cancel</button>
     </form>

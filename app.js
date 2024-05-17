@@ -221,10 +221,10 @@ app.put('/update-employee/:employeeID', (req, res) => {
 
 app.get("/training_sessions", (req, res) => {
   const query1 = `
-    SELECT TrainingSessions.trainingID, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.location, TrainingSessions.description, TrainingSessions.certID, Certifications.name 
+    SELECT TrainingSessions.trainingID, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.location, TrainingSessions.description, TrainingSessions.certID, Certifications.certID, Certifications.name AS certName
     FROM TrainingSessions
     JOIN Certifications ON TrainingSessions.certID = Certifications.certID;`;
-  const query2 = "SELECT Certifications.name FROM Certifications;"
+  const query2 = "SELECT Certifications.certID, Certifications.name FROM Certifications;"
   db.pool.query(query1, (error, rows) => {
     if (error) {
       res.status(500).send('Database error: ' + error.message);
@@ -244,12 +244,12 @@ app.get("/training_sessions", (req, res) => {
 
 app.get("/employees_cert", (req, res) => {
   const query1 = `
-    SELECT EmployeesCertifications.employeeCertID, EmployeesCertifications.employeeID, EmployeesCertifications.certID, DATE_FORMAT(EmployeesCertifications.dateObtained, '%Y-%m-%d') AS dateObtained, DATE_FORMAT(EmployeesCertifications.expirationDate, '%Y-%m-%d') AS expirationDate, Employees.fName, Employees.lName, Certifications.name AS certName
+    SELECT EmployeesCertifications.employeeCertID, EmployeesCertifications.employeeID, EmployeesCertifications.certID, DATE_FORMAT(EmployeesCertifications.dateObtained, '%Y-%m-%d') AS dateObtained, DATE_FORMAT(EmployeesCertifications.expirationDate, '%Y-%m-%d') AS expirationDate, Employees.employeeID, Employees.fName, Employees.lName, Certifications.certID, Certifications.name AS certName
     FROM EmployeesCertifications
     JOIN Employees ON EmployeesCertifications.employeeID = Employees.employeeID
     JOIN Certifications ON EmployeesCertifications.certID = Certifications.certID;`;
-  const query2 = "SELECT Employees.fName, Employees.lName FROM Employees;"
-  const query3 = "SELECT Certifications.name FROM Certifications;"
+  const query2 = "SELECT Employees.employeeID, Employees.fName, Employees.lName FROM Employees;"
+  const query3 = "SELECT Certifications.certID, Certifications.name FROM Certifications;"
   db.pool.query(query1, (error, rows) => {
     if (error) {
       res.status(500).send('Database error: ' + error.message);
@@ -276,16 +276,36 @@ app.get("/employees_cert", (req, res) => {
 
 app.get("/employees_train", (req, res) => {
   const query1 = `
-  SELECT EmployeesTrainingSessions.employeeTrainingID, EmployeesTrainingSessions.employeeID, EmployeesTrainingSessions.trainingID, Employees.fName, Employees.lName, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.location, TrainingSessions.certID, Certifications.name 
+  SELECT EmployeesTrainingSessions.employeeTrainingID, EmployeesTrainingSessions.employeeID, EmployeesTrainingSessions.trainingID, Employees.employeeID, Employees.fName, Employees.lName, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.trainingID, TrainingSessions.certID, Certifications.certID, Certifications.name AS certName
   FROM EmployeesTrainingSessions
   JOIN Employees ON EmployeesTrainingSessions.employeeID = Employees.employeeID
   JOIN TrainingSessions ON EmployeesTrainingSessions.trainingID = TrainingSessions.trainingID
   JOIN Certifications ON TrainingSessions.certID = Certifications.certID;`;
+  const query2 = "SELECT Employees.employeeID, Employees.fName, Employees.lName FROM Employees;"
+  const query3 = `
+    SELECT TrainingSessions.trainingID, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.certID, Certifications.name AS certName
+    FROM TrainingSessions
+    JOIN Certifications ON TrainingSessions.certID = Certifications.certID;`
   db.pool.query(query1, (error, rows) => {
     if (error) {
       res.status(500).send('Database error: ' + error.message);
     } else {
-      res.render('employees_train', { data: rows });
+      let ets = rows;
+      db.pool.query(query2, (error, rows) => {
+        if (error) {
+          res.status(500).send('Database error: ' + error.message);
+        } else {
+          let employees = rows;
+          db.pool.query(query3, (error, rows) => {
+            if (error) {
+              res.status(500).send('Database error: ' + error.message);
+            } else {
+              let trainings = rows;
+              res.render('employees_train', { data: ets, employee: employees, training: trainings });
+            }
+          });
+        }
+      });
     }
   });
 });

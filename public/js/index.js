@@ -159,14 +159,14 @@ function deleteTrainingSession(element) {
   var trainingDate = element.getAttribute("data-date");
   var trainingLocation = element.getAttribute("data-location");
   var trainingDescription = element.getAttribute("data-description");
-  var trainingCertification = element.getAttribute("data-cert");
+  var trainingCertificationName = element.getAttribute("data-certName");
 
   document.getElementById("deleteTrainingID").value = trainingID;
   document.getElementById("deleteTrainingDate").value = trainingDate;
   document.getElementById("deleteTrainingLocation").value = trainingLocation;
   document.getElementById("deleteTrainingDescription").value =
     trainingDescription;
-  document.getElementById("deleteTrainingCert").value = trainingCertification;
+  document.getElementById("deleteTrainingCert").value = trainingCertificationName;
 
   showForm("delete");
 }
@@ -202,13 +202,13 @@ function updateEmployeeCert(element) {
 }
 
 function deleteEmployeeCert(element) {
-  var employeeCertEmployeeID = element.getAttribute("data-employeeID");
-  var employeeCertCertID = element.getAttribute("data-certID");
+  var employeeCertEmployeeName = element.getAttribute("data-employeeName");
+  var employeeCertCertName = element.getAttribute("data-certName");
 
   document.getElementById("deleteEmployeeCertEmployeeID").value =
-    employeeCertEmployeeID;
+    employeeCertEmployeeName;
   document.getElementById("deleteEmployeeCertCertID").value =
-    employeeCertCertID;
+    employeeCertCertName;
 
   showForm("delete");
 }
@@ -236,13 +236,13 @@ function updateEmployeeTrainingSession(element) {
 }
 
 function deleteEmployeeTrainingSession(element) {
-  var employeeID = element.getAttribute("data-employeeID");
-  var trainingID = element.getAttribute("data-trainingID");
+  var employeeName = element.getAttribute("data-employeeName");
+  var trainingName = element.getAttribute("data-trainingName");
 
   document.getElementById("deleteEmployeeTrainingSessionEmployeeID").value =
-    employeeID;
+    employeeName;
   document.getElementById("deleteEmployeeTrainingSessionTrainingID").value =
-    trainingID;
+    trainingName;
 
   showForm("delete");
 }
