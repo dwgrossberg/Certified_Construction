@@ -90,8 +90,8 @@ function showCertAll() {
 }
 
 // Employees
-function newEmployee() { 
-  showForm("insert"); 
+function newEmployee() {
+  showForm("insert");
 }
 
 function updateEmployee(element) {
@@ -127,12 +127,12 @@ function deleteEmployee(element) {
   showForm("delete");
 }
 
-function browseEmployees() { 
-  showForm("browse"); 
+function browseEmployees() {
+  showForm("browse");
 }
 
-function showAll() { 
-  showForm("all"); 
+function showAll() {
+  showForm("all");
 }
 
 // Training Sessions
@@ -170,7 +170,8 @@ function deleteTrainingSession(element) {
   document.getElementById("deleteTrainingLocation").value = trainingLocation;
   document.getElementById("deleteTrainingDescription").value =
     trainingDescription;
-  document.getElementById("deleteTrainingCert").value = trainingCertificationName;
+  document.getElementById("deleteTrainingCert").value =
+    trainingCertificationName;
 
   showForm("delete");
 }

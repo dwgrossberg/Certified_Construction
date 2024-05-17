@@ -6,7 +6,7 @@
   <script src="/js/index.js"></script>
   <script src="/js/add_employee.js"></script>
   <script src="/js/delete_employee.js"></script>
-  <script src="/js/update_employee.js"></script> 
+  <script src="/js/update_employee.js"></script>
 </head>
 <body onload="browseEmployees()">
   <header>
@@ -38,29 +38,36 @@
         </thead>
         <tbody>
           {{#each employees}}
-          <tr>
-            <td>
-              <a href="#" onClick="updateEmployee(this)"
-                 data-id="{{this.employeeID}}"
-                 data-fname="{{this.fname}}"
-                 data-lname="{{this.lname}}"
-                 data-email="{{this.email}}"
-                 data-deptid="{{this.deptID}}"
-                 data-deptname="{{this.departmentName}}">Edit</a> |
-              <a href="#" onClick="deleteEmployee(this)"
-                 data-id="{{this.employeeID}}"
-                 data-fname="{{this.fname}}"
-                 data-lname="{{this.lname}}"
-                 data-email="{{this.email}}"
-                 data-deptid="{{this.deptID}}"
-                 data-deptname="{{this.departmentName}}">Delete</a>
-            </td>
-            <td class="hidden">{{this.employeeID}}</td>
-            <td>{{this.fname}}</td>
-            <td>{{this.lname}}</td>
-            <td>{{this.email}}</td>
-            <td>{{this.departmentName}}</td>
-          </tr>
+            <tr>
+              <td>
+                <a
+                  href="#"
+                  onClick="updateEmployee(this)"
+                  data-id="{{this.employeeID}}"
+                  data-fname="{{this.fname}}"
+                  data-lname="{{this.lname}}"
+                  data-email="{{this.email}}"
+                  data-deptid="{{this.deptID}}"
+                  data-deptname="{{this.departmentName}}"
+                >Edit</a>
+                |
+                <a
+                  href="#"
+                  onClick="deleteEmployee(this)"
+                  data-id="{{this.employeeID}}"
+                  data-fname="{{this.fname}}"
+                  data-lname="{{this.lname}}"
+                  data-email="{{this.email}}"
+                  data-deptid="{{this.deptID}}"
+                  data-deptname="{{this.departmentName}}"
+                >Delete</a>
+              </td>
+              <td class="hidden">{{this.employeeID}}</td>
+              <td>{{this.fname}}</td>
+              <td>{{this.lname}}</td>
+              <td>{{this.email}}</td>
+              <td>{{this.departmentName}}</td>
+            </tr>
           {{/each}}
         </tbody>
       </table>
@@ -70,9 +77,12 @@
       <form method="POST" id="addEmployee">
         <legend><strong>Add Employee</strong></legend>
         <fieldset>
-          <label>First Name: <input type="text" id="input-fname" name="fname" /></label>
-          <label>Last Name: <input type="text" id="input-lname" name="lname" /></label>
-          <label>Email: <input type="text" id="input-email" name="email" /></label>
+          <label>First Name:
+            <input type="text" id="input-fname" name="fname" /></label>
+          <label>Last Name:
+            <input type="text" id="input-lname" name="lname" /></label>
+          <label>Email:
+            <input type="text" id="input-email" name="email" /></label>
           <label>Department:
             <select id="input-deptid" name="deptID">
               {{#each departments}}
@@ -82,7 +92,12 @@
           </label>
         </fieldset>
         <input class="btn" type="submit" value="Add Employee" />
-        <input class="btn" type="button" value="Cancel" onClick="browseEmployees()" />
+        <input
+          class="btn"
+          type="button"
+          value="Cancel"
+          onClick="browseEmployees()"
+        />
       </form>
     </div>
 
@@ -91,9 +106,12 @@
         <legend><strong>Update Employee</strong></legend>
         <fieldset>
           <input type="hidden" name="employeeID" id="updateEmployeeID" />
-          <label>First Name: <input type="text" name="fname" id="updateEmployeeFName" /></label>
-          <label>Last Name: <input type="text" name="lname" id="updateEmployeeLName" /></label>
-          <label>Email: <input type="text" name="email" id="updateEmployeeEmail" /></label>
+          <label>First Name:
+            <input type="text" name="fname" id="updateEmployeeFName" /></label>
+          <label>Last Name:
+            <input type="text" name="lname" id="updateEmployeeLName" /></label>
+          <label>Email:
+            <input type="text" name="email" id="updateEmployeeEmail" /></label>
           <label>Department:
             <select id="updateEmployeeDeptID" name="deptID">
               {{#each departments}}
@@ -103,7 +121,12 @@
           </label>
         </fieldset>
         <input class="btn" type="submit" value="Update Employee" />
-        <input class="btn" type="button" value="Cancel" onClick="browseEmployees()" />
+        <input
+          class="btn"
+          type="button"
+          value="Cancel"
+          onClick="browseEmployees()"
+        />
       </form>
     </div>
 
@@ -119,7 +142,12 @@
           <input type="hidden" name="employeeID" id="deleteEmployeeID" />
         </fieldset>
         <input class="btn" type="submit" value="Delete Employee" />
-        <input class="btn" type="button" value="Cancel" onClick="browseEmployees()" />
+        <input
+          class="btn"
+          type="button"
+          value="Cancel"
+          onClick="browseEmployees()"
+        />
       </form>
     </div>
   </main>

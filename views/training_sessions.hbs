@@ -12,8 +12,7 @@
 </nav>
 <main>
   <div id="browse">
-    <button onClick="newTrainingSession()" class="btn">Add New Training
-      Session</button>
+    <button onClick="newTrainingSession()" class="btn">Add New Training Session</button>
     <table>
       <thead>
         <tr>
@@ -73,7 +72,7 @@
         <label>Certification:
           <select id="newTrainingCert">
             {{#each cert}}
-            <option value={{this.certID}}>{{this.name}}</option>
+              <option value={{this.certID}}>{{this.name}}</option>
             {{/each}}
           </select>
         </label>
@@ -96,7 +95,7 @@
         <label>Certification:
           <select id="updateTrainingCert">
             {{#each cert}}
-            <option value={{this.certID}}>{{this.name}}</option>
+              <option value={{this.certID}}>{{this.name}}</option>
             {{/each}}
           </select>
         </label>
@@ -109,11 +108,16 @@
   <div id="delete" class="form-container" style="display:none;">
     <form id="deleteTraining">
       <legend><strong>Delete Training Session</strong></legend>
-      <label>Training ID: <input type="text" id="deleteTrainingID" disabled /></label>
-      <label>Date: <input type="date" id="deleteTrainingDate" disabled /></label>
-      <label>Location: <input type="text" id="deleteTrainingLocation" disabled /></label>
-      <label>Description: <input type="text" id="deleteTrainingDescription" disabled /></label>
-      <label>Certification: <input type="text" id="deleteTrainingCert" disabled /></label>
+      <label>Training ID:
+        <input type="text" id="deleteTrainingID" disabled /></label>
+      <label>Date:
+        <input type="date" id="deleteTrainingDate" disabled /></label>
+      <label>Location:
+        <input type="text" id="deleteTrainingLocation" disabled /></label>
+      <label>Description:
+        <input type="text" id="deleteTrainingDescription" disabled /></label>
+      <label>Certification:
+        <input type="text" id="deleteTrainingCert" disabled /></label>
       <button type="submit">Delete</button>
       <button type="button" onClick="browseMain()">Cancel</button>
     </form>

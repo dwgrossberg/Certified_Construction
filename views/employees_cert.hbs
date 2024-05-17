@@ -68,7 +68,8 @@
         <label>Employee:
           <select id="newEmployeeCertEmployeeID">
             {{#each employee}}
-            <option value={{this.employeeID}}>{{this.fName}} {{this.lName}}</option>
+              <option value={{this.employeeID}}>{{this.fName}}
+                {{this.lName}}</option>
             {{/each}}
           </select>
         </label>
@@ -77,7 +78,7 @@
         <label>Certification:
           <select id="newEmployeeCertCertID">
             {{#each cert}}
-            <option value={{this.certID}}>{{this.name}}</option>
+              <option value={{this.certID}}>{{this.name}}</option>
             {{/each}}
           </select>
         </label>
@@ -99,7 +100,8 @@
         <label>Employee:
           <select id="updateEmployeeCertEmployeeID">
             {{#each employee}}
-            <option value={{this.employeeID}}>{{this.fName}} {{this.lName}}</option>
+              <option value={{this.employeeID}}>{{this.fName}}
+                {{this.lName}}</option>
             {{/each}}
           </select>
         </label>
@@ -108,7 +110,7 @@
         <label>Certification:
           <select id="updateEmployeeCertCertID">
             {{#each cert}}
-            <option value={{this.certID}}>{{this.name}}</option>
+              <option value={{this.certID}}>{{this.name}}</option>
             {{/each}}
           </select>
         </label>
