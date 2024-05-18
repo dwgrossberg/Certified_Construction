@@ -337,6 +337,21 @@ app.get("/employees_cert", (req, res) => {
   });
 });
 
+// Add a new employee certification
+app.post('/add-employee-cert', (req, res) => {
+  const { employeeID, certID, dateObtained, expirationDate } = req.body;
+  const query = `INSERT INTO EmployeesCertifications (employeeID, certID, dateObtained, expirationDate) VALUES (?, ?, ?, ?)`;
+  
+  db.pool.query(query, [employeeID, certID, dateObtained, expirationDate], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(200).send('Employee certification session added successfully');
+    }
+  });
+});
+
 app.get("/employees_train", (req, res) => {
   const query1 = `
   SELECT EmployeesTrainingSessions.employeeTrainingID, EmployeesTrainingSessions.employeeID, EmployeesTrainingSessions.trainingID, Employees.employeeID, Employees.fName, Employees.lName, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.trainingID, TrainingSessions.certID, Certifications.certID, Certifications.name AS certName
