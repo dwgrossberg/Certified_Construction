@@ -3,16 +3,16 @@
 // Based on:
 // Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app
 document.addEventListener("DOMContentLoaded", function () {
-  let addEmployeeCertForm = document.getElementById("add-employee-cert");
+  let addEmployeeCertForm = document.getElementById("add-employee-cert-form");
 
   if (addEmployeeCertForm) {
     addEmployeeCertForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      let employeeID = document.querySelector("[name='employeeID']").value;
-      let certID = document.querySelector("[name='certID']").value;
-      let dateObtained = document.querySelector("[name='dateObtained']").value;
-      let expirationDate = document.querySelector("[name='expirationDate']").value;
+      let employeeID = document.getElementById("newEmployeeCertEmployeeID").value;
+      let certID = document.getElementById("newEmployeeCertCertID").value;
+      let dateObtained = document.getElementById("newEmployeeCertDateObtained").value;
+      let expirationDate = document.getElementById("newEmployeeCertExpirationDate").value;
 
       let data = {
         employeeID: employeeID,
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log("There was an error with the input.");
         }
       };
-
+        
       xhttp.send(JSON.stringify(data));
     });
   } else {

@@ -338,7 +338,7 @@ app.get("/employees_cert", (req, res) => {
 });
 
 // Add a new employee certification
-app.post('/add-employee-cert', (req, res) => {
+app.post('/add-employee-certification', (req, res) => {
   const { employeeID, certID, dateObtained, expirationDate } = req.body;
   const query = `INSERT INTO EmployeesCertifications (employeeID, certID, dateObtained, expirationDate) VALUES (?, ?, ?, ?)`;
   
@@ -348,6 +348,37 @@ app.post('/add-employee-cert', (req, res) => {
       res.status(500).send('Database error: ' + error.message);
     } else {
       res.status(200).send('Employee certification session added successfully');
+    }
+  });
+});
+
+// Delete an employee certification
+app.delete('/delete-employee-certification/:employeeCertID', (req, res) => {
+  const employeeCertID = req.params.employeeCertID;
+  const query = `DELETE FROM EmployeesCertifications WHERE employeeCertID = ?`;
+
+  db.pool.query(query, [employeeCertID], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(204).send(); // No Content
+    }
+  });
+});
+
+// Update an employee certification
+app.put('/update-employee-certification/:employeeCertID', (req, res) => {
+  const employeeCertID = req.params.employeeCertID;
+  const { employeeID, certID, dateObtained, expirationDate } = req.body;
+  const query = `UPDATE EmployeesCertifications SET employeeID = ?, certID = ?, dateObtained = ?, expirationDate = ? WHERE employeeCertID = ?`;
+
+  db.pool.query(query, [employeeID, certID, dateObtained, expirationDate, employeeCertID], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(200).send('Employee certification updated successfully');
     }
   });
 });

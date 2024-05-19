@@ -34,18 +34,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function deleteTrainingSession(element) {
-    const id = element.getAttribute("data-id");
-    const date = element.getAttribute("data-date");
-    const location = element.getAttribute("data-location");
-    const description = element.getAttribute("data-description");
-    const cert = element.getAttribute("data-cert");
-
-    document.getElementById("deleteTrainingID").value = id;
-    document.getElementById("deleteTrainingDate").value = date;
-    document.getElementById("deleteTrainingLocation").value = location;
-    document.getElementById("deleteTrainingDescription").value = description;
-    document.getElementById("deleteTrainingCert").value = cert;
-
-    showForm("delete");
-}
