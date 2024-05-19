@@ -15,15 +15,33 @@ SELECT employeeID, fName, lName, email, deptID FROM Employees WHERE employeeID =
 -- Get all employee data to populate a dropdown for selecting in forms
 SELECT employeeID, CONCAT(fName, ' ', lName) AS fullName FROM Employees;
 
--- Get all certifications to populate a dropdown for associating with employees
-SELECT certID, name FROM Certifications;
-
 -- Get all employees with their current associated certifications to list
 SELECT Employees.employeeID, Certifications.certID, CONCAT(fName, ' ', lName) AS name, Certifications.name AS certification 
 FROM Employees 
 JOIN EmployeesCertifications ON Employees.employeeID = EmployeesCertifications.employeeID 
 JOIN Certifications ON Certifications.certID = EmployeesCertifications.certID 
 ORDER BY name, certification;
+
+-- Get all certifications 
+SELECT * FROM Certifications;
+
+-- Get all training session with their associate certification name, format date without time and time zone  
+SELECT TrainingSessions.trainingID, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.location, TrainingSessions.description, TrainingSessions.certID, Certifications.name 
+FROM TrainingSessions
+JOIN Certifications ON TrainingSessions.certID = Certifications.certID;
+
+-- Get all employee certifications along with their IDs, dates obtained, expiration dates, and the associated employees' names and certification names.
+SELECT EmployeesCertifications.employeeCertID, EmployeesCertifications.employeeID, EmployeesCertifications.certID, DATE_FORMAT(EmployeesCertifications.dateObtained, '%Y-%m-%d') AS dateObtained, DATE_FORMAT(EmployeesCertifications.expirationDate, '%Y-%m-%d') AS expirationDate, Employees.fName, Employees.lName, Certifications.name AS certName
+FROM EmployeesCertifications
+JOIN Employees ON EmployeesCertifications.employeeID = Employees.employeeID
+JOIN Certifications ON EmployeesCertifications.certID = Certifications.certID;
+
+-- Get a list of employee training sessions along with their IDs, the associated employees' names, training session dates, locations, certification IDs, and certification names.
+SELECT EmployeesTrainingSessions.employeeTrainingID, EmployeesTrainingSessions.employeeID, EmployeesTrainingSessions.trainingID, Employees.fName, Employees.lName, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.location, TrainingSessions.certID, Certifications.name 
+FROM EmployeesTrainingSessions
+JOIN Employees ON EmployeesTrainingSessions.employeeID = Employees.employeeID
+JOIN TrainingSessions ON EmployeesTrainingSessions.trainingID = TrainingSessions.trainingID
+JOIN Certifications ON TrainingSessions.certID = Certifications.certID;
 
 -- Add a new employee
 INSERT INTO Employees (fName, lName, email, deptID) VALUES (:fNameInput, :lNameInput, :emailInput, :deptID_from_dropdown_Input);
