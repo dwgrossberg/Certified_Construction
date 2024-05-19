@@ -61,5 +61,25 @@ DELETE FROM EmployeesCertifications WHERE employeeID = :employeeID_selected_from
 -- Filter employees by department
 SELECT Employees.employeeID, fName, lName, email FROM Employees WHERE deptID = :deptID;
 
+-- Insert a new department
+INSERT INTO Departments (name, description) VALUES ('Finance', 'Finance Department');
+
+-- Insert a new certification
+INSERT INTO Certifications (name, certOrg, description) VALUES ('Financial Analysis', 'CFA Institute', 'Certification for financial analysis');
+
+-- Insert a new employee
+INSERT INTO Employees (fName, lName, email, deptID) VALUES ('John', 'Doe', 'john.doe@example.com', 1);
+
+-- Insert a new training session
+INSERT INTO TrainingSessions (date, location, description, certID) VALUES ('2024-05-25', 'Room 101', 'Intro to Financial Analysis', 1);
+
+-- Associate a training session with an employee (M-to-M relationship insertion)
+INSERT INTO EmployeesTrainingSessions (employeeID, trainingID) VALUES (1, 1);
+
+-- Associate a certification with an employee (M-to-M relationship insertion)
+INSERT INTO EmployeesCertifications (employeeID, certID, dateObtained, expirationDate) VALUES (1, 1, '2023-05-25', DATE_ADD('2023-05-25', INTERVAL 1 YEAR));
+
+
+
 
 
