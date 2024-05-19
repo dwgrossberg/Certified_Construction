@@ -146,7 +146,7 @@ function updateTrainingSession(element) {
   var trainingDate = element.getAttribute("data-date");
   var trainingLocation = element.getAttribute("data-location");
   var trainingDescription = element.getAttribute("data-description");
-  var trainingCertification = element.getAttribute("data-cert");
+  var trainingCertification = element.getAttribute("data-certID");
 
   document.getElementById("updateTrainingID").value = trainingID;
   document.getElementById("updateTrainingDate").value = trainingDate;
@@ -207,10 +207,12 @@ function updateEmployeeCert(element) {
 }
 
 function deleteEmployeeCert(element) {
+  var employeeCertID = element.getAttribute("data-id");
   var employeeCertEmployeeName = element.getAttribute("data-employeeName");
   var employeeCertCertName = element.getAttribute("data-certName");
 
-  document.getElementById("deleteEmployeeCertEmployeeID").value =
+  document.getElementById("deleteEmployeeCertID").value = employeeCertID
+  document.getElementById("deleteEmployeeCertEmployeeName").value =
     employeeCertEmployeeName;
   document.getElementById("deleteEmployeeCertCertID").value =
     employeeCertCertName;

@@ -1,3 +1,9 @@
+<head>
+  <title>Employee Certifications</title>
+  <script src="/js/add_employee_certification.js"></script>
+  <script src="/js/delete_employee_certification.js"></script>
+  <script src="/js/update_employee_certification.js"></script>
+</head>
 <header>
   <h1>Employee Certifications</h1>
 </header>
@@ -61,14 +67,15 @@
       </tbody>
     </table>
   </div>
+
   <div id="insert" class="form-container" style="display:none;">
-    <form id="newEmployeeCertForm">
+    <form id="add-employee-cert-form">
       <legend><strong>Add New Employee Certification</strong></legend>
       <div>
         <label>Employee:
           <select id="newEmployeeCertEmployeeID">
             {{#each employee}}
-              <option value={{this.employeeID}}>{{this.fName}}
+              <option value={{this.employeeID}} name="employeeID">{{this.fName}}
                 {{this.lName}}</option>
             {{/each}}
           </select>
@@ -78,25 +85,25 @@
         <label>Certification:
           <select id="newEmployeeCertCertID">
             {{#each cert}}
-              <option value={{this.certID}}>{{this.name}}</option>
+              <option value={{this.certID}} name="certID">{{this.name}}</option>
             {{/each}}
           </select>
         </label>
       </div>
       <label>Date Obtained:
-        <input type="date" name="dateObtained" /></label>
+        <input id="newEmployeeCertDateObtained" type="date" name="dateObtained" /></label>
       <label>Expiration Date:
-        <input type="date" name="expirationDate" /></label>
-      <button type="submit">Submit</button>
-      <button type="button" onClick="browseMain()">Cancel</button>
+        <input id="newEmployeeCertExpirationDate" type="date" name="expirationDate" /></label>
+      <input class="btn" type="submit" value="Add Employee Certification" />
+      <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
     </form>
   </div>
 
   <div id="update" class="form-container" style="display:none;">
-    <form id="updateEmployeeCertForm">
+    <form id="update-employee-certification-form">
       <legend><strong>Update Employee Certification</strong></legend>
-      <input type="hidden" id="updateEmployeeCertID" name="id" />
       <div>
+        <input type="hidden" id="updateEmployeeCertID" />
         <label>Employee:
           <select id="updateEmployeeCertEmployeeID">
             {{#each employee}}
@@ -127,20 +134,21 @@
           id="updateEmployeeCertExpirationDate"
           name="expirationDate"
         /></label>
-      <button type="submit">Update</button>
-      <button type="button" onClick="browseMain()">Cancel</button>
+      <input class="btn" type="submit" value="Update Employee Certification" />
+      <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
     </form>
   </div>
 
   <div id="delete" class="form-container" style="display:none;">
     <form id="deleteEmployeeCertForm">
       <legend><strong>Delete Employee Certification</strong></legend>
+      <input type="hidden" id="deleteEmployeeCertID" />
       <label>Employee:
-        <input type="text" id="deleteEmployeeCertEmployeeID" disabled /></label>
+        <input type="text" id="deleteEmployeeCertEmployeeName" disabled /></label>
       <label>Certification:
         <input type="text" id="deleteEmployeeCertCertID" disabled /></label>
-      <button type="submit">Delete</button>
-      <button type="button" onClick="browseMain()">Cancel</button>
+      <input class="btn" type="submit" value="Delete Employee Certification" />
+      <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
     </form>
   </div>
 </main>

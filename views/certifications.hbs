@@ -1,9 +1,5 @@
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Certifications</title>
-  <link rel="stylesheet" type="text/css" href="/css/index.css" />
-  <script src="/js/index.js"></script>
   <script src="/js/add_certification.js"></script>
   <script src="/js/delete_certification.js"></script>
   <script src="/js/update_certification.js"></script>
@@ -86,8 +82,7 @@
       <form method="POST" action="/updateCertification" id="updateCertification">
         <legend><strong>Update Certification</strong></legend>
         <fieldset>
-          <label>Certification ID:
-            <input type="text" id="updateCertID" name="certID" disabled /></label>
+            <input type="hidden" id="updateCertID" name="certID" disabled /></label>
           <label>Certification Name:
             <input type="text" id="updateCertName" name="certName" /></label>
           <label>Certifying Organization:
@@ -103,16 +98,13 @@
     <div class="form-container" id="delete" style="display: none;">
       <form method="POST" action="/deleteCertification" id="deleteCertification">
         <legend><strong>Delete Certification</strong></legend>
-        <fieldset>
-          <label>Certification ID:
-            <input type="text" id="deleteCertID" name="certID" disabled /></label>
+          <input type="hidden" id="deleteCertID" name="certID" disabled /></label>
           <label>Certification Name:
             <input type="text" id="deleteCertName" name="certName" disabled /></label>
           <label>Certifying Organization:
             <input type="text" id="deleteCertOrg" name="certOrg" disabled /></label>
           <label>Description:
             <input type="text" id="deleteCertDescription" name="description" class="longInput" disabled /></label>
-        </fieldset>
         <input class="btn" type="submit" value="Delete Certification" />
         <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
       </form>

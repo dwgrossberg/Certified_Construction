@@ -1,9 +1,5 @@
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Departments</title>
-  <link rel="stylesheet" type="text/css" href="/css/index.css" />
-  <script src="/js/index.js"></script>
   <script src="/js/add_department.js"></script>
   <script src="/js/delete_department.js"></script>
   <script src="/js/update_department.js"></script>
@@ -65,7 +61,7 @@
 
     <div id="insert" class="form-container" style="display:none;">
       <form id="add-department-form">
-        <legend>Add New Department</legend>
+        <legend><strong>Add New Department</strong></legend>
         <label>Name: <input type="text" id="input-name" name="name" /></label>
         <label>Description:
           <input
@@ -80,7 +76,7 @@
 
     <div id="update" class="form-container" style="display:none;">
       <form id="update-department-form">
-        <legend>Update Department</legend>
+        <legend><strong>Update Department</strong></legend>
         <input type="hidden" id="updateDeptID" name="id" />
         <label>Name:
           <input type="text" id="updateDeptName" name="name" /></label>
@@ -97,14 +93,14 @@
 
     <div id="delete" class="form-container" style="display:none;">
       <form id="delete-department-form">
-        <legend>Delete Department</legend>
+        <legend><strong>Delete Department</strong></legend>
         <p>Are you sure you want to delete the department
           <span id="deleteDeptName"></span>
           with the following description?</p>
         <p>Description: <span id="deleteDeptDescription"></span></p>
         <input type="hidden" name="departmentID" id="deleteDeptID" />
-        <button type="submit">Delete</button>
-        <button type="button" onClick="browseMain()">Cancel</button>
+        <input class='btn' type="submit" value="Delete Department"></input>
+        <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
       </form>
     </div>
   </main>

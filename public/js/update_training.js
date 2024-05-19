@@ -43,20 +43,3 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("Form with ID 'update-training-form' not found.");
     }
 });
-
-function updateTrainingSession(element) {
-    const id = element.getAttribute("data-id");
-    const date = element.getAttribute("data-date");
-    const location = element.getAttribute("data-location");
-    const description = element.getAttribute("data-description");
-    const certID = element.getAttribute("data-certid");
-
-    document.getElementById("updateTrainingID").value = id;
-    document.getElementById("updateTrainingDate").value = date;
-    document.getElementById("updateTrainingLocation").value = location;
-    document.getElementById("updateTrainingDescription").value = description;
-    document.getElementById("updateTrainingCert").value = certID;
-
-    showForm("update");
-}
-
