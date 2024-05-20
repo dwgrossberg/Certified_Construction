@@ -347,7 +347,7 @@ app.post('/add-employee-certification', (req, res) => {
       console.error(error);
       res.status(500).send('Database error: ' + error.message);
     } else {
-      res.status(200).send('Employee certification session added successfully');
+      res.status(200).send('Employee certification added successfully');
     }
   });
 });
@@ -420,6 +420,52 @@ app.get("/employees_train", (req, res) => {
           });
         }
       });
+    }
+  });
+});
+
+// Add a new employee training session
+app.post('/add-employee-training', (req, res) => {
+  const { employeeID, trainingID } = req.body;
+  const query = `INSERT INTO EmployeesTrainingSessions (employeeID, trainingID) VALUES (?, ?)`;
+  
+  db.pool.query(query, [employeeID, trainingID], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(200).send('Employee training session added successfully');
+    }
+  });
+});
+
+// Delete an employee training session
+app.delete('/delete-employee-training/:employeeTrainingID', (req, res) => {
+  const employeeTrainingID = req.params.employeeTrainingID;
+  const query = `DELETE FROM EmployeesTrainingSessions WHERE employeeTrainingID = ?`;
+
+  db.pool.query(query, [employeeTrainingID], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(204).send(); // No Content
+    }
+  });
+});
+
+// Update an employee training session
+app.put('/update-employee-training/:employeeTrainingID', (req, res) => {
+  const employeeTrainingID = req.params.employeeTrainingID;
+  const { employeeID, trainingID } = req.body;
+  const query = `UPDATE EmployeesTrainingSessions SET employeeID = ?, trainingID = ? WHERE employeeTrainingID = ?`;
+
+  db.pool.query(query, [employeeID, trainingID, employeeTrainingID], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(200).send('Employee training session updated successfully');
     }
   });
 });
