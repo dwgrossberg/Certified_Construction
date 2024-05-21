@@ -68,15 +68,3 @@ function updateEmployee(element) {
     document.getElementById('update').style.display = 'block';
     document.getElementById('browse').style.display = 'none';
 }
-
-function showForm(formType) {
-  const sections = ["browse", "insert", "update", "delete"];
-  sections.forEach((section) => {
-    document.getElementById(section).style.display =
-      section === formType ? "block" : "none";
-  });
-}
-
-function browseEmployees() {
-  showForm("browse");
-}
