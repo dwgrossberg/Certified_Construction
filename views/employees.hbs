@@ -68,7 +68,7 @@
     </div>
 
     <div id="insert" class="form-container" style="display: none;">
-      <form method="POST" id="addEmployee">
+      <form id="addEmployee">
         <legend><strong>Add Employee</strong></legend>
         <fieldset>
           <label>First Name:
@@ -96,9 +96,8 @@
     </div>
 
     <div id="update" class="form-container" style="display: none;">
-      <form method="POST" id="updateEmployee">
+      <form id="updateEmployee">
         <legend><strong>Update Employee</strong></legend>
-        <fieldset>
           <input type="hidden" name="employeeID" id="updateEmployeeID" />
           <label>First Name:
             <input type="text" name="fname" id="updateEmployeeFName" /></label>
@@ -106,14 +105,15 @@
             <input type="text" name="lname" id="updateEmployeeLName" /></label>
           <label>Email:
             <input type="text" name="email" id="updateEmployeeEmail" /></label>
-          <label>Department:
-            <select id="updateEmployeeDeptID" name="deptID">
+          <label>Current Department:
+            <input type="text" id="currentDepartment" disabled /></label>
+          <label>New Department:
+            <select id="updateEmployeeDeptID">
               {{#each departments}}
                 <option value={{this.deptID}}>{{this.name}}</option>
               {{/each}}
             </select>
           </label>
-        </fieldset>
         <input class="btn" type="submit" value="Update Employee" />
         <input
           class="btn"
@@ -125,7 +125,7 @@
     </div>
 
     <div id="delete" class="form-container" style="display: none;">
-      <form method="POST" id="deleteEmployee">
+      <form id="deleteEmployee">
         <legend><strong>Delete Employee</strong></legend>
         <input type="hidden" id="deleteEmployeeID" disabled />
         <label>First Name: <input type="text" id="deleteEmployeeFName" disabled /></label>

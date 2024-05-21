@@ -45,25 +45,38 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function updateEmployee(element) {
-    const id = element.getAttribute("data-id");
-    const fname = element.getAttribute("data-fname");
-    const lname = element.getAttribute("data-lname");
-    const email = element.getAttribute("data-email");
-    const deptID = element.getAttribute("data-deptid");
+    // Retrieve data attributes from the clicked element
+    const employeeID = element.getAttribute('data-id');
+    const employeeFName = element.getAttribute('data-fname');
+    const employeeLName = element.getAttribute('data-lname');
+    const employeeEmail = element.getAttribute('data-email');
+    const employeeDeptID = element.getAttribute('data-deptid');
+    const employeeDeptName = element.getAttribute('data-deptname');
 
-    document.getElementById("updateEmployeeID").value = id;
-    document.getElementById("updateEmployeeFName").value = fname;
-    document.getElementById("updateEmployeeLName").value = lname;
-    document.getElementById("updateEmployeeEmail").value = email;
+    // Populate the form fields with the retrieved values
+    document.getElementById('updateEmployeeID').value = employeeID;
+    document.getElementById('updateEmployeeFName').value = employeeFName;
+    document.getElementById('updateEmployeeLName').value = employeeLName;
+    document.getElementById('updateEmployeeEmail').value = employeeEmail;
+    document.getElementById('currentDepartment').value = employeeDeptName;
 
-    // Pre-select the current department in the dropdown
-    const deptSelect = document.getElementById("updateEmployeeDeptID");
-    for (let i = 0; i < deptSelect.options.length; i++) {
-        if (deptSelect.options[i].value == deptID) {
-            deptSelect.selectedIndex = i;
-            break;
-        }
-    }
+    // Set the selected department option
+    const deptSelect = document.getElementById('updateEmployeeDeptID');
+    deptSelect.value = employeeDeptID;
 
-    showForm("update");
+    // Display the update form and hide the browse section
+    document.getElementById('update').style.display = 'block';
+    document.getElementById('browse').style.display = 'none';
+}
+
+function showForm(formType) {
+  const sections = ["browse", "insert", "update", "delete"];
+  sections.forEach((section) => {
+    document.getElementById(section).style.display =
+      section === formType ? "block" : "none";
+  });
+}
+
+function browseEmployees() {
+  showForm("browse");
 }

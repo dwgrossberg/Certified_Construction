@@ -45,8 +45,8 @@ function deleteDepartment(element) {
   const description = element.getAttribute("data-description");
 
   document.getElementById("deleteDeptID").value = id;
-  document.getElementById("deleteDeptName").value = name;
-  document.getElementById("deleteDeptDescription").value = description;
+  document.getElementById("deleteDeptName").textContent = name;
+  document.getElementById("deleteDeptDescription").textContent = description;
 
   showForm("delete");
 }
@@ -105,7 +105,7 @@ function updateEmployee(element) {
   document.getElementById("updateEmployeeFName").value = fname;
   document.getElementById("updateEmployeeLName").value = lname;
   document.getElementById("updateEmployeeEmail").value = email;
-  document.getElementById("input-deptid").value = deptid;
+  document.getElementById("updateEmployeeDeptID").value = deptid;
 
   showForm("update");
 }
@@ -115,15 +115,24 @@ function deleteEmployee(element) {
   const fname = element.getAttribute("data-fname");
   const lname = element.getAttribute("data-lname");
   const email = element.getAttribute("data-email");
-  const deptName = element.getAttribute("data-deptName");
+  const deptid = element.getAttribute("data-deptid");
 
   document.getElementById("deleteEmployeeID").value = id;
-  document.getElementById("deleteEmployeeFName").value = fname;
-  document.getElementById("deleteEmployeeLName").value = lname;
-  document.getElementById("deleteEmployeeEmail").value = email;
-  document.getElementById("deleteEmployeeDeptID").value = deptName;
+  document.getElementById("deleteEmployeeIDSpan").textContent = id;
+  document.getElementById("deleteEmployeeFNameSpan").textContent = fname;
+  document.getElementById("deleteEmployeeLNameSpan").textContent = lname;
+  document.getElementById("deleteEmployeeEmailSpan").textContent = email;
+  document.getElementById("deleteEmployeeDeptIDSpan").textContent = deptid;
 
   showForm("delete");
+}
+
+function browseEmployees() {
+  showForm("browse");
+}
+
+function showAll() {
+  showForm("all");
 }
 
 // Training Sessions
@@ -224,13 +233,11 @@ function addEmployeeTrainingSession() {
 function updateEmployeeTrainingSession(element) {
   var employeeID = element.getAttribute("data-employeeID");
   var trainingID = element.getAttribute("data-trainingID");
-  var employeeTrainingID = element.getAttribute("data-employeeTrainingID");
 
   document.getElementById("updateEmployeeTrainingEmployeeID").value =
     employeeID;
   document.getElementById("updateEmployeeTrainingTrainingID").value =
     trainingID;
-  document.getElementById("updateEmployeeTrainingSessionEmployeeTrainingID").value = employeeTrainingID;
 
   showForm("update");
 }
@@ -238,13 +245,11 @@ function updateEmployeeTrainingSession(element) {
 function deleteEmployeeTrainingSession(element) {
   var employeeName = element.getAttribute("data-employeeName");
   var trainingName = element.getAttribute("data-trainingName");
-  var employeeTrainingID = element.getAttribute("data-employeeTrainingID");
 
   document.getElementById("deleteEmployeeTrainingSessionEmployeeID").value =
     employeeName;
   document.getElementById("deleteEmployeeTrainingSessionTrainingID").value =
     trainingName;
-  document.getElementById("deleteEmployeeTrainingSessionEmployeeTrainingID").value = employeeTrainingID;
 
   showForm("delete");
 }
