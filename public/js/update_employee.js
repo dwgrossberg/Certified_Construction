@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let employeeLName = document.getElementById("updateEmployeeLName").value;
             let employeeEmail = document.getElementById("updateEmployeeEmail").value;
             let employeeDeptID = document.getElementById("updateEmployeeDeptID").value;
+            
 
             // Setup our AJAX request
             var xhttp = new XMLHttpRequest();
@@ -44,26 +45,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function updateEmployee(element) {
-    const id = element.getAttribute("data-id");
-    const fname = element.getAttribute("data-fname");
-    const lname = element.getAttribute("data-lname");
-    const email = element.getAttribute("data-email");
-    const deptID = element.getAttribute("data-deptid");
-
-    document.getElementById("updateEmployeeID").value = id;
-    document.getElementById("updateEmployeeFName").value = fname;
-    document.getElementById("updateEmployeeLName").value = lname;
-    document.getElementById("updateEmployeeEmail").value = email;
-
-    // Pre-select the current department in the dropdown
-    const deptSelect = document.getElementById("updateEmployeeDeptID");
-    for (let i = 0; i < deptSelect.options.length; i++) {
-        if (deptSelect.options[i].value == deptID) {
-            deptSelect.selectedIndex = i;
-            break;
-        }
-    }
-
-    showForm("update");
-}

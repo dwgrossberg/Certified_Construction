@@ -95,19 +95,21 @@ function newEmployee() {
 }
 
 function updateEmployee(element) {
-  const id = element.getAttribute("data-id");
-  const fname = element.getAttribute("data-fname");
-  const lname = element.getAttribute("data-lname");
-  const email = element.getAttribute("data-email");
-  const deptid = element.getAttribute("data-deptid");
+  const employeeID = element.getAttribute('data-id');
+  const employeeFName = element.getAttribute('data-fname');
+  const employeeLName = element.getAttribute('data-lname');
+  const employeeEmail = element.getAttribute('data-email');
+  const employeeDeptID = element.getAttribute('data-deptid');
 
-  document.getElementById("updateEmployeeID").value = id;
-  document.getElementById("updateEmployeeFName").value = fname;
-  document.getElementById("updateEmployeeLName").value = lname;
-  document.getElementById("updateEmployeeEmail").value = email;
-  document.getElementById("updateEmployeeDeptID").value = deptid;
+  document.getElementById('updateEmployeeID').value = employeeID;
+  document.getElementById('updateEmployeeFName').value = employeeFName;
+  document.getElementById('updateEmployeeLName').value = employeeLName;
+  document.getElementById('updateEmployeeEmail').value = employeeEmail;
+  document.getElementById('updateEmployeeDeptID').value = employeeDeptID;
 
-  showForm("update");
+  // Show the update form
+  document.getElementById('update').style.display = 'block';
+  document.getElementById('browse').style.display = 'none';
 }
 
 function deleteEmployee(element) {
