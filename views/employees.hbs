@@ -106,7 +106,9 @@
             <input type="text" name="lname" id="updateEmployeeLName" /></label>
           <label>Email:
             <input type="text" name="email" id="updateEmployeeEmail" /></label>
-          <label>Department:
+          <label>Current Department:
+            <input type="text" id="currentDepartment" disabled /></label>
+          <label>New Department:
             <select id="updateEmployeeDeptID">
               {{#each departments}}
                 <option value="{{this.deptID}}">{{this.name}}</option>

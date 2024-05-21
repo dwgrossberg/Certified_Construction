@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
             let employeeLName = document.getElementById("updateEmployeeLName").value;
             let employeeEmail = document.getElementById("updateEmployeeEmail").value;
             let employeeDeptID = document.getElementById("updateEmployeeDeptID").value;
-            
 
             // Setup our AJAX request
             var xhttp = new XMLHttpRequest();
@@ -45,3 +44,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+function updateEmployee(element) {
+    // Retrieve data attributes from the clicked element
+    const employeeID = element.getAttribute('data-id');
+    const employeeFName = element.getAttribute('data-fname');
+    const employeeLName = element.getAttribute('data-lname');
+    const employeeEmail = element.getAttribute('data-email');
+    const employeeDeptID = element.getAttribute('data-deptid');
+    const employeeDeptName = element.getAttribute('data-deptname');
+
+    // Populate the form fields with the retrieved values
+    document.getElementById('updateEmployeeID').value = employeeID;
+    document.getElementById('updateEmployeeFName').value = employeeFName;
+    document.getElementById('updateEmployeeLName').value = employeeLName;
+    document.getElementById('updateEmployeeEmail').value = employeeEmail;
+    document.getElementById('currentDepartment').value = employeeDeptName;
+
+    // Set the selected department option
+    const deptSelect = document.getElementById('updateEmployeeDeptID');
+    deptSelect.value = employeeDeptID;
+
+    // Display the update form and hide the browse section
+    document.getElementById('update').style.display = 'block';
+    document.getElementById('browse').style.display = 'none';
+}
+
+function showForm(formType) {
+  const sections = ["browse", "insert", "update", "delete"];
+  sections.forEach((section) => {
+    document.getElementById(section).style.display =
+      section === formType ? "block" : "none";
+  });
+}
+
+function browseEmployees() {
+  showForm("browse");
+}
