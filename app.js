@@ -236,7 +236,8 @@ app.get("/training_sessions", (req, res) => {
   const query1 = `
     SELECT TrainingSessions.trainingID, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.location, TrainingSessions.description, TrainingSessions.certID, Certifications.name 
     FROM TrainingSessions
-    JOIN Certifications ON TrainingSessions.certID = Certifications.certID;
+    JOIN Certifications ON TrainingSessions.certID = Certifications.certID
+    ORDER BY date;
   `;
   const query2 = "SELECT certID, name FROM Certifications;";
   db.pool.query(query1, (error, rows) => {
@@ -308,7 +309,8 @@ app.get("/employees_cert", (req, res) => {
     SELECT EmployeesCertifications.employeeCertID, EmployeesCertifications.employeeID, EmployeesCertifications.certID, DATE_FORMAT(EmployeesCertifications.dateObtained, '%Y-%m-%d') AS dateObtained, DATE_FORMAT(EmployeesCertifications.expirationDate, '%Y-%m-%d') AS expirationDate, Employees.fName, Employees.lName, Certifications.name AS certName
     FROM EmployeesCertifications
     JOIN Employees ON EmployeesCertifications.employeeID = Employees.employeeID
-    JOIN Certifications ON EmployeesCertifications.certID = Certifications.certID;`;
+    JOIN Certifications ON EmployeesCertifications.certID = Certifications.certID
+    ORDER BY EmployeesCertifications.employeeID, expirationDate;`;
   const query2 =
     "SELECT Employees.employeeID, Employees.fName, Employees.lName FROM Employees;";
   const query3 =
@@ -389,7 +391,8 @@ app.get("/employees_train", (req, res) => {
   FROM EmployeesTrainingSessions
   JOIN Employees ON EmployeesTrainingSessions.employeeID = Employees.employeeID
   JOIN TrainingSessions ON EmployeesTrainingSessions.trainingID = TrainingSessions.trainingID
-  JOIN Certifications ON TrainingSessions.certID = Certifications.certID;`;
+  JOIN Certifications ON TrainingSessions.certID = Certifications.certID
+  ORDER BY EmployeesTrainingSessions.employeeID, date;`;
   const query2 =
     "SELECT Employees.employeeID, Employees.fName, Employees.lName FROM Employees;";
   const query3 = `

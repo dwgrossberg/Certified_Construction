@@ -45,8 +45,8 @@ function deleteDepartment(element) {
   const description = element.getAttribute("data-description");
 
   document.getElementById("deleteDeptID").value = id;
-  document.getElementById("deleteDeptName").textContent = name;
-  document.getElementById("deleteDeptDescription").textContent = description;
+  document.getElementById("deleteDeptName").value = name;
+  document.getElementById("deleteDeptDescription").value = description;
 
   showForm("delete");
 }
@@ -105,7 +105,7 @@ function updateEmployee(element) {
   document.getElementById("updateEmployeeFName").value = fname;
   document.getElementById("updateEmployeeLName").value = lname;
   document.getElementById("updateEmployeeEmail").value = email;
-  document.getElementById("updateEmployeeDeptID").value = deptid;
+  document.getElementById("input-deptid").value = deptid;
 
   showForm("update");
 }
@@ -115,24 +115,15 @@ function deleteEmployee(element) {
   const fname = element.getAttribute("data-fname");
   const lname = element.getAttribute("data-lname");
   const email = element.getAttribute("data-email");
-  const deptid = element.getAttribute("data-deptid");
+  const deptName = element.getAttribute("data-deptName");
 
   document.getElementById("deleteEmployeeID").value = id;
-  document.getElementById("deleteEmployeeIDSpan").textContent = id;
-  document.getElementById("deleteEmployeeFNameSpan").textContent = fname;
-  document.getElementById("deleteEmployeeLNameSpan").textContent = lname;
-  document.getElementById("deleteEmployeeEmailSpan").textContent = email;
-  document.getElementById("deleteEmployeeDeptIDSpan").textContent = deptid;
+  document.getElementById("deleteEmployeeFName").value = fname;
+  document.getElementById("deleteEmployeeLName").value = lname;
+  document.getElementById("deleteEmployeeEmail").value = email;
+  document.getElementById("deleteEmployeeDeptID").value = deptName;
 
   showForm("delete");
-}
-
-function browseEmployees() {
-  showForm("browse");
-}
-
-function showAll() {
-  showForm("all");
 }
 
 // Training Sessions

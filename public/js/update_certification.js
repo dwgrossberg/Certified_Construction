@@ -40,28 +40,3 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-function updateCertification(element) {
-  const id = element.getAttribute("data-id");
-  const name = element.getAttribute("data-name");
-  const org = element.getAttribute("data-org");
-  const description = element.getAttribute("data-description");
-
-  document.getElementById("updateCertID").value = id;
-  document.getElementById("updateCertName").value = name;
-  document.getElementById("updateCertOrg").value = org;
-  document.getElementById("updateCertDescription").value = description;
-
-  showForm("update");
-}
-
-function showForm(formType) {
-  const sections = ["browse", "insert", "update", "delete"];
-  sections.forEach((section) => {
-    document.getElementById(section).style.display =
-      section === formType ? "block" : "none";
-  });
-}
-
-function browseMain() {
-  showForm("browse");
-}

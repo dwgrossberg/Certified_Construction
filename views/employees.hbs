@@ -4,7 +4,7 @@
   <script src="/js/delete_employee.js"></script>
   <script src="/js/update_employee.js"></script>
 </head>
-<body onload="browseEmployees()">
+<body onload="browseMain()">
   <header>
     <h1>Employees</h1>
   </header>
@@ -42,8 +42,8 @@
                   data-fname="{{this.fname}}"
                   data-lname="{{this.lname}}"
                   data-email="{{this.email}}"
-                  data-deptid="{{this.deptID}}"
-                  data-deptname="{{this.departmentName}}"
+                  data-deptid={{this.deptID}}
+                  data-deptName="{{this.departmentName}}"
                 >Edit</a>
                 |
                 <a
@@ -53,8 +53,7 @@
                   data-fname="{{this.fname}}"
                   data-lname="{{this.lname}}"
                   data-email="{{this.email}}"
-                  data-deptid="{{this.deptID}}"
-                  data-deptname="{{this.departmentName}}"
+                  data-deptName="{{this.departmentName}}"
                 >Delete</a>
               </td>
               <td class="hidden">{{this.employeeID}}</td>
@@ -81,7 +80,7 @@
           <label>Department:
             <select id="input-deptid" name="deptID">
               {{#each departments}}
-                <option value="{{this.deptID}}">{{this.name}}</option>
+                <option value={{this.deptID}}>{{this.name}}</option>
               {{/each}}
             </select>
           </label>
@@ -91,7 +90,7 @@
           class="btn"
           type="button"
           value="Cancel"
-          onClick="browseEmployees()"
+          onClick="browseMain()"
         />
       </form>
     </div>
@@ -110,7 +109,7 @@
           <label>Department:
             <select id="updateEmployeeDeptID" name="deptID">
               {{#each departments}}
-                <option value="{{this.deptID}}">{{this.name}}</option>
+                <option value={{this.deptID}}>{{this.name}}</option>
               {{/each}}
             </select>
           </label>
@@ -120,7 +119,7 @@
           class="btn"
           type="button"
           value="Cancel"
-          onClick="browseEmployees()"
+          onClick="browseMain()"
         />
       </form>
     </div>
@@ -128,22 +127,21 @@
     <div id="delete" class="form-container" style="display: none;">
       <form method="POST" id="deleteEmployee">
         <legend><strong>Delete Employee</strong></legend>
-        <fieldset>
-          <label>ID: <span id="deleteEmployeeIDSpan"></span></label>
-          <label>First Name: <span id="deleteEmployeeFNameSpan"></span></label>
-          <label>Last Name: <span id="deleteEmployeeLNameSpan"></span></label>
-          <label>Email: <span id="deleteEmployeeEmailSpan"></span></label>
-          <label>Department: <span id="deleteEmployeeDeptIDSpan"></span></label>
-          <input type="hidden" name="employeeID" id="deleteEmployeeID" />
-        </fieldset>
+        <input type="hidden" id="deleteEmployeeID" disabled />
+        <label>First Name: <input type="text" id="deleteEmployeeFName" disabled /></label>
+        <label>Last Name: <input type="text" id="deleteEmployeeLName" disabled /></label>
+        <label>Email: <input type="text" id="deleteEmployeeEmail" disabled /></label>
+        <label>Department: <input type="text" id="deleteEmployeeDeptID" disabled /></label>
+        <input type="hidden" name="employeeID" id="deleteEmployeeID" />
         <input class="btn" type="submit" value="Delete Employee" />
         <input
           class="btn"
           type="button"
           value="Cancel"
-          onClick="browseEmployees()"
+          onClick="browseMain()"
         />
       </form>
     </div>
+
   </main>
 </body>

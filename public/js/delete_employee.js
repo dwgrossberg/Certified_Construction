@@ -34,31 +34,4 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-function deleteEmployee(element) {
-  const id = element.getAttribute("data-id");
-  const fname = element.getAttribute("data-fname");
-  const lname = element.getAttribute("data-lname");
-  const email = element.getAttribute("data-email");
-  const deptname = element.getAttribute("data-deptname");
 
-  document.getElementById("deleteEmployeeID").value = id;
-  document.getElementById("deleteEmployeeIDSpan").textContent = id;
-  document.getElementById("deleteEmployeeFNameSpan").textContent = fname;
-  document.getElementById("deleteEmployeeLNameSpan").textContent = lname;
-  document.getElementById("deleteEmployeeEmailSpan").textContent = email;
-  document.getElementById("deleteEmployeeDeptIDSpan").textContent = deptname;
-
-  showForm("delete");
-}
-
-function showForm(formType) {
-  const sections = ["browse", "insert", "update", "delete"];
-  sections.forEach((section) => {
-    document.getElementById(section).style.display =
-      section === formType ? "block" : "none";
-  });
-}
-
-function browseEmployees() {
-  showForm("browse");
-}
