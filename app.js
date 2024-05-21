@@ -236,7 +236,8 @@ app.get("/training_sessions", (req, res) => {
   const query1 = `
     SELECT TrainingSessions.trainingID, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.location, TrainingSessions.description, TrainingSessions.certID, Certifications.name 
     FROM TrainingSessions
-    JOIN Certifications ON TrainingSessions.certID = Certifications.certID;
+    JOIN Certifications ON TrainingSessions.certID = Certifications.certID
+    ORDER BY date;
   `;
   const query2 = "SELECT certID, name FROM Certifications;";
   db.pool.query(query1, (error, rows) => {
@@ -308,7 +309,8 @@ app.get("/employees_cert", (req, res) => {
     SELECT EmployeesCertifications.employeeCertID, EmployeesCertifications.employeeID, EmployeesCertifications.certID, DATE_FORMAT(EmployeesCertifications.dateObtained, '%Y-%m-%d') AS dateObtained, DATE_FORMAT(EmployeesCertifications.expirationDate, '%Y-%m-%d') AS expirationDate, Employees.fName, Employees.lName, Certifications.name AS certName
     FROM EmployeesCertifications
     JOIN Employees ON EmployeesCertifications.employeeID = Employees.employeeID
-    JOIN Certifications ON EmployeesCertifications.certID = Certifications.certID;`;
+    JOIN Certifications ON EmployeesCertifications.certID = Certifications.certID
+    ORDER BY EmployeesCertifications.employeeID, expirationDate;`;
   const query2 =
     "SELECT Employees.employeeID, Employees.fName, Employees.lName FROM Employees;";
   const query3 =
@@ -347,7 +349,7 @@ app.post('/add-employee-certification', (req, res) => {
       console.error(error);
       res.status(500).send('Database error: ' + error.message);
     } else {
-      res.status(200).send('Employee certification session added successfully');
+      res.status(200).send('Employee certification added successfully');
     }
   });
 });
@@ -389,7 +391,8 @@ app.get("/employees_train", (req, res) => {
   FROM EmployeesTrainingSessions
   JOIN Employees ON EmployeesTrainingSessions.employeeID = Employees.employeeID
   JOIN TrainingSessions ON EmployeesTrainingSessions.trainingID = TrainingSessions.trainingID
-  JOIN Certifications ON TrainingSessions.certID = Certifications.certID;`;
+  JOIN Certifications ON TrainingSessions.certID = Certifications.certID
+  ORDER BY EmployeesTrainingSessions.employeeID, date;`;
   const query2 =
     "SELECT Employees.employeeID, Employees.fName, Employees.lName FROM Employees;";
   const query3 = `
@@ -420,6 +423,52 @@ app.get("/employees_train", (req, res) => {
           });
         }
       });
+    }
+  });
+});
+
+// Add a new employee training session
+app.post('/add-employee-training', (req, res) => {
+  const { employeeID, trainingID } = req.body;
+  const query = `INSERT INTO EmployeesTrainingSessions (employeeID, trainingID) VALUES (?, ?)`;
+  
+  db.pool.query(query, [employeeID, trainingID], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(200).send('Employee training session added successfully');
+    }
+  });
+});
+
+// Delete an employee training session
+app.delete('/delete-employee-training/:employeeTrainingID', (req, res) => {
+  const employeeTrainingID = req.params.employeeTrainingID;
+  const query = `DELETE FROM EmployeesTrainingSessions WHERE employeeTrainingID = ?`;
+
+  db.pool.query(query, [employeeTrainingID], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(204).send(); // No Content
+    }
+  });
+});
+
+// Update an employee training session
+app.put('/update-employee-training/:employeeTrainingID', (req, res) => {
+  const employeeTrainingID = req.params.employeeTrainingID;
+  const { employeeID, trainingID } = req.body;
+  const query = `UPDATE EmployeesTrainingSessions SET employeeID = ?, trainingID = ? WHERE employeeTrainingID = ?`;
+
+  db.pool.query(query, [employeeID, trainingID, employeeTrainingID], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Database error: ' + error.message);
+    } else {
+      res.status(200).send('Employee training session updated successfully');
     }
   });
 });

@@ -86,18 +86,16 @@
             id="updateDeptDescription"
             name="description"
           /></label>
-        <button type="submit">Update</button>
-        <button type="button" onClick="browseMain()">Cancel</button>
+        <input class='btn' type="submit" value="Update Department"></input>
+        <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
       </form>
     </div>
 
     <div id="delete" class="form-container" style="display:none;">
       <form id="delete-department-form">
         <legend><strong>Delete Department</strong></legend>
-        <p>Are you sure you want to delete the department
-          <span id="deleteDeptName"></span>
-          with the following description?</p>
-        <p>Description: <span id="deleteDeptDescription"></span></p>
+        <label>Department: <input id="deleteDeptName" disabled /></label>
+        <label>Description: <input id="deleteDeptDescription" disabled></input></label>
         <input type="hidden" name="departmentID" id="deleteDeptID" />
         <input class='btn' type="submit" value="Delete Department"></input>
         <input class="btn" type="button" value="Cancel" onClick="browseMain()" />

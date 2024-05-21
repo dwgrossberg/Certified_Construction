@@ -42,26 +42,3 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-function updateDepartment(element) {
-  const id = element.getAttribute("data-id");
-  const name = element.getAttribute("data-name");
-  const description = element.getAttribute("data-description");
-
-  document.getElementById("updateDeptID").value = id;
-  document.getElementById("updateDeptName").value = name;
-  document.getElementById("updateDeptDescription").value = description;
-
-  showForm("update");
-}
-
-function showForm(formType) {
-  const sections = ["browse", "insert", "update", "delete"];
-  sections.forEach((section) => {
-    document.getElementById(section).style.display =
-      section === formType ? "block" : "none";
-  });
-}
-
-function browseMain() {
-  showForm("browse");
-}

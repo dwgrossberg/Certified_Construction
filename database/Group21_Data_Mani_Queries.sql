@@ -28,7 +28,8 @@ SELECT * FROM Certifications;
 -- Get all training session with their associate certification name, format date without time and time zone  
 SELECT TrainingSessions.trainingID, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.location, TrainingSessions.description, TrainingSessions.certID, Certifications.name 
 FROM TrainingSessions
-JOIN Certifications ON TrainingSessions.certID = Certifications.certID;
+JOIN Certifications ON TrainingSessions.certID = Certifications.certID
+ORDER BY date;
 
 -- Get all employee certifications along with their IDs, dates obtained, expiration dates, and the associated employees' names and certification names.
 SELECT EmployeesCertifications.employeeCertID, EmployeesCertifications.employeeID, EmployeesCertifications.certID, DATE_FORMAT(EmployeesCertifications.dateObtained, '%Y-%m-%d') AS dateObtained, DATE_FORMAT(EmployeesCertifications.expirationDate, '%Y-%m-%d') AS expirationDate, Employees.fName, Employees.lName, Certifications.name AS certName

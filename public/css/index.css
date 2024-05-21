@@ -322,7 +322,7 @@ sup {
   margin-left: -45px;
 }
 
-.longInput, #updateEmployeeEmail {
+.longInput {
   width: 400px;
 }
 
