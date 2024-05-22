@@ -42,7 +42,7 @@
                   data-fname="{{this.fname}}"
                   data-lname="{{this.lname}}"
                   data-email="{{this.email}}"
-                  data-deptid="{{this.deptID}}"
+                  data-deptID={{this.deptID}}
                   data-deptname="{{this.departmentName}}"
                 >Edit</a>
                 |
@@ -105,12 +105,10 @@
             <input type="text" name="lname" id="updateEmployeeLName" /></label>
           <label>Email:
             <input type="text" name="email" id="updateEmployeeEmail" /></label>
-          <label>Current Department:
-            <input type="text" id="currentDepartment" disabled /></label>
-          <label>New Department:
+          <label>Department:
             <select id="updateEmployeeDeptID">
               {{#each departments}}
-                <option value="{{this.deptID}}">{{this.name}}</option>
+                <option value={{this.deptID}}>{{this.name}}</option>
               {{/each}}
             </select>
           </label>

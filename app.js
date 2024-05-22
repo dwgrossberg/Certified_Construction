@@ -155,7 +155,7 @@ app.put('/update-certification/:certID', (req, res) => {
 // Get employees info
 app.get("/employees", (req, res) => {
   const query = `
-    SELECT Employees.employeeID, Employees.fname, Employees.lname, Employees.email, Departments.name AS departmentName
+    SELECT Employees.employeeID, Employees.fname, Employees.lname, Employees.email, Employees.deptID, Departments.name AS departmentName
     FROM Employees
     LEFT JOIN Departments ON Employees.deptID = Departments.deptID;
   `;

@@ -99,7 +99,7 @@ function updateEmployee(element) {
   const fname = element.getAttribute("data-fname");
   const lname = element.getAttribute("data-lname");
   const email = element.getAttribute("data-email");
-  const deptid = element.getAttribute("data-deptid");
+  const deptid = element.getAttribute("data-deptID");
 
   document.getElementById("updateEmployeeID").value = id;
   document.getElementById("updateEmployeeFName").value = fname;
