@@ -80,7 +80,7 @@
           <label>Department:
             <select id="input-deptid" name="deptID">
               {{#each departments}}
-                <option value="{{this.deptID}}">{{this.name}}</option>
+                <option value={{this.deptID}}>{{this.name}}</option>
               {{/each}}
             </select>
           </label>
