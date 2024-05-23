@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log("Employee training session deleted successfully");
           location.reload();
         } else if (xhttp.readyState == 4 && xhttp.status != 204) {
+          console.log(employeeTrainingID)
           console.log("There was an error with the deletion.");
         }
       };

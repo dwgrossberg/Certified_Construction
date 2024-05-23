@@ -35,14 +35,16 @@ ORDER BY date;
 SELECT EmployeesCertifications.employeeCertID, EmployeesCertifications.employeeID, EmployeesCertifications.certID, DATE_FORMAT(EmployeesCertifications.dateObtained, '%Y-%m-%d') AS dateObtained, DATE_FORMAT(EmployeesCertifications.expirationDate, '%Y-%m-%d') AS expirationDate, Employees.fName, Employees.lName, Certifications.name AS certName
 FROM EmployeesCertifications
 JOIN Employees ON EmployeesCertifications.employeeID = Employees.employeeID
-JOIN Certifications ON EmployeesCertifications.certID = Certifications.certID;
+JOIN Certifications ON EmployeesCertifications.certID = Certifications.certID
+ORDER BY EmployeesCertifications.employeeID, expirationDate;
 
 -- Get a list of employee training sessions along with their IDs, the associated employees' names, training session dates, locations, certification IDs, and certification names.
 SELECT EmployeesTrainingSessions.employeeTrainingID, EmployeesTrainingSessions.employeeID, EmployeesTrainingSessions.trainingID, Employees.fName, Employees.lName, DATE_FORMAT(TrainingSessions.date, '%Y-%m-%d') AS date, TrainingSessions.location, TrainingSessions.certID, Certifications.name 
 FROM EmployeesTrainingSessions
 JOIN Employees ON EmployeesTrainingSessions.employeeID = Employees.employeeID
 JOIN TrainingSessions ON EmployeesTrainingSessions.trainingID = TrainingSessions.trainingID
-JOIN Certifications ON TrainingSessions.certID = Certifications.certID;
+JOIN Certifications ON TrainingSessions.certID = Certifications.certID
+ORDER BY EmployeesTrainingSessions.employeeID, date;
 
 -- Add a new employee
 INSERT INTO Employees (fName, lName, email, deptID) VALUES (:fNameInput, :lNameInput, :emailInput, :deptID_from_dropdown_Input);
