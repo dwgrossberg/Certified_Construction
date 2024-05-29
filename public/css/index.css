@@ -1,0 +1,481 @@
+/* Citation: CSS Basline file borrowed from vanilla-css project: https://github.com/bradleytaunt/vanilla-css/blob/master/vanilla.css */
+
+/* Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del,
+dfn, em, img, ins, kbd, q, s, samp, small, strike,
+strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output,
+ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+table {
+  margin-top: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+  --desktop-font-size: 1.2rem/1.55;
+  --mobile-font-size: 1rem/1.45;
+  --text-color: #2d2d2d;
+  --link-color: blue;
+  --link-color-alt: darkblue;
+  --primary-color: lightsteelblue;
+  --secondary-color: aliceblue;
+  --tertiary-color: whitesmoke;
+  --button-color: #58b0ff;
+}
+/* Typography */
+body {
+  color: var(--text-color);
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 1200px;
+  background-color: #f4f4f4;
+}
+
+body, input {
+  font: var(--desktop-font-size) -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, dl, img, figure {
+  margin: 2rem 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 200%;
+}
+
+h2 {
+  font-size: 150%;
+}
+
+h3 {
+  font-size: 120%;
+}
+
+h4, h5, h6 {
+  font-size: 100%;
+}
+
+h5, h6 {
+  text-transform: uppercase;
+}
+
+header h1 {}
+
+a, a:visited {
+  color: var(--link-color);
+}
+
+a:hover, a:focus {
+  color: var(--link-color-alt);
+}
+
+strong, time, b {
+  font-weight: bold;
+}
+
+em, dfn, i {
+  font-style: italic;
+}
+
+sub {
+  font-size: 60%;
+  vertical-align: bottom;
+}
+
+small {
+  font-size: 80%;
+}
+
+blockquote, q {
+  background: var(--secondary-color);
+  border-left: 10px solid var(--primary-color);
+  display: block;
+  font-family: "Georgia", serif;
+  padding: 1rem;
+}
+
+blockquote p:first-child {
+  margin-top: 0;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+cite {
+  font-family: "Georgia", serif;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+kbd, code, samp, pre, var {
+  font: var(--mobile-font-size) monospace;
+}
+
+code, pre {
+  background: var(--tertiary-color);
+  border: 1px solid;
+  overflow: auto;
+  padding: 0.25rem 0.5rem;
+}
+
+code pre, pre code {
+  border: 0;
+  padding: 0;
+}
+
+/* Elements */
+hr {
+  background: var(--text-color);
+  border: 0;
+  height: 1px;
+  margin: 4rem 0;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+figure {
+  border: 1px solid var(--primary-color);
+  display: inline-block;
+  padding: 1rem;
+  width: 100%;
+}
+
+figure img {
+  margin: 0 auto;
+}
+
+figure figcaption {
+  font-size: 80%;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+ul, ol {
+  margin: 2rem 0;
+  padding: 0 0 0 2rem;
+}
+
+ul li, ol li {
+  margin-bottom: 1rem;
+}
+
+li > ul, li > ol {
+  margin: 0.25rem 0 0.5rem;
+  padding: 0 0 0 2rem;
+}
+
+li > ul li, li > ol li {
+  margin-bottom: 0.5rem;
+}
+
+dl dd {
+  padding-left: 2rem;
+}
+
+table {
+  border: 1px solid var(--primary-color);
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+  width: 100%;
+  min-width: 600px;
+}
+
+table caption {
+  margin: 2rem 0;
+}
+
+table tr {
+  border-bottom: 1px solid var(--primary-color);
+}
+
+table thead {
+  position: sticky;
+  top: 0;
+}
+
+table tbody tr:nth-child(even) {
+  background: var(--tertiary-color);
+}
+
+table th {
+  background: var(--secondary-color);
+  font-weight: bold;
+}
+
+table th, table td {
+  padding: 0.5rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 500px; 
+  padding: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+input:focus, input:active {
+  background-color: var(--secondary-color);
+  border-color: var(--link-color);
+}
+
+sup {
+  font-size: 80%;
+  vertical-align: top;
+}
+
+/* Insert from here */
+
+.form-container form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-container input {
+  display: block;
+  margin-bottom: 20px;
+}
+.department-section {
+  display: none;
+}
+
+#engineering {
+  display: block;
+}
+
+.trainingCheckbox {
+  display: inline;
+}
+
+.thinColumn {
+  width: 150px;
+}
+
+.employeeCertID {
+  margin-left: -50px;
+}
+
+.employeeEmail {
+  width: 350px;
+}
+
+.inputEmployees {
+  width: 750px;
+  text-wrap: wrap;
+}
+
+.trainingTable {
+  width: 110%;
+  margin-left: -25px;
+}
+
+.trainingEmployees {
+  width: 200px;
+}
+
+.employeeCerts {
+  width: 300px;
+}
+
+.employeeCertsTable {
+  width: 115%;
+  margin-left: -45px;
+}
+
+.longInput {
+  width: 400px;
+}
+
+textarea {
+  font-family: inherit;
+}
+
+button, .btn {
+  padding: 9px 15px;
+  font-family: inherit;
+  border: 0.25px solid var(--primary-color);
+  border-radius: 3px;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: .75rem;
+}
+
+button:hover, .btn:hover {
+  background-color: var(--button-color);
+  border-color: var(--button-color);
+}
+
+.email {
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 160px;
+  width: 100%;
+}
+
+select {
+  padding: 5px 10px;
+  border: .5px solid var(--primary-color);
+  margin: 10px;
+}
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: auto;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  width: 100%;
+}
+
+/* Header Styles */
+header {
+  background: #333333;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  width: 100%;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom: 1px solid;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 0;
+  font-size: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  background-color: #444;
+  padding: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.navbar a:hover {
+  background-color: #575757;
+  border-radius: 3px;
+}
+
+/* Main Content Styles */
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+main h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+main a {
+  color: blue;
+  text-decoration: none;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+
+main p {
+  margin: 0.5rem 0;
+}
+
+/* Footer Styles */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  margin-top: auto;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.hidden {
+  display: none;
+}
+/* Mobile Styling */
+@media screen and (max-width: 110ch) {
+  body, input {
+    font: var(--mobile-font-size) -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+  table {
+    table-layout: auto;
+  }
+}

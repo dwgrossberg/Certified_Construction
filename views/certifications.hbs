@@ -1,0 +1,113 @@
+<head>
+  <title>Certifications</title>
+  <script src="/js/add_certification.js"></script>
+  <script src="/js/delete_certification.js"></script>
+  <script src="/js/update_certification.js"></script>
+</head>
+<body onload="browseMain()">
+  <header>
+    <h1>Certifications</h1>
+  </header>
+  <nav class="navbar">
+    <a href="/">Home</a>
+    <a href="departments">Departments</a>
+    <a href="certifications">Certifications</a>
+    <a href="employees">Employees</a>
+    <a href="training_sessions">Training Sessions</a>
+    <a href="employees_cert">Employee Certifications</a>
+    <a href="employees_train">Employee Training Sessions</a>
+  </nav>
+  <main>
+    <!-- Display certifications in a table -->
+    <div id="browse">
+      <button onClick="newCertification()" class="btn">Add New Certification</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Actions</th>
+            <th class="hidden">ID</th>
+            <th>Name</th>
+            <th>Certifying Organization</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each data}}
+            <tr>
+              <td>
+                <a
+                  href="#"
+                  onClick="updateCertification(this)"
+                  data-id={{this.certID}}
+                  data-name="{{this.name}}"
+                  data-org="{{this.certOrg}}"
+                  data-description="{{this.description}}"
+                >Edit</a>
+                |
+                <a
+                  href="#"
+                  onclick="deleteCertification(this)"
+                  data-id={{this.certID}}
+                  data-name="{{this.name}}"
+                  data-org="{{this.certOrg}}"
+                  data-description="{{this.description}}"
+                >Delete</a>
+              </td>
+              <td class="hidden">{{this.certID}}</td>
+              <td>{{this.name}}</td>
+              <td>{{this.certOrg}}</td>
+              <td>{{this.description}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="form-container" id="insert" style="display: none;">
+      <form method="POST" action="/addCertification" id="addCertification">
+        <legend><strong>Add New Certification</strong></legend>
+        <fieldset>
+          <label>Certification Name:
+            <input type="text" name="certName" /></label>
+          <label>Certifying Organization:
+            <input type="text" name="certOrg" /></label>
+          <label>Description:
+            <textarea type="text" name="description"></textarea></label>
+        </fieldset>
+        <input class="btn" type="submit" value="Add Certification" />
+        <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
+      </form>
+    </div>
+    <div class="form-container" id="update" style="display: none;">
+      <form method="POST" action="/updateCertification" id="updateCertification">
+        <legend><strong>Update Certification</strong></legend>
+        <fieldset>
+            <input type="hidden" id="updateCertID" name="certID" disabled /></label>
+          <label>Certification Name:
+            <input type="text" id="updateCertName" name="certName" /></label>
+          <label>Certifying Organization:
+            <input type="text" id="updateCertOrg" name="certOrg" /></label>
+          <label>Description:
+            <input type="text" id="updateCertDescription" name="description" class="longInput" /></label>
+        </fieldset>
+        <input class="btn" type="submit" value="Update Certification" />
+        <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
+      </form>
+    </div>
+
+    <div class="form-container" id="delete" style="display: none;">
+      <form method="POST" action="/deleteCertification" id="deleteCertification">
+        <legend><strong>Delete Certification</strong></legend>
+          <input type="hidden" id="deleteCertID" name="certID" disabled /></label>
+          <label>Certification Name:
+            <input type="text" id="deleteCertName" name="certName" disabled /></label>
+          <label>Certifying Organization:
+            <input type="text" id="deleteCertOrg" name="certOrg" disabled /></label>
+          <label>Description:
+            <input type="text" id="deleteCertDescription" name="description" class="longInput" disabled /></label>
+        <input class="btn" type="submit" value="Delete Certification" />
+        <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
+      </form>
+    </div>
+  </main>
+</body>
