@@ -72,11 +72,11 @@
         <legend><strong>Add Employee</strong></legend>
         <fieldset>
           <label>First Name:
-            <input type="text" id="input-fname" name="fname" /></label>
+            <input type="text" id="input-fname" name="fname" required/></label>
           <label>Last Name:
-            <input type="text" id="input-lname" name="lname" /></label>
+            <input type="text" id="input-lname" name="lname" required/></label>
           <label>Email:
-            <input type="text" id="input-email" name="email" /></label>
+            <input type="text" id="input-email" name="email" required/></label>
           <label>Department:
             <select id="input-deptid" name="deptID">
               {{#each departments}}
@@ -98,13 +98,13 @@
     <div id="update" class="form-container" style="display: none;">
       <form id="updateEmployee">
         <legend><strong>Update Employee</strong></legend>
-          <input type="hidden" name="employeeID" id="updateEmployeeID" />
+          <input type="hidden" name="employeeID" id="updateEmployeeID"/>
           <label>First Name:
-            <input type="text" name="fname" id="updateEmployeeFName" /></label>
+            <input type="text" name="fname" id="updateEmployeeFName" required/></label>
           <label>Last Name:
-            <input type="text" name="lname" id="updateEmployeeLName" /></label>
+            <input type="text" name="lname" id="updateEmployeeLName" required/></label>
           <label>Email:
-            <input type="text" name="email" id="updateEmployeeEmail" /></label>
+            <input type="text" name="email" id="updateEmployeeEmail" required/></label>
           <label>Department:
             <select id="updateEmployeeDeptID">
               {{#each departments}}

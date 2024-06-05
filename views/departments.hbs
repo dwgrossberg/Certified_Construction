@@ -62,12 +62,13 @@
     <div id="insert" class="form-container" style="display:none;">
       <form id="add-department-form">
         <legend><strong>Add New Department</strong></legend>
-        <label>Name: <input type="text" id="input-name" name="name" /></label>
+        <label>Name: <input type="text" id="input-name" name="name" required/></label>
         <label>Description:
           <input
             type="text"
             id="input-description"
             name="description"
+            required
           /></label>
         <button type="submit">Submit</button>
         <button type="button" onClick="browseMain()">Cancel</button>
@@ -79,12 +80,13 @@
         <legend><strong>Update Department</strong></legend>
         <input type="hidden" id="updateDeptID" name="id" />
         <label>Name:
-          <input type="text" id="updateDeptName" name="name" /></label>
+          <input type="text" id="updateDeptName" name="name" required/></label>
         <label>Description:
           <input
             type="text"
             id="updateDeptDescription"
             name="description"
+            required
           /></label>
         <input class='btn' type="submit" value="Update Department"></input>
         <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
@@ -94,9 +96,9 @@
     <div id="delete" class="form-container" style="display:none;">
       <form id="delete-department-form">
         <legend><strong>Delete Department</strong></legend>
-        <label>Department: <input id="deleteDeptName" disabled /></label>
+        <label>Department: <input id="deleteDeptName" disabled/></label>
         <label>Description: <input id="deleteDeptDescription" disabled></input></label>
-        <input type="hidden" name="departmentID" id="deleteDeptID" />
+        <input type="hidden" name="departmentID" id="deleteDeptID"/>
         <input class='btn' type="submit" value="Delete Department"></input>
         <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
       </form>
