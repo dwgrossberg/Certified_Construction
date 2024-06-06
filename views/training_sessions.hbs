@@ -68,9 +68,9 @@
   <div id="insert" class="form-container" style="display:none;">
     <form id="add-training-form">
       <legend><strong>Add New Training Session</strong></legend>
-      <label>Date: <input type="date" id="newTrainingDate" required/></label>
-      <label>Location: <input type="text" id="newTrainingLocation" required/></label>
-      <label>Description: <input type="text" id="newTrainingDescription" required/></label>
+      <label>Date: <input type="date" id="newTrainingDate" class="required" required/></label>
+      <label>Location: <input type="text" id="newTrainingLocation" class="required" required/></label>
+      <label>Description: <input type="text" id="newTrainingDescription" class="required" required/></label>
       <label>Certification:
         <select id="newTrainingCert">
           {{#each cert}}
@@ -86,10 +86,10 @@
   <div id="update" class="form-container" style="display:none;">
     <form id="update-training-form">
       <legend><strong>Update Training Session</strong></legend>
-      <input type="hidden" id="updateTrainingID" required/>
-      <label>Date: <input type="date" id="updateTrainingDate" required/></label>
-      <label>Location: <input type="text" id="updateTrainingLocation" required/></label>
-      <label>Description: <input type="text" id="updateTrainingDescription" required/></label>
+      <input type="hidden" id="updateTrainingID" class="required" required/>
+      <label>Date: <input type="date" id="updateTrainingDate" class="required" required/></label>
+      <label>Location: <input type="text" id="updateTrainingLocation" class="required" required/></label>
+      <label>Description: <input type="text" id="updateTrainingDescription" class="required" required/></label>
       <label>Certification:
         <select id="updateTrainingCert">
           {{#each cert}}

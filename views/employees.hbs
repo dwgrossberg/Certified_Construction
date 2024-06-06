@@ -71,12 +71,12 @@
       <form id="addEmployee">
         <legend><strong>Add Employee</strong></legend>
         <fieldset>
-          <label>First Name:
-            <input type="text" id="input-fname" name="fname" required/></label>
-          <label>Last Name:
-            <input type="text" id="input-lname" name="lname" required/></label>
-          <label>Email:
-            <input type="text" id="input-email" name="email" required/></label>
+          <label>First Name: *
+            <input type="text" id="input-fname" name="fname" class="required" required/></label>
+          <label>Last Name: *
+            <input type="text" id="input-lname" name="lname" class="required" required/></label>
+          <label>Email: *
+            <input type="email" id="input-email" name="email" class="required" required/></label>
           <label>Department:
             <select id="input-deptid" name="deptID">
               {{#each departments}}
@@ -99,12 +99,12 @@
       <form id="updateEmployee">
         <legend><strong>Update Employee</strong></legend>
           <input type="hidden" name="employeeID" id="updateEmployeeID"/>
-          <label>First Name:
-            <input type="text" name="fname" id="updateEmployeeFName" required/></label>
-          <label>Last Name:
-            <input type="text" name="lname" id="updateEmployeeLName" required/></label>
-          <label>Email:
-            <input type="text" name="email" id="updateEmployeeEmail" required/></label>
+          <label>First Name: *
+            <input type="text" name="fname" id="updateEmployeeFName" class="required" required/></label>
+          <label>Last Name: *
+            <input type="text" name="lname" id="updateEmployeeLName" class="required" required/></label>
+          <label>Email: *
+            <input type="email" name="email" id="updateEmployeeEmail" class="required" required/></label>
           <label>Department:
             <select id="updateEmployeeDeptID">
               {{#each departments}}

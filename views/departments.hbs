@@ -62,8 +62,8 @@
     <div id="insert" class="form-container" style="display:none;">
       <form id="add-department-form">
         <legend><strong>Add New Department</strong></legend>
-        <label>Name: <input type="text" id="input-name" name="name" required/></label>
-        <label>Description:
+        <label>Name: *<span></span><input type="text" id="input-name" name="name" required/></label>
+        <label>Description: *<span></span>
           <input
             type="text"
             id="input-description"
@@ -79,9 +79,9 @@
       <form id="update-department-form">
         <legend><strong>Update Department</strong></legend>
         <input type="hidden" id="updateDeptID" name="id" />
-        <label>Name:
+        <label>Name: *<span></span>
           <input type="text" id="updateDeptName" name="name" required/></label>
-        <label>Description:
+        <label>Description: *<span></span>
           <input
             type="text"
             id="updateDeptDescription"

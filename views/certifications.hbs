@@ -67,12 +67,15 @@
       <form method="POST" action="/addCertification" id="addCertification">
         <legend><strong>Add New Certification</strong></legend>
         <fieldset>
-          <label>Certification Name:
+          <label>Certification Name: *
             <input type="text" name="certName" required/></label>
-          <label>Certifying Organization:
+          <label>Certifying Organization: *
             <input type="text" name="certOrg" required/></label>
-          <label>Description:
-            <textarea type="text" name="description" required></textarea></label>
+          <label>Description: *
+            <p>
+              <textarea type="text" name="description" required></textarea>
+            </p>
+          </label>
         </fieldset>
         <input class="btn" type="submit" value="Add Certification" />
         <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
@@ -82,13 +85,13 @@
       <form method="POST" action="/updateCertification" id="updateCertification">
         <legend><strong>Update Certification</strong></legend>
         <fieldset>
-            <input type="hidden" id="updateCertID" name="certID" disabled required/></label>
-          <label>Certification Name:
-            <input type="text" id="updateCertName" name="certName" required/></label>
-          <label>Certifying Organization:
-            <input type="text" id="updateCertOrg" name="certOrg" required/></label>
-          <label>Description:
-            <input type="text" id="updateCertDescription" name="description" class="longInput" required/></label>
+            <input type="hidden" id="updateCertID" name="certID" class="required" disabled required/></label>
+          <label>Certification Name: *
+            <input type="text" id="updateCertName" name="certName" class="required" required/></label>
+          <label>Certifying Organization: *
+            <input type="text" id="updateCertOrg" name="certOrg" class="required" required/></label>
+          <label>Description: *
+            <input type="text" id="updateCertDescription" name="description" class="longInput" class="required" required/></label>
         </fieldset>
         <input class="btn" type="submit" value="Update Certification" />
         <input class="btn" type="button" value="Cancel" onClick="browseMain()" />

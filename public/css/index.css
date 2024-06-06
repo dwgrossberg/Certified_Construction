@@ -237,7 +237,7 @@ table th, table td {
   padding: 0.5rem;
 }
 
-input[type="text"] {
+input[type="text"], input[type="email"] {
   width: 100%;
   max-width: 500px; 
   padding: 10px;
@@ -328,6 +328,7 @@ sup {
 
 textarea {
   font-family: inherit;
+  font-size: 1rem;
 }
 
 button, .btn {
@@ -357,6 +358,38 @@ select {
   padding: 5px 10px;
   border: .5px solid var(--primary-color);
   margin: 10px;
+}
+
+.req {
+    margin-left: 20px;
+}
+
+input:invalid + span::after {
+  content: "✖";
+  color: red;
+}
+
+input:valid + span::before {
+  content: "✓";
+  color: green;
+}
+
+textarea:invalid + span::after {
+  content: "✖";
+  color: red;
+}
+
+textarea:valid + span::before {
+  content: "✓";
+  color: green;
+}
+
+*:required:invalid {
+  background-color: #dfe6e9;
+}
+
+*:required:valid {
+  background-color: none;
 }
 
 /* General Styles */
