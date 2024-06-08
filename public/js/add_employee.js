@@ -20,12 +20,22 @@ document.addEventListener("DOMContentLoaded", function () {
       let emailValue = inputEmail.value;
       let deptIDValue = inputDeptID.value;
 
-      let data = {
-        fname: fnameValue,
-        lname: lnameValue,
-        email: emailValue,
-        deptID: deptIDValue,
-      };
+      let data;
+
+      if (deptIDValue == "None") {
+         data = {
+          fname: fnameValue,
+          lname: lnameValue,
+          email: emailValue,
+        };
+      } else {
+        data = {
+          fname: fnameValue,
+          lname: lnameValue,
+          email: emailValue,
+          deptID: deptIDValue,
+        };
+      }
 
       var xhttp = new XMLHttpRequest();
       xhttp.open("POST", "/add-employee", true);

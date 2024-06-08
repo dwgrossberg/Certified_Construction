@@ -30,13 +30,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             };
 
-            // Send the request
-            let data = {
+            let data;
+
+            if (employeeDeptID == "None") {
+                data = {
+                fname: employeeFName,
+                lname: employeeLName,
+                email: employeeEmail,
+                };
+            } else {
+                data = {
                 fname: employeeFName,
                 lname: employeeLName,
                 email: employeeEmail,
                 deptID: employeeDeptID
-            };
+                };
+            }
+
+            // Send the request
+
             xhttp.send(JSON.stringify(data));
         });
     } else {

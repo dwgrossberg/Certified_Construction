@@ -332,14 +332,14 @@ textarea {
 }
 
 button, .btn {
-  padding: 9px 15px;
+  padding: 13px 20px;
   font-family: inherit;
   border: 0.25px solid var(--primary-color);
   border-radius: 3px;
   background-color: var(--primary-color);
   cursor: pointer;
   margin-top: 10px;
-  font-size: .75rem;
+  font-size: 1.1rem;
 }
 
 button:hover, .btn:hover {
@@ -360,32 +360,28 @@ select {
   margin: 10px;
 }
 
-.req {
-    margin-left: 20px;
+.input {
+  position: relative;
 }
 
-input:invalid + span::after {
+.req {
+  position: absolute;
+  top: 25%;
+  right: 11%;
+}
+
+input:invalid + span::before {
   content: "✖";
-  color: red;
+  color: var(--primary-color);
 }
 
 input:valid + span::before {
   content: "✓";
-  color: green;
-}
-
-textarea:invalid + span::after {
-  content: "✖";
-  color: red;
-}
-
-textarea:valid + span::before {
-  content: "✓";
-  color: green;
+  color: var(--button-color);
 }
 
 *:required:invalid {
-  background-color: #dfe6e9;
+  background-color: var(--tertiary-color);
 }
 
 *:required:valid {
