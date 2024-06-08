@@ -2,56 +2,58 @@
 // Date: 5/18/2024
 // Based on:
 // Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app
-document.addEventListener('DOMContentLoaded', function() {
-    let updateEmployeeForm = document.getElementById('updateEmployee');
+document.addEventListener("DOMContentLoaded", function () {
+  let updateEmployeeForm = document.getElementById("updateEmployee");
 
-    if (updateEmployeeForm) {
-        updateEmployeeForm.addEventListener("submit", function(e) {
-            e.preventDefault();
+  if (updateEmployeeForm) {
+    updateEmployeeForm.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-            let employeeID = document.getElementById("updateEmployeeID").value;
-            let employeeFName = document.getElementById("updateEmployeeFName").value;
-            let employeeLName = document.getElementById("updateEmployeeLName").value;
-            let employeeEmail = document.getElementById("updateEmployeeEmail").value;
-            let employeeDeptID = document.getElementById("updateEmployeeDeptID").value;
+      let employeeID = document.getElementById("updateEmployeeID").value;
+      let employeeFName = document.getElementById("updateEmployeeFName").value;
+      let employeeLName = document.getElementById("updateEmployeeLName").value;
+      let employeeEmail = document.getElementById("updateEmployeeEmail").value;
+      let employeeDeptID = document.getElementById(
+        "updateEmployeeDeptID"
+      ).value;
 
-            // Setup our AJAX request
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("PUT", `/update-employee/${employeeID}`, true);
-            xhttp.setRequestHeader("Content-type", "application/json");
+      // Setup our AJAX request
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("PUT", `/update-employee/${employeeID}`, true);
+      xhttp.setRequestHeader("Content-type", "application/json");
 
-            // Tell our AJAX request how to resolve
-            xhttp.onreadystatechange = function() {
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    console.log("Employee updated successfully");
-                    location.reload(); 
-                } else if (xhttp.readyState == 4 && xhttp.status != 200) {
-                    console.log("There was an error with the update.");
-                }
-            };
+      // Tell our AJAX request how to resolve
+      xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+          console.log("Employee updated successfully");
+          location.reload();
+        } else if (xhttp.readyState == 4 && xhttp.status != 200) {
+          console.log("There was an error with the update.");
+        }
+      };
 
-            let data;
+      let data;
 
-            if (employeeDeptID == "None") {
-                data = {
-                fname: employeeFName,
-                lname: employeeLName,
-                email: employeeEmail,
-                };
-            } else {
-                data = {
-                fname: employeeFName,
-                lname: employeeLName,
-                email: employeeEmail,
-                deptID: employeeDeptID
-                };
-            }
+      if (employeeDeptID == "None") {
+        data = {
+          fname: employeeFName,
+          lname: employeeLName,
+          email: employeeEmail,
+        };
+      } else {
+        data = {
+          fname: employeeFName,
+          lname: employeeLName,
+          email: employeeEmail,
+          deptID: employeeDeptID,
+        };
+      }
 
-            // Send the request
+      // Send the request
 
-            xhttp.send(JSON.stringify(data));
-        });
-    } else {
-        console.error("Form with ID 'updateEmployee' not found.");
-    }
+      xhttp.send(JSON.stringify(data));
+    });
+  } else {
+    console.error("Form with ID 'updateEmployee' not found.");
+  }
 });

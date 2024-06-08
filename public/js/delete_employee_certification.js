@@ -3,16 +3,24 @@
 // Based on:
 // Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app
 document.addEventListener("DOMContentLoaded", function () {
-  let deleteEmployeeCertificationForm = document.getElementById("deleteEmployeeCertForm");
+  let deleteEmployeeCertificationForm = document.getElementById(
+    "deleteEmployeeCertForm"
+  );
 
   if (deleteEmployeeCertificationForm) {
     deleteEmployeeCertificationForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      let employeeCertID = document.getElementById("deleteEmployeeCertID").value;
+      let employeeCertID = document.getElementById(
+        "deleteEmployeeCertID"
+      ).value;
 
       var xhttp = new XMLHttpRequest();
-      xhttp.open("DELETE", `/delete-employee-certification/${employeeCertID}`, true);
+      xhttp.open(
+        "DELETE",
+        `/delete-employee-certification/${employeeCertID}`,
+        true
+      );
       xhttp.setRequestHeader("Content-type", "application/json");
 
       xhttp.onreadystatechange = function () {

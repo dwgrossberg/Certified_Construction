@@ -9,36 +9,42 @@ document.addEventListener("DOMContentLoaded", function () {
     addEmployeeCertForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      let employeeID = document.getElementById("newEmployeeCertEmployeeID").value;
+      let employeeID = document.getElementById(
+        "newEmployeeCertEmployeeID"
+      ).value;
       let certID = document.getElementById("newEmployeeCertCertID").value;
-      let dateObtained = document.getElementById("newEmployeeCertDateObtained").value;
-      let expirationDate = document.getElementById("newEmployeeCertExpirationDate").value;
+      let dateObtained = document.getElementById(
+        "newEmployeeCertDateObtained"
+      ).value;
+      let expirationDate = document.getElementById(
+        "newEmployeeCertExpirationDate"
+      ).value;
 
       if (expirationDate < dateObtained) {
-        window.alert('Expiration date must be later than date obtained')
-      } else { 
-      let data = {
-        employeeID: employeeID,
-        certID: certID,
-        dateObtained: dateObtained,
-        expirationDate: expirationDate
-      };
+        window.alert("Expiration date must be later than date obtained");
+      } else {
+        let data = {
+          employeeID: employeeID,
+          certID: certID,
+          dateObtained: dateObtained,
+          expirationDate: expirationDate,
+        };
 
-      var xhttp = new XMLHttpRequest();
-      xhttp.open("POST", "/add-employee-certification", true);
-      xhttp.setRequestHeader("Content-type", "application/json");
-      xhttp.onreadystatechange = function () {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-          console.log("Employee certification added successfully");
-          location.reload();
-        } else if (xhttp.readyState == 4 && xhttp.status != 200) {
-          console.log("There was an error with the input.");
-        }
-      };
-          
-      xhttp.send(JSON.stringify(data));
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "/add-employee-certification", true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.onreadystatechange = function () {
+          if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log("Employee certification added successfully");
+            location.reload();
+          } else if (xhttp.readyState == 4 && xhttp.status != 200) {
+            console.log("There was an error with the input.");
+          }
+        };
+
+        xhttp.send(JSON.stringify(data));
       }
-      });
+    });
   } else {
     console.error("Form with ID 'add-employee-cert' not found.");
   }
