@@ -16,7 +16,10 @@ function showForm(dowhat) {
   });
 }
 
-function browseMain() {
+function browseMain(form) {
+  if (form) {
+    document.getElementById(form).reset();
+  }
   showForm("browse");
 }
 
