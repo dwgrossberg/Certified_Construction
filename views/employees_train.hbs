@@ -65,7 +65,7 @@
     <form id="add-employee-training-form">
       <legend><strong>Add New Employee Training Session</strong></legend>
       <div>
-        <label>Employee:
+        <label>Employee: *
           <select id="newEmployeeTrainingEmployeeID">
             {{#each employee}}
             <option value={{this.employeeID}}>{{this.fName}} {{this.lName}}</option>
@@ -74,7 +74,7 @@
         </label>
       </div>
       <div>
-        <label>Training:
+        <label>Training: *
           <select id="newEmployeeTrainingTrainingID">
             {{#each training}}
             <option value={{this.trainingID}}>{{this.date}} | {{this.certName}}</option>
@@ -83,7 +83,7 @@
         </label>
       </div>
       <input class="btn" type="submit" value="Add Employee Training Session" />
-      <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
+      <input class="btn" type="button" value="Cancel" onClick="browseMain('add-employee-training-form')" />
     </form>
   </div>
 
@@ -92,7 +92,7 @@
       <legend><strong>Update Employee Training Session</strong></legend>
       <input type="hidden" id="updateEmployeeTrainingSessionEmployeeTrainingID" disabled /></label>
       <div>
-        <label>Employee:
+        <label>Employee: *
           <select id="updateEmployeeTrainingEmployeeID">
             {{#each employee}}
             <option value={{this.employeeID}}>{{this.fName}} {{this.lName}}</option>
@@ -101,7 +101,7 @@
         </label>
       </div>
       <div>
-        <label>Training:
+        <label>Training: *
           <select id="updateEmployeeTrainingTrainingID">
             {{#each training}}
             <option value={{this.trainingID}}>{{this.date}} | {{this.certName}}</option>

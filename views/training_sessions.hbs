@@ -2,7 +2,7 @@
   <title>Training Sessions</title>
   <script src="/js/add_training.js"></script>
   <script src="/js/delete_training.js"></script>
-  <script src="/js/update_training.js"></script> 
+  <script src="/js/update_training.js"></script>
 </head>
 <header>
   <h1>Training Sessions</h1>
@@ -68,32 +68,67 @@
   <div id="insert" class="form-container" style="display:none;">
     <form id="add-training-form">
       <legend><strong>Add New Training Session</strong></legend>
-      <label>Date: <input type="date" id="newTrainingDate" /></label>
-      <label>Location: <input type="text" id="newTrainingLocation" /></label>
-      <label>Description: <input type="text" id="newTrainingDescription" /></label>
-      <label>Certification:
+      <label>Date: *<div class="input"><input
+            type="date"
+            id="newTrainingDate"
+            class="required"
+            required
+          /><span class="req"></span></div></label>
+      <label>Location: *<div class="input"><input
+            type="text"
+            id="newTrainingLocation"
+            class="required"
+            required
+          /><span class="req"></span></div></label>
+      <label>Description: *<div class="input"><input
+            type="text"
+            id="newTrainingDescription"
+            class="required"
+            required
+          /><span class="req"></span></div></label>
+      <label>Certification: *
         <select id="newTrainingCert">
           {{#each cert}}
-          <option value="{{this.certID}}">{{this.name}}</option>
+            <option value="{{this.certID}}">{{this.name}}</option>
           {{/each}}
         </select>
       </label>
       <input class="btn" type="submit" value="Add Training Session" />
-      <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
+      <input
+        class="btn"
+        type="button"
+        value="Cancel"
+        onClick="browseMain('add-training-form')"
+      />
     </form>
   </div>
 
   <div id="update" class="form-container" style="display:none;">
     <form id="update-training-form">
       <legend><strong>Update Training Session</strong></legend>
-      <input type="hidden" id="updateTrainingID" />
-      <label>Date: <input type="date" id="updateTrainingDate" /></label>
-      <label>Location: <input type="text" id="updateTrainingLocation" /></label>
-      <label>Description: <input type="text" id="updateTrainingDescription" /></label>
-      <label>Certification:
+      <input type="hidden" id="updateTrainingID" class="required" required />
+      <label>Date: *<div class="input"><input
+            type="date"
+            id="updateTrainingDate"
+            class="required"
+            required
+          /><span class="req"></span></div></label>
+      <label>Location: *<div class="input"><input
+            type="text"
+            id="updateTrainingLocation"
+            class="required"
+            required
+          /><span class="req"></span></div></label>
+      <label>Description: *<div class="input"><input
+            type="text"
+            id="updateTrainingDescription"
+            class="required"
+            required
+          /><span class="req"></span></div></label>
+      <label>Certification: *
         <select id="updateTrainingCert">
           {{#each cert}}
-          <option value="{{this.certID}}">{{this.name}}</option>
+            <option value="{{this.certID}}">{{this.name}}</option>
           {{/each}}
         </select>
       </label>
@@ -106,10 +141,14 @@
     <form id="delete-training-form">
       <legend><strong>Delete Training Session</strong></legend>
       <input type="hidden" id="deleteTrainingID" disabled />
-      <label>Date: <input type="date" id="deleteTrainingDate" disabled /></label>
-      <label>Location: <input type="text" id="deleteTrainingLocation" disabled /></label>
-      <label>Description: <input type="text" id="deleteTrainingDescription" disabled /></label>
-      <label>Certification: <input type="text" id="deleteTrainingCert" disabled /></label>
+      <label>Date:
+        <input type="date" id="deleteTrainingDate" disabled /></label>
+      <label>Location:
+        <input type="text" id="deleteTrainingLocation" disabled /></label>
+      <label>Description:
+        <input type="text" id="deleteTrainingDescription" disabled /></label>
+      <label>Certification:
+        <input type="text" id="deleteTrainingCert" disabled /></label>
       <input class="btn" type="submit" value="Delete Training Session" />
       <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
     </form>

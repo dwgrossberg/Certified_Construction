@@ -72,7 +72,7 @@
     <form id="add-employee-cert-form">
       <legend><strong>Add New Employee Certification</strong></legend>
       <div>
-        <label>Employee:
+        <label>Employee: *
           <select id="newEmployeeCertEmployeeID">
             {{#each employee}}
               <option value={{this.employeeID}} name="employeeID">{{this.fName}}
@@ -82,7 +82,7 @@
         </label>
       </div>
       <div>
-        <label>Certification:
+        <label>Certification: *
           <select id="newEmployeeCertCertID">
             {{#each cert}}
               <option value={{this.certID}} name="certID">{{this.name}}</option>
@@ -90,12 +90,29 @@
           </select>
         </label>
       </div>
-      <label>Date Obtained:
-        <input id="newEmployeeCertDateObtained" type="date" name="dateObtained" /></label>
-      <label>Expiration Date:
-        <input id="newEmployeeCertExpirationDate" type="date" name="expirationDate" /></label>
+      <label>Date Obtained: *
+        <div class="input">
+          <input
+            id="newEmployeeCertDateObtained"
+            type="date"
+            name="dateObtained"
+            required
+          /><span class="req"></span></div></label>
+      <label>Expiration Date: *
+        <div class="input">
+          <input
+            id="newEmployeeCertExpirationDate"
+            type="date"
+            name="expirationDate"
+            required
+          /><span class="req"></span></div></label>
       <input class="btn" type="submit" value="Add Employee Certification" />
-      <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
+      <input
+        class="btn"
+        type="button"
+        value="Cancel"
+        onClick="browseMain('add-employee-cert-form')"
+      />
     </form>
   </div>
 
@@ -104,7 +121,7 @@
       <legend><strong>Update Employee Certification</strong></legend>
       <div>
         <input type="hidden" id="updateEmployeeCertID" />
-        <label>Employee:
+        <label>Employee: *
           <select id="updateEmployeeCertEmployeeID">
             {{#each employee}}
               <option value={{this.employeeID}}>{{this.fName}}
@@ -114,7 +131,7 @@
         </label>
       </div>
       <div>
-        <label>Certification:
+        <label>Certification: *
           <select id="updateEmployeeCertCertID">
             {{#each cert}}
               <option value={{this.certID}}>{{this.name}}</option>
@@ -122,18 +139,22 @@
           </select>
         </label>
       </div>
-      <label>Date Obtained:
-        <input
-          type="date"
-          id="updateEmployeeCertDateObtained"
-          name="dateObtained"
-        /></label>
-      <label>Expiration Date:
-        <input
-          type="date"
-          id="updateEmployeeCertExpirationDate"
-          name="expirationDate"
-        /></label>
+      <label>Date Obtained: *
+        <div class="input">
+          <input
+            type="date"
+            id="updateEmployeeCertDateObtained"
+            name="dateObtained"
+            required
+          /><span class="req"></span></div></label>
+      <label>Expiration Date: *
+        <div class="input">
+          <input
+            type="date"
+            id="updateEmployeeCertExpirationDate"
+            name="expirationDate"
+            required
+          /><span class="req"></span></div></label>
       <input class="btn" type="submit" value="Update Employee Certification" />
       <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
     </form>
@@ -144,7 +165,11 @@
       <legend><strong>Delete Employee Certification</strong></legend>
       <input type="hidden" id="deleteEmployeeCertID" />
       <label>Employee:
-        <input type="text" id="deleteEmployeeCertEmployeeName" disabled /></label>
+        <input
+          type="text"
+          id="deleteEmployeeCertEmployeeName"
+          disabled
+        /></label>
       <label>Certification:
         <input type="text" id="deleteEmployeeCertCertID" disabled /></label>
       <input class="btn" type="submit" value="Delete Employee Certification" />

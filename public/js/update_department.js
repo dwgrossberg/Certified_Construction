@@ -41,4 +41,3 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Form with ID 'update-department-form' not found.");
   }
 });
-

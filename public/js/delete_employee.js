@@ -33,5 +33,3 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Form with ID 'deleteEmployee' not found.");
   }
 });
-
-

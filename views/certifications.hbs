@@ -67,28 +67,40 @@
       <form method="POST" action="/addCertification" id="addCertification">
         <legend><strong>Add New Certification</strong></legend>
         <fieldset>
-          <label>Certification Name:
-            <input type="text" name="certName" /></label>
-          <label>Certifying Organization:
-            <input type="text" name="certOrg" /></label>
-          <label>Description:
-            <textarea type="text" name="description"></textarea></label>
+          <label>Certification Name: *
+            <div class="input">
+            <input type="text" name="certName" required/>
+            <span class="req"></span></div></label>
+          <label>Certifying Organization: *
+            <div class="input">
+            <input type="text" name="certOrg" required/>
+            <span class="req"></span></div></label>
+          <label>Description: *
+            <div class="input">
+            <input
+              type="text"
+              id="updateDeptDescription"
+              name="description"
+              required
+            />
+            <span class="req"></span></div></label>
         </fieldset>
         <input class="btn" type="submit" value="Add Certification" />
-        <input class="btn" type="button" value="Cancel" onClick="browseMain()" />
+        <input class="btn" type="button" value="Cancel" onClick="browseMain('addCertification')" />
       </form>
     </div>
+    
     <div class="form-container" id="update" style="display: none;">
       <form method="POST" action="/updateCertification" id="updateCertification">
         <legend><strong>Update Certification</strong></legend>
         <fieldset>
-            <input type="hidden" id="updateCertID" name="certID" disabled /></label>
-          <label>Certification Name:
-            <input type="text" id="updateCertName" name="certName" /></label>
-          <label>Certifying Organization:
-            <input type="text" id="updateCertOrg" name="certOrg" /></label>
-          <label>Description:
-            <input type="text" id="updateCertDescription" name="description" class="longInput" /></label>
+            <input type="hidden" id="updateCertID" name="certID" class="required" disabled required/></label>
+          <label>Certification Name: *<div class="input">
+            <input type="text" id="updateCertName" name="certName" class="required" required/><span class="req"></span></div></label>
+          <label>Certifying Organization: *<div class="input">
+            <input type="text" id="updateCertOrg" name="certOrg" class="required" required/><span class="req"></span></div></label>
+          <label>Description: *<div class="input">
+            <input type="text" id="updateCertDescription" name="description" class="longInput" class="required" required/><span class="req"></span></div></label>
         </fieldset>
         <input class="btn" type="submit" value="Update Certification" />
         <input class="btn" type="button" value="Cancel" onClick="browseMain()" />

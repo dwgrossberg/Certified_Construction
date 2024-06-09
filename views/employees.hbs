@@ -71,21 +71,86 @@
       <form id="addEmployee">
         <legend><strong>Add Employee</strong></legend>
         <fieldset>
-          <label>First Name:
-            <input type="text" id="input-fname" name="fname" /></label>
-          <label>Last Name:
-            <input type="text" id="input-lname" name="lname" /></label>
-          <label>Email:
-            <input type="text" id="input-email" name="email" /></label>
+          <label>First Name: *<div class="input">
+              <input
+                type="text"
+                id="input-fname"
+                name="fname"
+                class="required"
+                required
+              /><span class="req"></span></div></label>
+          <label>Last Name: *<div class="input">
+              <input
+                type="text"
+                id="input-lname"
+                name="lname"
+                class="required"
+                required
+              /><span class="req"></span></div></label>
+          <label>Email: *<div class="input">
+              <input
+                type="email"
+                id="input-email"
+                name="email"
+                class="required"
+                required
+              /><span class="req"></span></div></label>
           <label>Department:
             <select id="input-deptid" name="deptID">
               {{#each departments}}
                 <option value={{this.deptID}}>{{this.name}}</option>
               {{/each}}
+              <option value="None">None</option>
             </select>
           </label>
         </fieldset>
         <input class="btn" type="submit" value="Add Employee" />
+        <input
+          class="btn"
+          type="button"
+          value="Cancel"
+          onClick="browseMain('addEmployee')"
+        />
+      </form>
+    </div>
+
+    <div id="update" class="form-container" style="display: none;">
+      <form id="updateEmployee">
+        <legend><strong>Update Employee</strong></legend>
+        <input type="hidden" name="employeeID" id="updateEmployeeID" />
+        <label>First Name: *<div class="input">
+            <input
+              type="text"
+              name="fname"
+              id="updateEmployeeFName"
+              class="required"
+              required
+            /><span class="req"></span></div></label>
+        <label>Last Name: *<div class="input">
+            <input
+              type="text"
+              name="lname"
+              id="updateEmployeeLName"
+              class="required"
+              required
+            /><span class="req"></span></div></label>
+        <label>Email: *<div class="input">
+            <input
+              type="email"
+              name="email"
+              id="updateEmployeeEmail"
+              class="required"
+              required
+            /><span class="req"></span></div></label>
+        <label>Department:
+          <select id="updateEmployeeDeptID">
+            {{#each departments}}
+              <option value={{this.deptID}}>{{this.name}}</option>
+            {{/each}}
+            <option value="None">None</option>
+          </select>
+        </label>
+        <input class="btn" type="submit" value="Update Employee" />
         <input
           class="btn"
           type="button"
@@ -95,42 +160,25 @@
       </form>
     </div>
 
-    <div id="update" class="form-container" style="display: none;">
-      <form id="updateEmployee">
-        <legend><strong>Update Employee</strong></legend>
-          <input type="hidden" name="employeeID" id="updateEmployeeID" />
-          <label>First Name:
-            <input type="text" name="fname" id="updateEmployeeFName" /></label>
-          <label>Last Name:
-            <input type="text" name="lname" id="updateEmployeeLName" /></label>
-          <label>Email:
-            <input type="text" name="email" id="updateEmployeeEmail" /></label>
-          <label>Department:
-            <select id="updateEmployeeDeptID">
-              {{#each departments}}
-                <option value={{this.deptID}}>{{this.name}}</option>
-              {{/each}}
-            </select>
-          </label>
-        <input class="btn" type="submit" value="Update Employee" />
-        <input
-          class="btn" type="button" value="Cancel" onClick="browseMain()"
-        />
-      </form>
-    </div>
-
     <div id="delete" class="form-container" style="display: none;">
       <form id="deleteEmployee">
         <legend><strong>Delete Employee</strong></legend>
         <input type="hidden" id="deleteEmployeeID" disabled />
-        <label>First Name: <input type="text" id="deleteEmployeeFName" disabled /></label>
-        <label>Last Name: <input type="text" id="deleteEmployeeLName" disabled /></label>
-        <label>Email: <input type="text" id="deleteEmployeeEmail" disabled /></label>
-        <label>Department: <input type="text" id="deleteEmployeeDeptID" disabled /></label>
+        <label>First Name:
+          <input type="text" id="deleteEmployeeFName" disabled /></label>
+        <label>Last Name:
+          <input type="text" id="deleteEmployeeLName" disabled /></label>
+        <label>Email:
+          <input type="text" id="deleteEmployeeEmail" disabled /></label>
+        <label>Department:
+          <input type="text" id="deleteEmployeeDeptID" disabled /></label>
         <input type="hidden" name="employeeID" id="deleteEmployeeID" />
         <input class="btn" type="submit" value="Delete Employee" />
         <input
-          class="btn" type="button" value="Cancel" onClick="browseMain()"
+          class="btn"
+          type="button"
+          value="Cancel"
+          onClick="browseMain()"
         />
       </form>
     </div>

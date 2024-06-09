@@ -1,16 +1,87 @@
 /* Citation: CSS Basline file borrowed from vanilla-css project: https://github.com/bradleytaunt/vanilla-css/blob/master/vanilla.css */
 
 /* Reset */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code, del,
-dfn, em, img, ins, kbd, q, s, samp, small, strike,
-strong, sub, sup, tt, var, b, u, i, center,
-dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, figure,
-figcaption, footer, header, hgroup, menu, nav, output,
-ruby, section, summary, time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -48,17 +119,33 @@ body {
   background-color: #f4f4f4;
 }
 
-body, input {
+body,
+input {
   font: var(--desktop-font-size) -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
 }
 
-h1, h2, h3, h4, h5, h6, p, blockquote, dl, img, figure {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+dl,
+img,
+figure {
   margin: 2rem 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: bold;
   line-height: 1.2;
 }
@@ -75,29 +162,39 @@ h3 {
   font-size: 120%;
 }
 
-h4, h5, h6 {
+h4,
+h5,
+h6 {
   font-size: 100%;
 }
 
-h5, h6 {
+h5,
+h6 {
   text-transform: uppercase;
 }
 
-header h1 {}
+header h1 {
+}
 
-a, a:visited {
+a,
+a:visited {
   color: var(--link-color);
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: var(--link-color-alt);
 }
 
-strong, time, b {
+strong,
+time,
+b {
   font-weight: bold;
 }
 
-em, dfn, i {
+em,
+dfn,
+i {
   font-style: italic;
 }
 
@@ -110,7 +207,8 @@ small {
   font-size: 80%;
 }
 
-blockquote, q {
+blockquote,
+q {
   background: var(--secondary-color);
   border-left: 10px solid var(--primary-color);
   display: block;
@@ -133,18 +231,24 @@ cite {
   margin-top: 1rem;
 }
 
-kbd, code, samp, pre, var {
+kbd,
+code,
+samp,
+pre,
+var {
   font: var(--mobile-font-size) monospace;
 }
 
-code, pre {
+code,
+pre {
   background: var(--tertiary-color);
   border: 1px solid;
   overflow: auto;
   padding: 0.25rem 0.5rem;
 }
 
-code pre, pre code {
+code pre,
+pre code {
   border: 0;
   padding: 0;
 }
@@ -180,21 +284,25 @@ figure figcaption {
   text-align: center;
 }
 
-ul, ol {
+ul,
+ol {
   margin: 2rem 0;
   padding: 0 0 0 2rem;
 }
 
-ul li, ol li {
+ul li,
+ol li {
   margin-bottom: 1rem;
 }
 
-li > ul, li > ol {
+li > ul,
+li > ol {
   margin: 0.25rem 0 0.5rem;
   padding: 0 0 0 2rem;
 }
 
-li > ul li, li > ol li {
+li > ul li,
+li > ol li {
   margin-bottom: 0.5rem;
 }
 
@@ -233,19 +341,22 @@ table th {
   font-weight: bold;
 }
 
-table th, table td {
+table th,
+table td {
   padding: 0.5rem;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="email"] {
   width: 100%;
-  max-width: 500px; 
+  max-width: 500px;
   padding: 10px;
   font-size: 1rem;
   box-sizing: border-box;
 }
 
-input:focus, input:active {
+input:focus,
+input:active {
   background-color: var(--secondary-color);
   border-color: var(--link-color);
 }
@@ -328,20 +439,23 @@ sup {
 
 textarea {
   font-family: inherit;
+  font-size: 1rem;
 }
 
-button, .btn {
-  padding: 9px 15px;
+button,
+.btn {
+  padding: 13px 20px;
   font-family: inherit;
   border: 0.25px solid var(--primary-color);
   border-radius: 3px;
   background-color: var(--primary-color);
   cursor: pointer;
   margin-top: 10px;
-  font-size: .75rem;
+  font-size: 1.1rem;
 }
 
-button:hover, .btn:hover {
+button:hover,
+.btn:hover {
   background-color: var(--button-color);
   border-color: var(--button-color);
 }
@@ -355,8 +469,36 @@ button:hover, .btn:hover {
 
 select {
   padding: 5px 10px;
-  border: .5px solid var(--primary-color);
+  border: 0.5px solid var(--primary-color);
   margin: 10px;
+}
+
+.input {
+  position: relative;
+}
+
+.req {
+  position: absolute;
+  top: 25%;
+  right: 11%;
+}
+
+input:invalid + span::before {
+  content: "✖";
+  color: var(--primary-color);
+}
+
+input:valid + span::before {
+  content: "✓";
+  color: var(--button-color);
+}
+
+*:required:invalid {
+  background-color: var(--tertiary-color);
+}
+
+*:required:valid {
+  background-color: none;
 }
 
 /* General Styles */
@@ -470,7 +612,8 @@ footer {
 }
 /* Mobile Styling */
 @media screen and (max-width: 110ch) {
-  body, input {
+  body,
+  input {
     font: var(--mobile-font-size) -apple-system, BlinkMacSystemFont, "Segoe UI",
       Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
       "Segoe UI Emoji", "Segoe UI Symbol";

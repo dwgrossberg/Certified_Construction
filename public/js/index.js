@@ -16,7 +16,10 @@ function showForm(dowhat) {
   });
 }
 
-function browseMain() {
+function browseMain(form) {
+  if (form) {
+    document.getElementById(form).reset();
+  }
   showForm("browse");
 }
 
@@ -210,7 +213,7 @@ function deleteEmployeeCert(element) {
   var employeeCertEmployeeName = element.getAttribute("data-employeeName");
   var employeeCertCertName = element.getAttribute("data-certName");
 
-  document.getElementById("deleteEmployeeCertID").value = employeeCertID
+  document.getElementById("deleteEmployeeCertID").value = employeeCertID;
   document.getElementById("deleteEmployeeCertEmployeeName").value =
     employeeCertEmployeeName;
   document.getElementById("deleteEmployeeCertCertID").value =
@@ -238,7 +241,9 @@ function updateEmployeeTrainingSession(element) {
     employeeID;
   document.getElementById("updateEmployeeTrainingTrainingID").value =
     trainingID;
-  document.getElementById("updateEmployeeTrainingSessionEmployeeTrainingID").value = employeeTrainingID
+  document.getElementById(
+    "updateEmployeeTrainingSessionEmployeeTrainingID"
+  ).value = employeeTrainingID;
 
   showForm("update");
 }
@@ -252,7 +257,9 @@ function deleteEmployeeTrainingSession(element) {
     employeeName;
   document.getElementById("deleteEmployeeTrainingSessionTrainingID").value =
     trainingName;
-    document.getElementById("deleteEmployeeTrainingSessionEmployeeTrainingID").value = employeeTrainingID
+  document.getElementById(
+    "deleteEmployeeTrainingSessionEmployeeTrainingID"
+  ).value = employeeTrainingID;
 
   showForm("delete");
 }
